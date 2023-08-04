@@ -15,6 +15,8 @@ class HomeController extends Controller
     }
 
     public function try() {
+        return 0;
+
         return Hash::make('Jnd7byUTpaaXdnjWwfWo');
 
         $data['name'] = 'Bernard';

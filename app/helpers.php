@@ -7,10 +7,10 @@ if(!function_exists('ogDetails')) {
     function ogDetails() {
         if(Route::currentRouteName() == 'home.index') {
             $data['description'] = 'Stay Tuned, We\'re Crafting Something Special!';
-            $data['image'] = asset('img/home/og.jpg');
+            $data['image'] = asset('img/home/og-2.jpg');
         } else {
             $data['description'] = 'We are BARE.';
-            $data['image'] = asset('img/home/og.jpg');
+            $data['image'] = asset('img/home/og-2.jpg');
         }
 
         return $data;
