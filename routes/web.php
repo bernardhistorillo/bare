@@ -1,0 +1,44 @@
+<?php
+
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminSubscriberController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ServicesController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/try', [HomeController::class, 'try']);
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
+Route::prefix('contact')->group(function () {
+    Route::get('/', [ContactController::class, 'index'])->name('contact.index');
+    Route::post('/subscribeEmail', [ContactController::class, 'subscribeEmail'])->name('contact.subscribeEmail');
+    Route::post('/sendMessage', [ContactController::class, 'sendMessage'])->name('contact.sendMessage');
+});
+
+Route::prefix('admin')->group(function () {
+    Route::middleware(['guest'])->group(function() {
+        Route::get('/', [LoginController::class, 'index'])->name('admin.login.index');
+        Route::post('/login', [LoginController::class, 'login'])->name('admin.login.submit');
+    });
+
+    Route::middleware(['auth'])->group(function() {
+        Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+
+        Route::get('/subscribers', [AdminSubscriberController::class, 'index'])->name('admin.subscribers.index');
+    });
+});
