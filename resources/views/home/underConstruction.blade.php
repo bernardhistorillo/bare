@@ -3,7 +3,7 @@
 @section('title', 'Website Under Construction')
 
 @section('content')
-<div class="position-relative background-image-cover" style="background-image:url('{{ asset('img/home/woman.jpg') }}')">
+<div class="position-relative background-image-cover" style="background-image:url('{{ asset('img/home/woman.webp') }}')">
     <div class="position-absolute bg-color-1 w-100 h-100" style="top:0; left:0; opacity:0.5; z-index:1"></div>
 
     <div class="container position-relative" style="top:0; left:0; opacity:0.9; z-index:2">
