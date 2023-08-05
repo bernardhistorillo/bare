@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Website Under Construction')
+@section('title', 'Sign Up Now!')
 
 @section('content')
 <div class="position-relative background-image-cover" style="background-image:url('{{ asset('img/home/woman.webp') }}')">
@@ -13,7 +13,7 @@
                     <img src="{{ asset('img/home/bare-white.png') }}" width="150" alt="{{ config('app.name') }}" />
                 </div>
 
-                <h1 class="text-white resotho-extralight text-center font-size-200 font-size-sm-240 font-size-md-280 font-size-lg-260 font-size-xl-280 font-size-xxl-300 mb-5">Website Under Construction</h1>
+                <h1 class="text-white resotho-extralight text-center line-height-140 line-height-sm-130 font-size-200 font-size-sm-220 font-size-md-230 font-size-lg-260 font-size-xl-280 font-size-xxl-300 mb-5">Sign Up & Get 20% Discount On Our Launch!</h1>
 
                 <div class="row justify-content-center">
                     <div class="col-sm-10 col-md-9 col-lg-7 col-xl-6 col-xxl-5">
