@@ -18,6 +18,13 @@
 .resotho-extralight-italic {
     font-family: ResothoExtralightItalic, serif;
 }
+@font-face {
+    font-family: HelveticaNeueLight;
+    src: url('../fonts/HelveticaNeue Light.ttf');
+}
+.helvetica-neue-light {
+    font-family: HelveticaNeueLight, serif;
+}
 .text-black {
     color:#000000!important;
 }
