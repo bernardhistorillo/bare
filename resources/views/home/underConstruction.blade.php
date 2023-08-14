@@ -28,13 +28,13 @@
                             </div>
                         </form>
 
-                        <a href="mailto:admin@wearebare.co" class="d-flex align-items-center justify-content-center text-decoration-none">
+                        <a href="mailto:help@wearebare.co" class="d-flex align-items-center justify-content-center text-decoration-none">
                             <div class="d-flex align-items-center justify-content-center bg-white rounded-circle email-icon">
                                 <div class="line-height-90">
                                     <i class="fa-solid fa-envelope text-color-1 font-size-md-120 font-size-xl-120"></i>
                                 </div>
                             </div>
-                            <div class="text-white font-size-100 font-size-sm-110 font-size-md-120 font-size-lg-130 font-size-xl-130 ps-3">admin@wearebare.co</div>
+                            <div class="text-white font-size-100 font-size-sm-110 font-size-md-120 font-size-lg-130 font-size-xl-130 ps-3">help@wearebare.co</div>
                         </a>
                     </div>
                 </div>
