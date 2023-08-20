@@ -1,3 +1,84 @@
+const app = new Vue({
+    el: '#app',
+    delimiters: ['[[', ']]'],
+    data: {
+        routeName: null,
+        appUrl: null,
+
+        // Shop
+        products: [],
+        productsAreFetched: false,
+        cartQuantity: 0,
+        source: null,
+    },
+    mounted() {
+        this.pageOnload();
+    },
+    methods: {
+        // Onload
+        pageOnload() {
+            this.routeName = this.$refs.routeName.value;
+            this.appUrl = this.$refs.appUrl.value;
+
+            if(this.routeName === "shop.index") {
+                this.getProducts();
+            }
+        },
+
+        // Shop
+        getProducts() {
+            let url = this.$refs.getProductsRoute.value;
+
+            axios.post(url)
+                .then(response => {
+                    this.products = response.data.products;
+                    this.productsAreFetched = true;
+
+                    this.updateCartQuantity();
+                })
+                .catch(error => {
+                    setTimeout(() => {
+                        this.getProducts();
+                    }, 5000);
+                });
+        },
+
+        updateCartQuantity() {
+            let cartQuantity = 0;
+            for (const product of this.products) {
+                cartQuantity += product.cartQuantity
+            }
+            this.cartQuantity = cartQuantity;
+        },
+
+        updateCart(event, productId) {
+            let index = this.products.findIndex(product => product.id === productId);
+
+            this.products[index].cartQuantity = (this.products[index].cartQuantity > 0) ? 0 : 1;
+            this.updateCartQuantity();
+
+            if(this.source) {
+                this.source.cancel('New request made. Canceling previous request.');
+            }
+
+            this.source = axios.CancelToken.source();
+
+            let url = this.$refs.updateCartRoute.value;
+            let data = new FormData();
+            data.append('products', JSON.stringify(this.products));
+
+            let config = {
+                cancelToken: this.source.token,
+            };
+
+            axios.post(url, data, config)
+                .catch(error => {
+                    console.log(error);
+                });
+        },
+    }
+});
+
 let appUrl;
 let currentRouteName;
 let mapIsInitialized;

@@ -25,6 +25,9 @@
 .helvetica-neue-light {
     font-family: HelveticaNeueLight, serif;
 }
+.hide-by-default {
+    display:none;
+}
 .text-black {
     color:#000000!important;
 }

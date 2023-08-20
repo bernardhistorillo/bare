@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactUs;
 use App\Mail\EmailReceived;
-use App\Mail\EmailSent;
 use App\Models\EmailSubscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
