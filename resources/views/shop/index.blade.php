@@ -4,8 +4,18 @@
 
 @section('content')
 <div class="container">
-    <div :class="{ 'd-block': productsAreFetched }" class="hide-by-default">
-        <div class="pt-4">Cart Quantity: [[ cartQuantity ]]</div>
+    <div :class="{ 'd-block': pageIsLoaded }" class="hide-by-default">
+        <div class="row align-items-center pt-4">
+            <div class="col-md-3 p-3">
+                <div class="">Cart Quantity: [[ cartQuantity ]]</div>
+            </div>
+
+            <div class="col-md-3 p-3">
+                <button @click="showLoginModal" class="btn btn-custom-1 w-100">Log In</button>
+            </div>
+        </div>
+
+        <hr>
 
         <div class="py-3">
             <div class="row">
@@ -27,8 +37,12 @@
         </div>
     </div>
 
-    <div :class="{ 'd-none': productsAreFetched }">
-        <p  class="text-center py-5">Loading</p>
+    <div :class="{ 'd-none': pageIsLoaded }">
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
+            <div class="">
+                <p  class="text-center mb-0 py-5">Loading</p>
+            </div>
+        </div>
     </div>
 </div>
 

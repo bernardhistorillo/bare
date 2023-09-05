@@ -4,35 +4,91 @@ const app = new Vue({
     data: {
         routeName: null,
         appUrl: null,
+        pageIsLoaded: false,
 
         // Shop
         products: [],
-        productsAreFetched: false,
         cartQuantity: 0,
         source: null,
+
+        // Login and Register
+        modalLogin: null,
+        modalRegister: null,
+
+        // Modals
+        modalError: null,
+        modalErrorMessage: '',
+        modalSuccess: null,
+        modalSuccessMessage: '',
     },
     mounted() {
         this.pageOnload();
     },
     methods: {
+        showRequestError(error) {
+            let content = "Something went wrong.";
+
+            if(error.response) {
+                if(error.response.data) {
+                    content = error.response.data.message;
+                    for (let prop in error.response.data.errors) {
+                        if (Object.prototype.hasOwnProperty.call(error.response.data.errors, prop)) {
+                            content += ' ' + error.response.data.errors[prop];
+                        }
+                    }
+                }
+            }
+
+            this.modalLogin.show();
+        },
+
         // Onload
         pageOnload() {
             this.routeName = this.$refs.routeName.value;
             this.appUrl = this.$refs.appUrl.value;
 
+            this.allOnload();
+
             if(this.routeName === "shop.index") {
                 this.getProducts();
             }
+
+            this.pageIsLoaded = true;
+        },
+
+        // All Onload
+        allOnload() {
+            // Initialize modals
+            this.modalLogin = new bootstrap.Modal(this.$refs.modalLogin);
+            this.modalRegister = new bootstrap.Modal(this.$refs.modalRegister);
+            this.modalSuccess = new bootstrap.Modal(this.$refs.modalSuccess);
+            this.modalError = new bootstrap.Modal(this.$refs.modalError);
+        },
+
+        // User
+        async getUser() {
+            let url = this.$refs.getProductsRoute.value;
+
+            await axios.post(url)
+                .then(response => {
+                    this.products = response.data.products;
+
+                    this.updateCartQuantity();
+                })
+                .catch(error => {
+                    setTimeout(() => {
+                        this.getProducts();
+                    }, 5000);
+                });
         },
 
         // Shop
-        getProducts() {
+        async getProducts() {
             let url = this.$refs.getProductsRoute.value;
 
-            axios.post(url)
+            await axios.post(url)
                 .then(response => {
                     this.products = response.data.products;
-                    this.productsAreFetched = true;
 
                     this.updateCartQuantity();
                 })
@@ -74,6 +130,54 @@ const app = new Vue({
             axios.post(url, data, config)
                 .catch(error => {
                     console.log(error);
+                });
+        },
+
+        // Login and Register
+        showLoginModal() {
+            if (this.modalRegister._isShown) {
+                this.modalRegister.hide();
+
+                this.$refs.modalRegister.addEventListener('hidden.bs.modal', () => {
+                    this.modalLogin.show();
+                }, { once: true });
+            } else {
+                this.modalLogin.show();
+            }
+        },
+
+        showRegisterModal() {
+            if (this.modalLogin._isShown) {
+                this.modalLogin.hide();
+
+                this.$refs.modalLogin.addEventListener('hidden.bs.modal', () => {
+                    this.modalRegister.show();
+                }, { once: true });
+            } else {
+                this.modalRegister.show();
+            }
+        },
+
+        login() {
+            this.$refs.loginButton.innerHTML = "Logging In";
+            this.$refs.loginButton.disabled = true;
+
+            let data = new FormData(this.$refs.loginForm);
+            let url = data.get('url');
+
+            axios.post(url, data)
+                .then((response) => {
+                    this.$refs.loginButton.innerHTML = "Redirecting";
+                    location.reload();
+                }).catch((error) => {
+                    this.$refs.modalError.addEventListener('hidden.bs.modal', () => {
+                        this.modalLogin.show();
+                    }, { once: true });
+
+                    this.showRequestError(error);
+                }).then(() => {
+                    this.$refs.loginButton.innerHTML = "Log In";
+                    this.$refs.loginButton.disabled = false;
                 });
         },
     }
