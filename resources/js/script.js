@@ -5,6 +5,7 @@ const app = new Vue({
         routeName: null,
         appUrl: null,
         pageIsLoaded: false,
+        isScrolled: false,
 
         // Shop
         products: [],
@@ -54,6 +55,8 @@ const app = new Vue({
             }
 
             this.pageIsLoaded = true;
+
+            window.addEventListener("scroll", this.handleScroll);
         },
 
         // All Onload
@@ -63,6 +66,14 @@ const app = new Vue({
             this.modalRegister = new bootstrap.Modal(this.$refs.modalRegister);
             this.modalSuccess = new bootstrap.Modal(this.$refs.modalSuccess);
             this.modalError = new bootstrap.Modal(this.$refs.modalError);
+
+            window.dispatchEvent(new Event("scroll"));
+        },
+
+        // On Scroll
+        handleScroll() {
+            console.log("d");
+            this.isScrolled = window.scrollY > 0;
         },
 
         // User
@@ -294,22 +305,6 @@ function getOffset(el) {
 
 $(document).ready(function() {
     pageOnload();
-});
-
-$(window).on('scroll', function() {
-    let navbar = $(".navbar");
-
-    if($(this).scrollTop() > 0) {
-        navbar.addClass("scrolled");
-    } else {
-        navbar.removeClass("scrolled");
-    }
-
-    if(currentRouteName === "contact.index") {
-        if($(this).scrollTop() + $(this).height() >= getOffset($("#map")[0]).top && !mapIsInitialized && $(this).width() >= 768) {
-            initMap();
-        }
-    }
 });
 
 $(document).on("click", ".reload-page", function() {

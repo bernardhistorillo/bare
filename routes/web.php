@@ -22,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/try', [HomeController::class, 'try']);
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', [HomeController::class, 'underConstruction'])->name('underConstruction.index');
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 Route::middleware(['guest'])->group(function() {
     Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
