@@ -34,6 +34,7 @@ Route::post('/getUser', [LoginController::class, 'login'])->name('login.submit')
 Route::prefix('shop')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
     Route::get('/{category}', [ShopController::class, 'category'])->name('shop.category');
+    Route::get('/{category}/{product}', [ShopController::class, 'product'])->name('shop.product');
     Route::post('/getProducts', [ShopController::class, 'getProducts'])->name('shop.getProducts');
     Route::post('/updateCart', [ShopController::class, 'updateCart'])->name('shop.updateCart');
 });

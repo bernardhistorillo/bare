@@ -45,7 +45,7 @@
 
             <div class="row justify-content-center pt-4">
                 <div class="col-11 col-sm-6 p-xl-4 p-xxl-5 mb-5 mb-sm-4">
-                    <a href="#" class="text-decoration-none">
+                    <a href="{{ route('shop.category', 'nipple-covers') }}" class="text-decoration-none">
                         <div class="w-100 position-relative" style="padding-top:100%">
                             <div class="position-absolute background-image-cover w-100 h-100 d-flex align-items-end p-4 p-lg-5" style="top:0; left:0; background-image:url('{{ asset('img/shop/categories/category-1.webp') }}')">
                                 <p class="text-white text-decoration-underline cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-md-140 font-size-xl-180 font-size-xxl-190 mb-0">NIPPLE COVERS</p>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="col-11 col-sm-6 p-xl-4 p-xxl-5 mb-5 mb-sm-4">
-                    <a href="#" class="text-decoration-none">
+                    <a href="{{ route('shop.category', 'bodysuits') }}" class="text-decoration-none">
                         <div class="w-100 position-relative" style="padding-top:100%">
                             <div class="position-absolute background-image-cover w-100 h-100 d-flex align-items-end p-4 p-lg-5" style="top:0; left:0; background-image:url('{{ asset('img/shop/categories/category-2.webp') }}')">
                                 <p class="text-white text-decoration-underline cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-md-140 font-size-xl-180 font-size-xxl-190 mb-0">BODYSUITS</p>
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="col-11 col-sm-6 p-xl-4 p-xxl-5 mb-5 mb-sm-4">
-                    <a href="#" class="text-decoration-none">
+                    <a href="{{ route('shop.category', 'flat-nipple-covers-for-men') }}" class="text-decoration-none">
                         <div class="w-100 position-relative" style="padding-top:100%">
                             <div class="position-absolute background-image-cover w-100 h-100 d-flex align-items-end p-4 p-lg-5" style="top:0; left:0; background-image:url('{{ asset('img/shop/categories/category-3.webp') }}')">
                                 <p class="text-white text-decoration-underline cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-md-140 font-size-xl-180 font-size-xxl-190 mb-0">FLAT NIPPLE<br/> COVERS FOR MEN</p>
@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="col-11 col-sm-6 p-xl-4 p-xxl-5 mb-5 mb-sm-4">
-                    <a href="#" class="text-decoration-none">
+                    <a href="{{ route('shop.category', 'travel-pouch') }}" class="text-decoration-none">
                         <div class="w-100 position-relative" style="padding-top:100%">
                             <div class="position-absolute background-image-cover w-100 h-100 d-flex align-items-end p-4 p-lg-5" style="top:0; left:0; background-image:url('{{ asset('img/shop/categories/category-4.webp') }}')">
                                 <p class="text-white text-decoration-underline cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-md-140 font-size-xl-180 font-size-xxl-190 mb-0">TRAVEL POUCH</p>
@@ -115,74 +115,6 @@
             </div>
         </div>
     </div>
-
-{{--    <div class="bg-color-5 py-5">--}}
-{{--        <div class="container pt-5">--}}
-{{--            <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-230 font-size-sm-260 mb-4 mb-xl-3 mb-xxl-0">NIPPLE COVERS</p>--}}
-
-{{--            <div class="row justify-content-center pt-4">--}}
-{{--                <div class="col-10 col-sm-6 col-lg-3 p-xl-4 p-xxl-5 mb-5">--}}
-{{--                    <div class="">--}}
-{{--                        <div class="mb-4">--}}
-{{--                            <img src="{{ asset('img/shop/product-1.webp') }}" class="w-100" alt="Product" />--}}
-{{--                        </div>--}}
-
-{{--                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-1">COCOA</p>--}}
-{{--                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-3">PHP 000.00</p>--}}
-
-{{--                        <div class="">--}}
-{{--                            <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-10 col-sm-6 col-lg-3 p-xl-4 p-xxl-5 mb-5">--}}
-{{--                    <div class="">--}}
-{{--                        <div class="mb-4">--}}
-{{--                            <img src="{{ asset('img/shop/product-2.webp') }}" class="w-100" alt="Product" />--}}
-{{--                        </div>--}}
-
-{{--                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-1">CARAMEL</p>--}}
-{{--                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-3">PHP 000.00</p>--}}
-
-{{--                        <div class="">--}}
-{{--                            <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-10 col-sm-6 col-lg-3 p-xl-4 p-xxl-5 mb-5">--}}
-{{--                    <div class="">--}}
-{{--                        <div class="mb-4">--}}
-{{--                            <img src="{{ asset('img/shop/product-3.webp') }}" class="w-100" alt="Product" />--}}
-{{--                        </div>--}}
-
-{{--                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-1">TAUPE</p>--}}
-{{--                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-3">PHP 000.00</p>--}}
-
-{{--                        <div class="">--}}
-{{--                            <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-10 col-sm-6 col-lg-3 p-xl-4 p-xxl-5 mb-5">--}}
-{{--                    <div class="">--}}
-{{--                        <div class="mb-4">--}}
-{{--                            <img src="{{ asset('img/shop/product-4.webp') }}" class="w-100" alt="Product" />--}}
-{{--                        </div>--}}
-
-{{--                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-1">CLAY</p>--}}
-{{--                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-3">PHP 000.00</p>--}}
-
-{{--                        <div class="">--}}
-{{--                            <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 
     @include('home.includes.section')
     @include('home.includes.testimonials')

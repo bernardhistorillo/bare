@@ -15,7 +15,39 @@ class ShopController extends Controller
     }
 
     public function category($category) {
-        return view('shop.category', compact('category'));
+        $categoryName = $this->getCategory($category);
+
+        if(!$category) {
+            abort(404);
+        }
+
+        return view('shop.category', compact('category', 'categoryName'));
+    }
+
+    public function product($category, $product) {
+        $category = $this->getCategory($category);
+
+        if(!$category) {
+            abort(404);
+        }
+
+        return view('shop.product', compact('category', 'product'));
+    }
+
+    public function getCategory($category) {
+        if($category == 'nipple-covers') {
+            $category = 'Nipple Covers';
+        } else if($category == 'bodysuits') {
+            $category = 'Bodysuits';
+        } else if($category == 'flat-nipple-covers-for-men') {
+            $category = 'Flat Nipple Covers For Men';
+        } else if($category == 'travel-pouch') {
+            $category = 'Travel Pouch';
+        } else {
+            $category = null;
+        }
+
+        return $category;
     }
 
     public function getProducts() {
