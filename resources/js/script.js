@@ -72,7 +72,6 @@ const app = new Vue({
 
         // On Scroll
         handleScroll() {
-            console.log("d");
             this.isScrolled = window.scrollY > 0;
         },
 

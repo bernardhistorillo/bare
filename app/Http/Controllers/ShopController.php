@@ -14,6 +14,10 @@ class ShopController extends Controller
         return view('shop.index');
     }
 
+    public function category($category) {
+        return view('shop.category', compact('category'));
+    }
+
     public function getProducts() {
         $products = Product::where('status', 1)
             ->orderBy('name')

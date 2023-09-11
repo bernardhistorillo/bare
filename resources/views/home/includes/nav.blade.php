@@ -14,7 +14,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link font-size-lg-120 font-size-xl-140 letter-spacing-5 text-white cerebri-sans-pro-regular px-md-3 px-xl-4" href="#">SHOP</a>
+                    <a class="nav-link font-size-lg-120 font-size-xl-140 letter-spacing-5 text-white cerebri-sans-pro-regular px-md-3 px-xl-4" href="{{ route('shop.index') }}">SHOP</a>
                 </li>
 
                 <li class="nav-item">

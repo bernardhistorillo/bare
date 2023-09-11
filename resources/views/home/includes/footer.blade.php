@@ -32,7 +32,7 @@
                             </div>
 
                             <div class="px-3 mb-2 mb-sm-0">
-                                <a class="text-decoration-none font-size-lg-120 font-size-xl-160 letter-spacing-5 text-white cerebri-sans-pro-regular" href="#">SHOP</a>
+                                <a class="text-decoration-none font-size-lg-120 font-size-xl-160 letter-spacing-5 text-white cerebri-sans-pro-regular" href="{{ route('shop.index') }}">SHOP</a>
                             </div>
 
                             <div class="px-3 mb-2 mb-sm-0">
