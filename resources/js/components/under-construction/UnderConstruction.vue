@@ -45,7 +45,7 @@
 
 <script>
 import metaInfoMixin from '../../mixins/metaInfoMixin';
-import Modals from '../includes/Modals.vue';
+import Modals from '../home/includes/Modals.vue';
 
 export default {
     components: { Modals },
