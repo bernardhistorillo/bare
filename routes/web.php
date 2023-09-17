@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminSubscriberController;
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -21,39 +22,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/try', [HomeController::class, 'try']);
-Route::get('/', [HomeController::class, 'underConstruction'])->name('underConstruction.index');
-Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('{view}', ApplicationController::class)->where('view', '(.*)');
 
-Route::middleware(['guest'])->group(function() {
-    Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
-});
-
-Route::post('/getUser', [LoginController::class, 'login'])->name('login.submit');
-
-Route::prefix('shop')->group(function () {
-    Route::get('/', [ShopController::class, 'index'])->name('shop.index');
-    Route::get('/{category}', [ShopController::class, 'category'])->name('shop.category');
-    Route::get('/{category}/{product}', [ShopController::class, 'product'])->name('shop.product');
-    Route::post('/getProducts', [ShopController::class, 'getProducts'])->name('shop.getProducts');
-    Route::post('/updateCart', [ShopController::class, 'updateCart'])->name('shop.updateCart');
-});
-
+//Route::get('/try', [HomeController::class, 'try']);
+//Route::get('/', [HomeController::class, 'underConstruction'])->name('underConstruction.index');
+//Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+//
+//Route::middleware(['guest'])->group(function() {
+//    Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+//});
+//
+//Route::post('/getUser', [LoginController::class, 'login'])->name('login.submit');
+//
+//Route::prefix('shop')->group(function () {
+//    Route::get('/', [ShopController::class, 'index'])->name('shop.index');
+//    Route::get('/{category}', [ShopController::class, 'category'])->name('shop.category');
+//    Route::get('/{category}/{product}', [ShopController::class, 'product'])->name('shop.product');
+//    Route::post('/getProducts', [ShopController::class, 'getProducts'])->name('shop.getProducts');
+//    Route::post('/updateCart', [ShopController::class, 'updateCart'])->name('shop.updateCart');
+//});
+//
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('contact.index');
     Route::post('/subscribeEmail', [ContactController::class, 'subscribeEmail'])->name('contact.subscribeEmail');
     Route::post('/sendMessage', [ContactController::class, 'sendMessage'])->name('contact.sendMessage');
 });
 
-Route::prefix('admin')->group(function () {
-    Route::middleware(['guest'])->group(function() {
-        Route::get('/', [LoginController::class, 'index'])->name('admin.login.index');
-        Route::post('/login', [LoginController::class, 'login'])->name('admin.login.submit');
-    });
-
-    Route::middleware(['auth'])->group(function() {
-        Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
-
-        Route::get('/subscribers', [AdminSubscriberController::class, 'index'])->name('admin.subscribers.index');
-    });
-});
+//Route::prefix('admin')->group(function () {
+//    Route::middleware(['guest'])->group(function() {
+//        Route::get('/', [LoginController::class, 'index'])->name('admin.login.index');
+//        Route::post('/login', [LoginController::class, 'login'])->name('admin.login.submit');
+//    });
+//
+//    Route::middleware(['auth'])->group(function() {
+//        Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+//
+//        Route::get('/subscribers', [AdminSubscriberController::class, 'index'])->name('admin.subscribers.index');
+//    });
+//});

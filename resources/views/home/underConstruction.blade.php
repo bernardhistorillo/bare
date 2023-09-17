@@ -17,14 +17,16 @@
 
                 <div class="row justify-content-center">
                     <div class="col-sm-10 col-md-9 col-lg-7 col-xl-6 col-xxl-5">
-                        <form id="email-subscription-form" action="{{ route('contact.subscribeEmail') }}">
+
+                        <form ref="subscribeToNewsletterForm" @submit.prevent="subscribeToNewsletter" class="mb-4">
+                            <input type="hidden" name="url" value="{{ route('contact.subscribeEmail') }}" />
                             <input type="hidden" name="type" value="general" />
 
-                            <input type="text" name="name" class="form-control form-control-1 mb-3 py-2" style="height:45px" placeholder="Your first name" />
-                            <input type="email" name="email" class="form-control form-control-1 mb-3 py-2" style="height:45px" placeholder="Your email address" />
+                            <input v-model="subscribeToNewsletterName" type="text" name="name" class="form-control form-control-1 mb-3 py-2" style="height:45px" placeholder="Your first name" />
+                            <input v-model="subscribeToNewsletterEmail" type="email" name="email" class="form-control form-control-1 mb-3 py-2" style="height:45px" placeholder="Your email address" />
 
                             <div class="mb-5 pb-3">
-                                <button type="submit" class="btn btn-custom-1 w-100 py-2" style="height:50px">KEEP ME POSTED!</button>
+                                <button type="submit" class="btn btn-custom-1 w-100 py-2" :disabled="isSubscribeToNewsletterButtonDisabled" style="height:50px">[[ subscribeToNewsletterButtonText ]]</button>
                             </div>
                         </form>
 

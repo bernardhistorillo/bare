@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-md-3 p-3">
-                <button @click="showLoginModal" class="btn btn-custom-1 w-100">Log In</button>
+                <button @click="showModalLogin" class="btn btn-custom-1 w-100">Log In</button>
             </div>
         </div>
 

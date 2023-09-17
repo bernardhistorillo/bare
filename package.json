@@ -13,7 +13,6 @@
     "devDependencies": {
         "@popperjs/core": "^2.10.2",
         "axios": "^0.21",
-        "bootstrap": "^5.3.1",
         "browser-sync": "^2.29.3",
         "browser-sync-webpack-plugin": "^2.3.0",
         "javascript-obfuscator": "^4.0.2",
@@ -23,12 +22,18 @@
         "resolve-url-loader": "^3.1.2",
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
-        "vue": "^2.6.12",
-        "vue-loader": "^15.9.8",
+        "vite": "^4.4.9",
+        "vue": "^3.2.36",
+        "vue-loader": "^17.2.2",
         "vue-template-compiler": "^2.6.12",
         "webpack-obfuscator": "^3.5.1"
     },
     "dependencies": {
-        "bootstrap-vue": "^2.23.1"
+        "@vitejs/plugin-vue": "^4.3.4",
+        "bootstrap": "^5.3.2",
+        "bootstrap-vue": "^2.23.1",
+        "jquery": "^3.7.1",
+        "vue-meta": "^2.4.0",
+        "vue-router": "^4.0.13"
     }
 }
