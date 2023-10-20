@@ -2,12 +2,9 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminSubscriberController;
-use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,8 +33,17 @@ Route::prefix('shop')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
     Route::get('/{category}', [ShopController::class, 'category'])->name('shop.category');
     Route::get('/{category}/{product}', [ShopController::class, 'product'])->name('shop.product');
+
     Route::post('/getProducts', [ShopController::class, 'getProducts'])->name('shop.getProducts');
     Route::post('/updateCart', [ShopController::class, 'updateCart'])->name('shop.updateCart');
+});
+
+Route::prefix('about')->group(function () {
+    Route::get('/', [AboutController::class, 'index'])->name('about.index');
+});
+
+Route::prefix('blog')->group(function () {
+    Route::get('/', [AboutController::class, 'index'])->name('blog.index');
 });
 
 Route::prefix('contact')->group(function () {

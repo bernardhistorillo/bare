@@ -18,7 +18,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link font-size-lg-120 font-size-xl-140 letter-spacing-5 text-white cerebri-sans-pro-regular px-md-3 px-xl-4" href="#">ABOUT</a>
+                    <a class="nav-link font-size-lg-120 font-size-xl-140 letter-spacing-5 text-white cerebri-sans-pro-regular px-md-3 px-xl-4" href="{{ route('about.index') }}">ABOUT</a>
                 </li>
 
                 <li class="nav-item">
