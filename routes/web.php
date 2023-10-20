@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminSubscriberController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -43,7 +44,7 @@ Route::prefix('about')->group(function () {
 });
 
 Route::prefix('blog')->group(function () {
-    Route::get('/', [AboutController::class, 'index'])->name('blog.index');
+    Route::get('/', [BlogController::class, 'index'])->name('blog.index');
 });
 
 Route::prefix('contact')->group(function () {

@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg bg-color-3 navbar-dark">
     <div class="container d-flex justify-content-between position-relative">
         <a class="navbar-brand py-2" href="{{ route('home.index') }}">
-            <img src="{{ asset('img/home/bare-white.png') }}" alt="{{ config('app.name') }}">
+            <img src="{{ asset('img/home/bare-white.png') }}" class="tw-duration-500" alt="{{ config('app.name') }}">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
