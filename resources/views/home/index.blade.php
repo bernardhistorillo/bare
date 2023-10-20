@@ -135,7 +135,6 @@
     @include('home.includes.testimonials')
     @include('home.includes.action')
 
-
 </div>
 
 @include('home.includes.footer')

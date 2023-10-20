@@ -1,3 +1,5 @@
+import './bootstrap'
+
 let appUrl;
 let currentRouteName;
 
@@ -11,6 +13,8 @@ let pageOnload = async function() {
 let allOnload = async function() {
     appUrl = $("input[name='app_url']").val();
     currentRouteName = $("input[name='route_name']").val();
+
+    $(window).trigger('scroll');
 };
 
 let adminSubscribersOnload = function() {
@@ -167,8 +171,8 @@ $(document).on("submit", "#contact-form", function(e) {
     button.prop("disabled", true);
     button.html('SUBMITTING');
 
-    let url = $(this).attr("action");
     let data = new FormData($(this)[0]);
+    let url = data.get('url').toString();
 
     axios.post(url, data)
         .then((response) => {
@@ -181,7 +185,7 @@ $(document).on("submit", "#contact-form", function(e) {
         showRequestError(error);
     }).then(() => {
         button.prop("disabled", false);
-        button.html('SEND MESSAGE');
+        button.html('SUBMIT');
     });
 });
 

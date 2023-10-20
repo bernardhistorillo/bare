@@ -10,14 +10,20 @@
 
                 <div class="d-flex justify-content-center justify-content-md-start align-items-center">
                     <div class="pe-4">
-                        <a href="https://facebook.com" target="_blank" class="text-white text-decoration-none">
+                        <a href="https://www.facebook.com/wearebare.co" target="_blank" class="text-white text-decoration-none">
                             <i class="fa-brands fa-facebook-f font-size-160 font-size-md-180 font-size-lg-220 font-size-xl-250"></i>
                         </a>
                     </div>
 
-                    <div class="">
-                        <a href="https://instagram.com" target="_blank" class="text-white text-decoration-none">
+                    <div class="pe-4">
+                        <a href="https://www.instagram.com/wearebare.co" target="_blank" class="text-white text-decoration-none">
                             <i class="fa-brands fa-instagram font-size-160 font-size-md-180 font-size-lg-220 font-size-xl-250"></i>
+                        </a>
+                    </div>
+
+                    <div class="">
+                        <a href="https://www.tiktok.com/@wearebare.co" target="_blank" class="text-white text-decoration-none">
+                            <i class="fa-brands fa-tiktok font-size-160 font-size-md-180 font-size-lg-220 font-size-xl-250"></i>
                         </a>
                     </div>
                 </div>
@@ -36,15 +42,15 @@
                             </div>
 
                             <div class="px-3 mb-2 mb-sm-0">
-                                <a class="text-decoration-none font-size-lg-120 font-size-xl-160 letter-spacing-5 text-white cerebri-sans-pro-regular" href="#">ABOUT</a>
+                                <a class="text-decoration-none font-size-lg-120 font-size-xl-160 letter-spacing-5 text-white cerebri-sans-pro-regular" href="{{ route('about.index') }}">ABOUT</a>
                             </div>
 
                             <div class="px-3 mb-2 mb-sm-0">
-                                <a class="text-decoration-none font-size-lg-120 font-size-xl-160 letter-spacing-5 text-white cerebri-sans-pro-regular" href="#">CONTACT</a>
+                                <a class="text-decoration-none font-size-lg-120 font-size-xl-160 letter-spacing-5 text-white cerebri-sans-pro-regular" href="{{ route('contact.index') }}">CONTACT</a>
                             </div>
 
                             <div class="pe-3 pe-sm-0 ps-3 mb-2 mb-sm-0">
-                                <a class="text-decoration-none font-size-lg-120 font-size-xl-160 letter-spacing-5 text-white cerebri-sans-pro-regular" href="#">BLOG</a>
+                                <a class="text-decoration-none font-size-lg-120 font-size-xl-160 letter-spacing-5 text-white cerebri-sans-pro-regular" href="{{ route('blog.index') }}">BLOG</a>
                             </div>
                         </div>
 

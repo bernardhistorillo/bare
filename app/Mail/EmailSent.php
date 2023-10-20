@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
-class EmailReceived extends Mailable
+class EmailSent extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,8 +30,8 @@ class EmailReceived extends Mailable
         $data['email'] = $this->message['email'];
         $data['message'] = $this->message['message'];
 
-        return $this->view('emails.emailReceived', compact('data'))
-            ->text('emails.emailReceivedText', compact('data'))
-            ->subject('BARE New Inquiry');
+        return $this->view('emails.emailSent', compact('data'))
+            ->text('emails.emailSentText', compact('data'))
+            ->subject('Your Message Has Been Sent');
     }
 }

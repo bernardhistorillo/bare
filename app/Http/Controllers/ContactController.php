@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\EmailReceived;
+use App\Mail\EmailSent;
 use App\Models\EmailSubscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -44,14 +45,14 @@ class ContactController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'subject' => 'required',
             'message' => 'required',
         ]);
 
-        $email = (config('app.env') == 'production') ? 'hello@dailyskinclinic.com' : 'bernardhistorillo1@gmail.com';
+        $email = (config('app.env') == 'production') ? 'help@wearebare.co' : 'bernardhistorillo1@gmail.com';
 
-        Mail::to($email)->queue(new EmailReceived($request->only(['name', 'email', 'subject', 'message'])));
-        Mail::to($request->email)->queue(new EmailSent($request->only('name', 'email', 'subject', 'message')));
+//        Mail::to($email)->queue(new EmailReceived($request->only(['name', 'email', 'message'])));
+        Mail::to($request->email)->queue(new EmailReceived($request->only(['name', 'email', 'message'])));
+        Mail::to($request->email)->queue(new EmailSent($request->only('name', 'email', 'message')));
 
         return response()->json();
     }
