@@ -1,5 +1,6 @@
 import UnderConstruction from "./components/under-construction/UnderConstruction.vue";
 import Home from "./components/home/Home.vue";
+import Shop from "./components/shop/Shop.vue";
 import NotFound from "./components/NotFound.vue";
 
 export default [
@@ -54,7 +55,7 @@ export default [
     }, {
         path: '/shop',
         name: 'shop',
-        component: Home,
+        component: Shop,
         meta: {
             metaInfo: {
                 title: 'Shop',

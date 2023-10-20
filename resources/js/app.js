@@ -13,5 +13,10 @@ const router = createRouter({
     history: createWebHistory(),
 });
 
+router.beforeEach((to, from, next) => {
+    document.body.scrollIntoView({ behavior: 'auto', block: 'start' });
+    next();
+});
+
 app.use(router);
 app.mount("#app");

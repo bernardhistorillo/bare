@@ -1,5 +1,5 @@
 <template>
-    <nav :class="{ 'scrolled': isScrolled }" class="navbar fixed-top navbar-expand-lg bg-color-3 navbar-dark">
+    <nav :class="{ 'scrolled': isScrolled, 'has-transition': hasTransition }" class="navbar fixed-top navbar-expand-lg bg-color-3 navbar-dark">
         <div class="container d-flex justify-content-between position-relative">
             <router-link :to="{ name: 'home' }" class="navbar-brand py-2">
                 <img src="img/home/bare-white.png" alt="{{ appName }}">
@@ -56,11 +56,22 @@ export default {
     name: 'Navigation',
     data() {
         return {
-            isScrolled: false
+            isScrolled: false,
+            hasTransition: false,
         }
     },
     mounted() {
         window.addEventListener("scroll", this.handleScroll);
+        window.dispatchEvent(new Event("scroll"));
+
+        console.log(this.hasTransition);
+
+        // this.hasTransition = true;
+
+        const self = this;
+        setTimeout(function() {
+            self.hasTransition = true;
+        }, 500);
     },
     methods: {
         handleScroll() {
