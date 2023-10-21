@@ -33,11 +33,27 @@
 
         <div class="ms-3" id="nav-buttons" style="width:145.55px">
             <div class="d-flex justify-content-end">
+                @if(Auth::check())
+                <div class="dropdown">
+                    <button class="dropdown-toggle dropdown-toggle-user" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-light fa-circle-user text-white font-size-140 font-size-sm-180"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <a class="dropdown-item cerebri-sans-pro-regular" href="{{ route('logout.index') }}">
+                                <i class="fa-regular fa-right-from-bracket me-2"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                @else
                 <div class="">
                     <a href="#" class="text-white">
-                        <i class="fa-light fa-circle-user text-white font-size-140 font-size-sm-180"></i>
+                        <i class="fa-light fa-right-to-bracket text-white font-size-140 font-size-sm-180"></i>
                     </a>
                 </div>
+                @endif
 
                 <div class="ps-4 ps-sm-5">
                     <a href="#" class="text-white">

@@ -2253,6 +2253,40 @@ $(document).on("submit", "#contact-form", function (e) {
     button.html('SUBMIT');
   });
 });
+$(document).on("submit", "#register-form", function (e) {
+  e.preventDefault();
+  var form = $(this);
+  var button = form.find("[type='submit']");
+  button.prop("disabled", true);
+  button.html('Submitting');
+  var data = new FormData($(this)[0]);
+  var url = data.get('url').toString();
+  axios.post(url, data).then(function (response) {
+    button.html('Redirecting');
+    window.location = response.data.redirect;
+  })["catch"](function (error) {
+    button.prop("disabled", false);
+    button.html('Submit');
+    showRequestError(error);
+  });
+});
+$(document).on("submit", "#user-login-form", function (e) {
+  e.preventDefault();
+  var form = $(this);
+  var button = form.find("[type='submit']");
+  button.prop("disabled", true);
+  button.html('Logging In');
+  var data = new FormData($(this)[0]);
+  var url = data.get('url').toString();
+  axios.post(url, data).then(function (response) {
+    button.html('Redirecting');
+    window.location = response.data.redirect;
+  })["catch"](function (error) {
+    button.prop("disabled", false);
+    button.html('Log In');
+    showRequestError(error);
+  });
+});
 
 // Admin Log In
 $(document).on("submit", "#login-form", function (e) {
@@ -2264,7 +2298,7 @@ $(document).on("submit", "#login-form", function (e) {
   var url = $(this).attr("action");
   var data = new FormData($(this)[0]);
   axios.post(url, data).then(function (response) {
-    button.html("Redirecting...");
+    button.html("REDIRECTING");
     window.location = response.data.redirect;
   })["catch"](function (error) {
     button.prop("disabled", false);

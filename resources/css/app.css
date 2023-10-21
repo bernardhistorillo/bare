@@ -272,6 +272,9 @@ html, body {
 /*.custom-margin {*/
 /*    margin: 0 15px; !* Adjust the margin as needed *!*/
 /*}*/
+.dropdown-toggle-user::after {
+    display:none;
+}
 
 /*##################################################################*/
 

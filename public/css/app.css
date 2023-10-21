@@ -494,23 +494,14 @@ video {
 .tw-pt-\[13px\] {
   padding-top: 13px;
 }
-.tw-text-\[2em\] {
-  font-size: 2em;
-}
-.tw-text-\[2\.2em\] {
-  font-size: 2.2em;
-}
-.tw-text-\[2\.1em\] {
-  font-size: 2.1em;
-}
-.tw-text-\[1\.1em\] {
-  font-size: 1.1em;
+.tw-pt-\[84px\] {
+  padding-top: 84px;
 }
 .tw-text-\[1\.2em\] {
   font-size: 1.2em;
 }
-.tw-duration-\[500\] {
-  transition-duration: 500;
+.tw-text-\[2\.1em\] {
+  font-size: 2.1em;
 }
 .tw-duration-500 {
   transition-duration: 500ms;
@@ -786,6 +777,9 @@ html, body {
 /*.custom-margin {*/
 /*    margin: 0 15px; !* Adjust the margin as needed *!*/
 /*}*/
+.dropdown-toggle-user::after {
+    display:none;
+}
 
 /*##################################################################*/
 
@@ -900,40 +894,12 @@ html, body {
 }
 @media (min-width: 576px) {
 
-  .sm\:tw-pt-\[12px\] {
-    padding-top: 12px;
-  }
-
-  .sm\:tw-pt-\[11px\] {
-    padding-top: 11px;
-  }
-
-  .sm\:tw-pt-\[13px\] {
-    padding-top: 13px;
+  .sm\:tw-text-\[1\.3em\] {
+    font-size: 1.3em;
   }
 
   .sm\:tw-text-\[2\.4em\] {
     font-size: 2.4em;
-  }
-
-  .sm\:tw-text-\[2\.1em\] {
-    font-size: 2.1em;
-  }
-
-  .sm\:tw-text-\[2\.2em\] {
-    font-size: 2.2em;
-  }
-
-  .sm\:tw-text-\[1\.5em\] {
-    font-size: 1.5em;
-  }
-
-  .sm\:tw-text-\[1\.2em\] {
-    font-size: 1.2em;
-  }
-
-  .sm\:tw-text-\[1\.3em\] {
-    font-size: 1.3em;
   }
 }
 @media (min-width: 768px) {
@@ -945,42 +911,14 @@ html, body {
   .md\:tw-text-\[1\.5em\] {
     font-size: 1.5em;
   }
-
-  .md\:tw-text-\[2\.4em\] {
-    font-size: 2.4em;
-  }
 }
 @media (min-width: 992px) {
-
-  .lg\:tw-pt-\[14px\] {
-    padding-top: 14px;
-  }
 
   .lg\:tw-pt-\[13px\] {
     padding-top: 13px;
   }
-
-  .lg\:tw-text-\[1\.5em\] {
-    font-size: 1.5em;
-  }
-
-  .lg\:tw-text-\[2\.4em\] {
-    font-size: 2.4em;
-  }
 }
 @media (min-width: 1200px) {
-
-  .xl\:tw-pt-\[10px\] {
-    padding-top: 10px;
-  }
-
-  .xl\:tw-pt-\[20px\] {
-    padding-top: 20px;
-  }
-
-  .xl\:tw-pt-\[15px\] {
-    padding-top: 15px;
-  }
 
   .xl\:tw-pt-\[14px\] {
     padding-top: 14px;
@@ -992,32 +930,6 @@ html, body {
 
   .xl\:tw-text-\[2\.8em\] {
     font-size: 2.8em;
-  }
-}
-@media (min-width: 1400px) {
-
-  .xxl\:tw-text-\[1\.4em\] {
-    font-size: 1.4em;
-  }
-
-  .xxl\:tw-text-\[2em\] {
-    font-size: 2em;
-  }
-
-  .xxl\:tw-text-\[2\.4em\] {
-    font-size: 2.4em;
-  }
-
-  .xxl\:tw-text-\[2\.8em\] {
-    font-size: 2.8em;
-  }
-
-  .xxl\:tw-text-\[1\.5em\] {
-    font-size: 1.5em;
-  }
-
-  .xxl\:tw-text-\[1\.6em\] {
-    font-size: 1.6em;
   }
 }
 

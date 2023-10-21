@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminSubscriberController;
+use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -25,10 +26,20 @@ Route::get('/', [HomeController::class, 'underConstruction'])->name('underConstr
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 Route::middleware(['guest'])->group(function() {
-    Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+    Route::prefix('login')->group(function () {
+        Route::get('/', [AuthenticationController::class, 'index'])->name('login.index');
+        Route::post('/submit', [AuthenticationController::class, 'login'])->name('login.submit');
+    });
+
+    Route::prefix('register')->group(function () {
+        Route::get('/', [AuthenticationController::class, 'registerPage'])->name('register.index');
+        Route::post('/submit', [AuthenticationController::class, 'register'])->name('register.submit');
+    });
 });
 
-Route::post('/getUser', [LoginController::class, 'login'])->name('login.submit');
+Route::middleware(['auth'])->group(function() {
+    Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout.index');
+});
 
 Route::prefix('shop')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
