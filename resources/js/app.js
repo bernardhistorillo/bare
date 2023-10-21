@@ -145,8 +145,8 @@ $(document).on("submit", "#email-subscription-form", function(e) {
     button.prop("disabled", true);
     button.html('SUBMITTING');
 
-    let url = $(this).attr("action");
     let data = new FormData($(this)[0]);
+    let url = data.get("url").toString();
 
     axios.post(url, data)
         .then((response) => {
@@ -156,11 +156,11 @@ $(document).on("submit", "#email-subscription-form", function(e) {
             $("#modal-success .message").html("Thanks for subscribing!<br>We’ll keep you posted.");
             $("#modal-success").modal("show");
         }).catch((error) => {
-        showRequestError(error);
-    }).then(() => {
-        button.prop("disabled", false);
-        button.html('KEEP ME POSTED!');
-    });
+            showRequestError(error);
+        }).then(() => {
+            button.prop("disabled", false);
+            button.html('KEEP ME POSTED!');
+        });
 });
 
 $(document).on("submit", "#contact-form", function(e) {

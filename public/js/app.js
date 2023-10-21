@@ -2219,8 +2219,8 @@ $(document).on("submit", "#email-subscription-form", function (e) {
   var button = form.find("[type='submit']");
   button.prop("disabled", true);
   button.html('SUBMITTING');
-  var url = $(this).attr("action");
   var data = new FormData($(this)[0]);
+  var url = data.get("url").toString();
   axios.post(url, data).then(function (response) {
     form.find('input[type="text"]').val("");
     form.find('input[type="email"]').val("");
