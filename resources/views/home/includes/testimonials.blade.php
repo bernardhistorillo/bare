@@ -8,47 +8,47 @@
             </div>
         </div>
 
-        <div class="row justify-content-center pt-4">
+        <div class="row justify-content-center align-items-stretch pt-4">
             <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 pb-5 pb-lg-0">
-                <div class="card border-radius-0 mb-4 mb-lg-0" style="border:1px solid #a24e4e">
+                <div class="card border-radius-0 mb-4 mb-lg-0 h-100" style="border:1px solid #a24e4e">
                     <div class="card-body position-relative px-4 py-5 p-sm-5">
                         <div class="position-absolute text-center w-100" style="top:-70px; left:0">
                             <div class="rounded-circle d-inline-block bg-color-2" style="height:140px; width:140px"></div>
                         </div>
 
-                        <div class="pt-5">
-                            <p class="text-color-4 text-center cerebri-sans-pro-regular font-size-110 mb-5">Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable.</p>
-                            <p class="text-color-4 text-center cerebri-sans-pro-medium font-size-140 mb-0">Ellen Downing</p>
+                        <div class="d-flex flex-column h-100 justify-content-between pt-5">
+                            <p class="text-color-4 text-center cerebri-sans-pro-regular font-size-110 mb-5">Our products are designed with your well-being in mind. They provide a level of comfort that feels like a second skin. No more discomfort, no more irritation. Just pure comfort.</p>
+                            <p class="text-color-4 text-center cerebri-sans-pro-medium font-size-140 mb-0">COMFORT</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0 pb-5 pb-lg-0">
-                <div class="card border-radius-0 mb-4 mb-lg-0" style="border:1px solid #a24e4e">
+                <div class="card border-radius-0 mb-4 mb-lg-0 h-100" style="border:1px solid #a24e4e">
                     <div class="card-body position-relative px-4 py-5 p-sm-5">
                         <div class="position-absolute text-center w-100" style="top:-70px; left:0">
                             <div class="rounded-circle d-inline-block bg-color-2" style="height:140px; width:140px"></div>
                         </div>
 
-                        <div class="pt-5">
-                            <p class="text-color-4 text-center cerebri-sans-pro-regular font-size-110 mb-5">Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable.</p>
-                            <p class="text-color-4 text-center cerebri-sans-pro-medium font-size-140 mb-0">Ellen Downing</p>
+                        <div class="d-flex flex-column h-100 justify-content-between pt-5">
+                            <p class="text-color-4 text-center cerebri-sans-pro-regular font-size-110 mb-5">When you feel comfortable, you radiate confidence. Our products are engineered to make you feel secure and confident in your skin, allowing you to embrace your individuality with pride.</p>
+                            <p class="text-color-4 text-center cerebri-sans-pro-medium font-size-140 mb-0">CONFIDENCE</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card border-radius-0" style="border:1px solid #a24e4e">
+                <div class="card border-radius-0 h-100" style="border:1px solid #a24e4e">
                     <div class="card-body position-relative px-4 py-5 p-sm-5">
                         <div class="position-absolute text-center w-100" style="top:-70px; left:0">
                             <div class="rounded-circle d-inline-block bg-color-2" style="height:140px; width:140px"></div>
                         </div>
 
-                        <div class="pt-5">
-                            <p class="text-color-4 text-center cerebri-sans-pro-regular font-size-110 mb-5">Boost your product and service's credibility by adding testimonials from your clients. People love recommendations so feedback from others who've tried it is invaluable.</p>
-                            <p class="text-color-4 text-center cerebri-sans-pro-medium font-size-140 mb-0">Ellen Downing</p>
+                        <div class="d-flex flex-column h-100 justify-content-between pt-5">
+                            <p class="text-color-4 text-center cerebri-sans-pro-regular font-size-110 mb-5">We bring you the ultimate convenience in your daily attire. These garments will effortlessly integrate into your wardrobe, making every day a breeze.</p>
+                            <p class="text-color-4 text-center cerebri-sans-pro-medium font-size-140 mb-0">CONVENIENCE</p>
                         </div>
                     </div>
                 </div>

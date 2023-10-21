@@ -117,11 +117,11 @@
                         <div class="py-5">
                             <div class="ps-xl-4 ps-xxl-5 py-5">
                                 <p class="text-white cerebri-sans-pro-regular text-center text-md-start font-size-280 font-size-sm-300 font-size-md-350 font-size-lg-500 line-height-130 mb-lg-0">About</p>
-                                <p class="text-white cerebri-sans-pro-regular text-center text-md-start font-size-130 font-size-lg-150 letter-spacing-10">LOREM IPSUM DOLOR</p>
-                                <p class="text-white cerebri-sans-pro-medium text-center text-md-start font-size-90 font-size-lg-100 line-height-170 letter-spacing-10 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure </p>
+                                <p class="text-white cerebri-sans-pro-regular text-center text-md-start font-size-130 font-size-lg-150 letter-spacing-10">BARE NECESSITY, BARE CONFIDENCE</p>
+                                <p class="text-white cerebri-sans-pro-medium text-center text-md-start font-size-90 font-size-lg-100 line-height-170 letter-spacing-10 mb-5">It all started with a simple desire – to be unburdened by traditional undergarments that didn't align with our comfort and confidence. We understand the frustration of feeling suffocated by clothing that just don't "get" you. That's why we started this journey - making comfort accessible to everyone.</p>
 
                                 <div class="text-center text-md-start">
-                                    <button class="btn btn-custom-5 font-size-150 font-size-lg-200 cerebri-sans-pro-bold letter-spacing-10 line-height-110 px-3" style="padding-top:10px">READ MORE</button>
+                                    <a href="{{ route('about.index') }}" class="btn btn-custom-5 font-size-150 font-size-lg-200 cerebri-sans-pro-bold letter-spacing-10 line-height-110 px-3" style="padding-top:10px">LEARN MORE</a>
                                 </div>
                             </div>
                         </div>
