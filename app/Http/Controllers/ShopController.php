@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CartItem;
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,7 +56,7 @@ class ShopController extends Controller
             ->get();
 
         if(Auth::check()) {
-            $cartItems = CartItem::where('user_id', Auth::user()->id)
+            $cartItems = Cart::where('user_id', Auth::user()->id)
                 ->get();
         } else {
             $cartItems = session('cartItems') ? session('cartItems') : [];
@@ -97,7 +97,7 @@ class ShopController extends Controller
                         $cartItem->quantity = $product['quantity'];
                         $cartItem->update();
                     } else {
-                        $cartItem = new CartItem();
+                        $cartItem = new Cart();
                         $cartItem->product_id = $product['id'];
                         $cartItem->quantity = $product['quantity'];
                         $cartItem->save();

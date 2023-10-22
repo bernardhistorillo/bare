@@ -13,7 +13,13 @@ class OrderStatuses extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('order_statuses', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('order_id');
+            $table->string('status');
+            $table->unsignedTinyInteger('is_current');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class OrderStatuses extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('order_statuses');
     }
 }

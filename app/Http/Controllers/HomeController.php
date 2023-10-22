@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\EmailReceived;
 use App\Mail\EmailSent;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -11,7 +12,9 @@ use Illuminate\Support\Facades\Mail;
 class HomeController extends Controller
 {
     public function index() {
-        return view('home.index');
+        $groupedProducts = Product::groupedProducts();
+//        return $groupedProducts;
+        return view('home.index', compact('groupedProducts'));
     }
 
     public function underConstruction() {

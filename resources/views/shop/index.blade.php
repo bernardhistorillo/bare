@@ -115,11 +115,6 @@
             </div>
         </div>
     </div>
-
-    @include('home.includes.section')
-    @include('home.includes.testimonials')
-    @include('home.includes.action')
-
 </div>
 
 @include('home.includes.footer')

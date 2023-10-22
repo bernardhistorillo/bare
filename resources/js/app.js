@@ -6,7 +6,9 @@ let currentRouteName;
 let pageOnload = async function() {
     await allOnload();
 
-    if(currentRouteName === "admin.subscribers.index") {
+    if(currentRouteName === "home.index") {
+        homeOnload();
+    } else if(currentRouteName === "admin.subscribers.index") {
         adminSubscribersOnload();
     }
 };
@@ -17,6 +19,49 @@ let allOnload = async function() {
     $(window).trigger('scroll');
 };
 
+let homeOnload = function() {
+    $('.autoplay').slick({
+        slidesToScroll: 1,
+        slidesToShow: 4,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        arrows: true,
+        prevArrow: '<i class="fa-light fa-circle-chevron-left font-size-200 text-color-2" style="position: absolute; top: 50%; left:0; transform: translate(0, -50%)"></i>',
+        nextArrow: '<i class="fa-light fa-circle-chevron-right font-size-200 text-color-2" style="position: absolute; top: 50%; right:0; transform: translate(0, -50%)"></i>',
+        responsive: [
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 4
+                }
+            }
+        ]
+    });
+};
 let adminSubscribersOnload = function() {
     initializeDataTables();
 };
@@ -63,9 +108,9 @@ let initializeDataTables = function() {
                         //need to change double quotes to single
                         data = data.replace( /"/g, "'" );
                         //split at each new line
-                        splitData = data.split('\n');
+                        let splitData = data.split('\n');
                         data = '';
-                        for (i=0; i < splitData.length; i++) {
+                        for (let i=0; i < splitData.length; i++) {
                             //add escaped double quotes around each line
                             data += '\"' + splitData[i] + '\"';
                             //if its not the last line add CHAR(13)

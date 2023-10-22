@@ -13,6 +13,10 @@ class CreateEmailSubscriptionsTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('email_subscriptions')) {
+            return;
+        }
+
         Schema::create('email_subscriptions', function (Blueprint $table) {
             $table->id();
             $table->string('email');

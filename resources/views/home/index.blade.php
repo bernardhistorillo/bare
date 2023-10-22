@@ -43,66 +43,23 @@
         <div class="container pt-5">
             <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-230 font-size-sm-260 mb-4 mb-xl-3 mb-xxl-0">MOST LOVED</p>
 
-            <div class="row justify-content-center pt-4">
-                <div class="col-10 col-sm-6 col-lg-3 p-xl-4 p-xxl-5 mb-5">
+            <div class="justify-content-center pt-4 autoplay tw-px-[40px] sm:tw-px-[40px] md:tw-px-[50px] lg:tw-px-[40px]">
+                @foreach($groupedProducts as $groupedProduct)
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 p-1 p-sm-2 p-md-3 p-lg-3 p-xl-4 mb-5">
                     <div class="">
                         <div class="mb-4">
-                            <img src="{{ asset('img/shop/product-1.webp') }}" class="w-100" alt="Product" />
+                            <img src="{{ $groupedProduct['photo'] }}" class="w-100" alt="Product" />
                         </div>
 
-                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-1">COCOA</p>
-                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-3">PHP 000.00</p>
+                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-130 font-size-md-140 letter-spacing-5 mb-1">{{ strtoupper($groupedProduct['name']) }}</p>
+                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-130 font-size-md-140 letter-spacing-5 mb-3">PHP {{ number_format($groupedProduct['price'],2) }}</p>
 
                         <div class="">
                             <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-10 col-sm-6 col-lg-3 p-xl-4 p-xxl-5 mb-5">
-                    <div class="">
-                        <div class="mb-4">
-                            <img src="{{ asset('img/shop/product-2.webp') }}" class="w-100" alt="Product" />
-                        </div>
-
-                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-1">CARAMEL</p>
-                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-3">PHP 000.00</p>
-
-                        <div class="">
-                            <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-10 col-sm-6 col-lg-3 p-xl-4 p-xxl-5 mb-5">
-                    <div class="">
-                        <div class="mb-4">
-                            <img src="{{ asset('img/shop/product-3.webp') }}" class="w-100" alt="Product" />
-                        </div>
-
-                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-1">TAUPE</p>
-                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-3">PHP 000.00</p>
-
-                        <div class="">
-                            <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-10 col-sm-6 col-lg-3 p-xl-4 p-xxl-5 mb-5">
-                    <div class="">
-                        <div class="mb-4">
-                            <img src="{{ asset('img/shop/product-4.webp') }}" class="w-100" alt="Product" />
-                        </div>
-
-                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-1">CLAY</p>
-                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-3">PHP 000.00</p>
-
-                        <div class="">
-                            <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

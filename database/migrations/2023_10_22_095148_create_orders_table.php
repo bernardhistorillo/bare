@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('reference');
             $table->unsignedBigInteger('user_id');
-            $table->decimal('price',65,18);
+            $table->unsignedDecimal('price',65,18);
             $table->string('full_name')->nullable();
             $table->string('contact_number')->nullable();
             $table->string('barangay')->nullable();
