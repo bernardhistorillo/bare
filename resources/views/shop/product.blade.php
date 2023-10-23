@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $product)
+@section('title', $product['name'])
 
 @section('content')
 <div>
@@ -41,12 +41,12 @@
 
     <div class="py-5">
         <div class="container pt-5">
-            <p class="text-color-2 cerebri-sans-pro-bold letter-spacing-10 font-size-230 font-size-sm-260 mb-3">{{ strtoupper($product) }}</p>
+            <p class="text-color-2 cerebri-sans-pro-bold letter-spacing-10 font-size-230 font-size-sm-260 mb-3">{{ strtoupper($product['name']) }}</p>
 
             <div class="row mb-5 pb-3">
                 <div class="col-md-6 mb-5 mb-lg-0">
                     <div class="pe-4 pe-lg-5">
-                        <img src="{{ asset('img/shop/product-1.webp') }}" class="w-100" />
+                        <img src="{{ $product['photo'] }}" class="w-100" />
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@
                     <div>
                         <div class="mb-4">
                             <p class="cerebri-sans-pro-regular text-color-2 font-size-140 letter-spacing-10 mb-1">DESCRIPTION</p>
-                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">{{ $product['description'] }}</p>
                         </div>
 
                         <div class="mb-4">
@@ -134,11 +134,6 @@
             </div>
         </div>
     </div>
-
-    @include('home.includes.section')
-    @include('home.includes.testimonials')
-    @include('home.includes.action')
-
 </div>
 
 @include('home.includes.footer')

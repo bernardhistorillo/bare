@@ -49,7 +49,7 @@
                 </div>
                 @else
                 <div class="">
-                    <a href="#" class="text-white">
+                    <a href="{{ route('login.index') }}" class="text-white">
                         <i class="fa-light fa-right-to-bracket text-white font-size-140 font-size-sm-180"></i>
                     </a>
                 </div>

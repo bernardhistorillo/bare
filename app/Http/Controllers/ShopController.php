@@ -17,21 +17,36 @@ class ShopController extends Controller
     public function category($category) {
         $categoryName = $this->getCategory($category);
 
-        if(!$category) {
+        if(!$categoryName) {
             abort(404);
         }
 
-        return view('shop.category', compact('category', 'categoryName'));
+        $items = Product::where('category', $categoryName)
+            ->orderBy('id')
+            ->get();
+
+        $groupedProducts = Product::groupedProducts($items);
+
+
+
+        return view('shop.category', compact('category', 'categoryName', 'groupedProducts'));
     }
 
     public function product($category, $product) {
-        $category = $this->getCategory($category);
+        $categoryName = $this->getCategory($category);
 
-        if(!$category) {
+        if(!$categoryName) {
             abort(404);
         }
 
-        return view('shop.product', compact('category', 'product'));
+        $items = Product::where('category', $categoryName)
+            ->where('name', 'LIKE', $product)
+            ->orderBy('id')
+            ->get();
+
+        $product = Product::groupedProducts($items)[0];
+
+        return view('shop.product', compact('category', 'categoryName', 'product'));
     }
 
     public function getCategory($category) {

@@ -19,10 +19,7 @@ class Product extends Model
         'status',
     ];
 
-    public static function groupedProducts() {
-        $items = Product::orderBy('id')
-            ->get();
-
+    public static function groupedProducts($items) {
         $productGroups = [];
 
         foreach ($items as $item) {
@@ -33,6 +30,7 @@ class Product extends Model
                 $productGroups[$name] = [
                     'price' => $item['price'],
                     'photo' => $item['photo'],
+                    'description' => $item['description'],
                     'variations' => []
                 ];
             }
@@ -62,6 +60,7 @@ class Product extends Model
                 'name' => $name,
                 'price' => $data['price'],
                 'photo' => $data['photo'],
+                'description' => $data['description'],
                 'variations' => $productVariations
             ];
         }

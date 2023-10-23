@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Mail;
 class HomeController extends Controller
 {
     public function index() {
-        $groupedProducts = Product::groupedProducts();
+        $items = Product::orderBy('id')
+            ->get();
+
+        $groupedProducts = Product::groupedProducts($items);
+
 //        return $groupedProducts;
         return view('home.index', compact('groupedProducts'));
     }

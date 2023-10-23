@@ -55,16 +55,6 @@
                 </div>
 
                 <div class="col-11 col-sm-6 p-xl-4 p-xxl-5 mb-5 mb-sm-4">
-                    <a href="{{ route('shop.category', 'bodysuits') }}" class="text-decoration-none">
-                        <div class="w-100 position-relative" style="padding-top:100%">
-                            <div class="position-absolute background-image-cover w-100 h-100 d-flex align-items-end p-4 p-lg-5" style="top:0; left:0; background-image:url('{{ asset('img/shop/categories/category-2.webp') }}')">
-                                <p class="text-white text-decoration-underline cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-md-140 font-size-xl-180 font-size-xxl-190 mb-0">BODYSUITS</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-11 col-sm-6 p-xl-4 p-xxl-5 mb-5 mb-sm-4">
                     <a href="{{ route('shop.category', 'flat-nipple-covers-for-men') }}" class="text-decoration-none">
                         <div class="w-100 position-relative" style="padding-top:100%">
                             <div class="position-absolute background-image-cover w-100 h-100 d-flex align-items-end p-4 p-lg-5" style="top:0; left:0; background-image:url('{{ asset('img/shop/categories/category-3.webp') }}')">
@@ -82,6 +72,14 @@
                             </div>
                         </div>
                     </a>
+                </div>
+
+                <div class="col-11 col-sm-6 p-xl-4 p-xxl-5 mb-5 mb-sm-4">
+                    <div class="w-100 position-relative" style="padding-top:100%">
+                        <div class="position-absolute background-image-cover w-100 h-100 d-flex align-items-end p-4 p-lg-5" style="top:0; left:0; background-image:url('{{ asset('img/shop/categories/category-2.webp') }}')">
+                            <p class="text-white text-decoration-underline cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-md-140 font-size-xl-180 font-size-xxl-190 mb-0">BODYSUITS</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
