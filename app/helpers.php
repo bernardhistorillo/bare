@@ -1,6 +1,7 @@
 <?php
 
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 if(!function_exists('ogDetails')) {
@@ -15,5 +16,17 @@ if(!function_exists('ogDetails')) {
         }
 
         return $data;
+    }
+}
+
+if(!function_exists('cartQuantity')) {
+    function cartQuantity() {
+        $cartQuantity = 0;
+
+        if(Auth::check()) {
+            $cartQuantity = Auth::user()->cartQuantity();
+        }
+
+        return $cartQuantity;
     }
 }

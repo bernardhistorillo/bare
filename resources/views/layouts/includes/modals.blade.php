@@ -49,3 +49,19 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modal-login-warning" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content" style="border-radius:0">
+            <div class="modal-body">
+                <div class="text-center mt-3 mb-4">
+                    <i class="fas fa-right-to-bracket font-size-400 text-color-1"></i>
+                </div>
+                <div class="text-center mb-1 message">Please login to your account first.</div>
+            </div>
+            <div class="modal-footer justify-content-center" style="border-color:#808080">
+                <a href="{{ route('login.index') }}" class="btn btn-custom-1 font-weight-500 px-4">Go to Login Page!</a>
+            </div>
+        </div>
+    </div>
+</div>

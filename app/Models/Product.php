@@ -29,6 +29,7 @@ class Product extends Model
             if (!isset($productGroups[$name])) {
                 $productGroups[$name] = [
                     'price' => $item['price'],
+                    'category' => $item['category'],
                     'photo' => $item['photo'],
                     'description' => $item['description'],
                     'variations' => []
@@ -59,6 +60,7 @@ class Product extends Model
             $products[] = [
                 'name' => $name,
                 'price' => $data['price'],
+                'category' => $data['category'],
                 'photo' => $data['photo'],
                 'description' => $data['description'],
                 'variations' => $productVariations

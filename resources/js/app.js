@@ -144,6 +144,11 @@ let showRequestError = function(error) {
         }
     }
 
+    if(content === "Unauthenticated.") {
+        $("#modal-login-warning").modal("show");
+        return 0;
+    }
+
     $("#modal-error .message").html(content);
     $("#modal-error").modal("show");
 };
@@ -182,6 +187,7 @@ $(document).on("click", ".reload-page", function() {
     }
 });
 
+// Contact Form
 $(document).on("submit", "#email-subscription-form", function(e) {
     e.preventDefault();
 
@@ -234,6 +240,7 @@ $(document).on("submit", "#contact-form", function(e) {
     });
 });
 
+// Authentication
 $(document).on("submit", "#register-form", function(e) {
     e.preventDefault();
 
@@ -277,6 +284,80 @@ $(document).on("submit", "#user-login-form", function(e) {
             button.html('Log In');
 
             showRequestError(error);
+        })
+});
+
+// Shop
+$(document).on("submit", ".update-cart-form", function(e) {
+    e.preventDefault();
+
+    let form = $(this);
+    let data = new FormData(form[0]);
+    let variations = JSON.parse(data.get('variations').toString());
+    let content = '';
+
+    for(let i = 0; i < variations.length; i++) {
+        content += '<div class="variation mb-2">';
+        content += '    <p class="text-color-6 font-size-90 text-center mb-2">' + variations[i].name + '</p>';
+        content += '    <div class="row justify-content-center tw-mx-[10px]" data-variation="' + i + '">';
+        for(let j = 0; j < variations[i].values.length; j++) {
+            content += '    <input type="hidden" name="variation_name_' + i + '" value="' + variations[i].name + '" />';
+            content += '    <div class="col-12 px-1 mb-2">';
+            content += '        <input type="radio" name="variation_' + i + '" class="d-none" value="' + variations[i].values[j] + '" ' + ((j === 0) ? 'checked' : '') + '/>';
+            content += '        <button type="button" class="btn py-1 font-size-90 w-100 variation-radio ' + ((j === 0) ? 'active' : '') + '">' + variations[i].values[j] + '</button>';
+            content += '    </div>';
+        }
+        content += '    </div>';
+        content += '</div>';
+    }
+
+    $("#variation-container").html(content);
+
+    $("#add-to-cart-form [name='name']").val(data.get('name').toString());
+    $("#add-to-cart-form [name='category']").val(data.get('category').toString());
+    $("#modal-variation").modal("show");
+});
+
+$(document).on("click", ".variation-radio", function() {
+    $(this).closest(".col-12").find("[type='radio']").prop("checked", true);
+
+    let variation = $(this).closest(".row").attr("data-variation");
+
+    $(".row[data-variation='" + variation + "'] .variation-radio").removeClass("active");
+
+    $(this).addClass("active");
+});
+
+$(document).on("submit", "#add-to-cart-form", function(e) {
+    e.preventDefault();
+
+    let form = $(this);
+    let button = form.find("[type='submit']");
+    button.prop("disabled", true);
+    button.html('Adding to Cart');
+
+    let data = new FormData($(this)[0]);
+    let url = data.get('url').toString();
+
+    axios.post(url, data)
+        .then((response) => {
+            alertify.set('notifier','position', 'top-right');
+            alertify.success('Product successfully added to cart!', 5);
+
+            $(".ajs-message").addClass("bg-color-1");
+            $(".ajs-message").css("text-shadow", "initial");
+
+            if(response.data.cartQuantity > 0) {
+                $("#cart-quantity-badge").html(response.data.cartQuantity);
+                $("#cart-quantity-badge").removeClass("d-none");
+            }
+        }).catch((error) => {
+            showRequestError(error);
+        }).then(() => {
+            $("#modal-variation").modal("hide");
+
+            button.html('Add to Cart');
+            button.prop("disabled", false);
         })
 });
 

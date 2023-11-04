@@ -46,8 +46,9 @@ Route::prefix('shop')->group(function () {
     Route::get('/{category}', [ShopController::class, 'category'])->name('shop.category');
     Route::get('/{category}/{product}', [ShopController::class, 'product'])->name('shop.product');
 
-    Route::post('/getProducts', [ShopController::class, 'getProducts'])->name('shop.getProducts');
-    Route::post('/updateCart', [ShopController::class, 'updateCart'])->name('shop.updateCart');
+    Route::middleware(['auth'])->group(function() {
+        Route::post('/addToCart', [ShopController::class, 'addToCart'])->name('shop.addToCart');
+    });
 });
 
 Route::prefix('about')->group(function () {

@@ -27,8 +27,6 @@ class ShopController extends Controller
 
         $groupedProducts = Product::groupedProducts($items);
 
-
-
         return view('shop.category', compact('category', 'categoryName', 'groupedProducts'));
     }
 
@@ -94,50 +92,43 @@ class ShopController extends Controller
         ]);
     }
 
-    public function updateCart(Request $request) {
+    public function addToCart(Request $request) {
         $request->validate([
-            'products' => 'required'
+            'name' => 'required',
+            'category' => 'required',
+            'quantity' => 'required',
         ]);
 
-        $products = json_decode($request->products, true);
-
-        if(Auth::check()) {
-            foreach($products as $product) {
-                if($product['cartQuantity'] > 0) {
-                    $cartItem = Auth::user()->cartItems()
-                        ->where('product_id', $product['id'])
-                        ->first();
-
-                    if($cartItem) {
-                        $cartItem->quantity = $product['quantity'];
-                        $cartItem->update();
-                    } else {
-                        $cartItem = new Cart();
-                        $cartItem->product_id = $product['id'];
-                        $cartItem->quantity = $product['quantity'];
-                        $cartItem->save();
-                    }
-                } else {
-                    Auth::user()->cartItems()
-                        ->where('product_id', $product['id'])
-                        ->delete();
+        $product = Product::where('name', $request->name)
+            ->where('category', $request->category)
+            ->where(function($query) use ($request) {
+                $i = 0;
+                while($request['variation_name_' . $i]) {
+                    $query->where('variations', 'LIKE', '%"' . $request['variation_name_' . $i] . '": "' . $request['variation_' . $i] . '"%');
+                    $i++;
                 }
-            }
-        } else {
-            $cartItems = [];
+            })
+            ->first();
 
-            foreach($products as $product) {
-                if($product['cartQuantity'] > 0) {
-                    $cartItems[] = [
-                        'product_id' => $product['id'],
-                        'quantity' => $product['cartQuantity'],
-                    ];
-                }
-            }
+        if($product) {
+            $cart = Cart::where('product_id', $product['id'])
+                ->where('user_id', Auth::user()->id)
+                ->first();
 
-            session(['cartItems' => $cartItems]);
+            if($cart) {
+                $cart->quantity = $cart['quantity'] + $request->quantity;
+                $cart->update();
+            } else {
+                $cart = new Cart();
+                $cart->product_id = $product['id'];
+                $cart->user_id = Auth::user()->id;
+                $cart->quantity = $request->quantity;
+                $cart->save();
+            }
         }
 
-        return response()->json();
+        return response()->json([
+            'cartQuantity' => cartQuantity()
+        ]);
     }
 }

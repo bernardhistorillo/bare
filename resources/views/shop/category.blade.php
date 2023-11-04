@@ -53,7 +53,7 @@
             </div>
 
             <div class="row justify-content-center pt-4">
-                @foreach($groupedProducts as $groupedProduct)
+                @foreach($groupedProducts as $i => $groupedProduct)
                 <div class="col-10 col-sm-6 col-lg-3 p-xl-4 p-xxl-5 mb-5">
                     <div class="">
                         <a href="{{ route('shop.product', [$category, strtolower($groupedProduct['name'])]) }}" class="text-decoration-none">
@@ -68,7 +68,13 @@
                         </a>
 
                         <div class="">
-                            <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>
+                            <form class="update-cart-form" data-index="{{ $i }}">
+                                <input type="hidden" name="name" value="{{ $groupedProduct['name'] }}" />
+                                <input type="hidden" name="category" value="{{ $groupedProduct['category'] }}" />
+                                <input type="hidden" name="variations" value="{{ json_encode($groupedProduct['variations']) }}" />
+
+                                <button type="submit" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -78,6 +84,7 @@
     </div>
 </div>
 
+@include('shop.includes.modalVariation')
 @include('home.includes.footer')
 
 @endsection

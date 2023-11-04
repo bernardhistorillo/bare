@@ -47,6 +47,11 @@ class User extends Authenticatable
         return $this->hasMany(Cart::class);
     }
 
+    public function cartQuantity() {
+        return $this->hasMany(Cart::class)
+            ->count();
+    }
+
     public function photo() {
         return 'https://avatars.dicebear.com/api/avataaars/' . $this->id . '.svg';
     }
