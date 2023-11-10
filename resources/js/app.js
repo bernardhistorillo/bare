@@ -204,6 +204,9 @@ let updateCartQuantity = function(cartQuantity, cartTotalPrice) {
         $("#cart-quantity-badge").html(cartQuantity);
         $("#cart-quantity-badge").removeClass("d-none");
     } else {
+        $("#cart-container").addClass("d-none")
+        $("#cart-empty-container").removeClass("d-none")
+
         $("#cart-quantity-badge").addClass("d-none");
     }
 
