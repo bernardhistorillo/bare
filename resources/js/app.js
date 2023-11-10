@@ -187,6 +187,114 @@ $(document).on("click", ".reload-page", function() {
     }
 });
 
+$(document).on("input", ".use-numeric-no-leading-zero-rule", function() {
+    let value = $(this).val();
+
+    if (value === null || value === 0 || value === undefined) return value
+
+    let numericValue = value.replace(/[^0-9]/g, '')
+    numericValue = numericValue.replace(/^0+/, '') || '1'
+
+    $(this).val(numericValue);
+});
+
+// Cart
+let updateCartQuantity = function(cartQuantity, cartTotalPrice) {
+    if(cartQuantity > 0) {
+        $("#cart-quantity-badge").html(cartQuantity);
+        $("#cart-quantity-badge").removeClass("d-none");
+    } else {
+        $("#cart-quantity-badge").addClass("d-none");
+    }
+
+    if(cartTotalPrice) {
+        $("#cart-total-price").html(cartTotalPrice);
+    }
+};
+
+$(document).on("click", ".cart-quantity-decrement", function() {
+    let cartItem = $(this).closest(".cart-item");
+    let quantityField = cartItem.find('.cart-quantity');
+
+    let quantity = parseInt(quantityField.val()) - 1;
+
+    if(isNaN(quantity) || quantity === 0) {
+        quantity = 1;
+    }
+
+    quantityField.val(quantity);
+
+    quantityField.trigger("change");
+});
+
+$(document).on("click", ".cart-quantity-increment", function() {
+    let cartItem = $(this).closest(".cart-item");
+    let quantityField = cartItem.find('.cart-quantity');
+
+    let quantity = parseInt(quantityField.val()) + 1;
+
+    quantityField.val(quantity);
+
+    quantityField.trigger("change");
+});
+
+$(document).on("change", ".cart-quantity", function() {
+    let quantityField = $(this);
+
+    let productId = quantityField.attr("data-product-id");
+    let quantity = quantityField.val();
+
+    if(quantity === '') {
+        quantity = '1';
+        quantityField.val(quantity);
+    }
+
+    let cartItem = quantityField.closest(".cart-item");
+    let decrementButton = cartItem.find(".cart-quantity-decrement");
+    let incrementButton = cartItem.find(".cart-quantity-increment");
+
+    decrementButton.prop("disabled", true);
+    incrementButton.prop("disabled", true);
+
+    let url = quantityField.attr('data-url');
+    let data = new FormData();
+    data.append('product_id', productId);
+    data.append('quantity', quantity);
+
+    axios.post(url, data)
+        .then((response) => {
+            quantityField.val(response.data.quantity);
+            updateCartQuantity(response.data.cartQuantity, response.data.cartTotalPrice);
+            cartItem.find(".cart-price").html(response.data.price);
+        }).catch((error) => {
+            showRequestError(error);
+        }).then(() => {
+            decrementButton.prop("disabled", false);
+            incrementButton.prop("disabled", false);
+        });
+});
+
+$(document).on("click", ".cart-item-delete", function() {
+    let deleteButton = $(this);
+    let productId = deleteButton.attr("data-product-id");
+
+    deleteButton.prop("disabled", true);
+
+    let url = deleteButton.attr('data-url');
+    let data = new FormData();
+    data.append('product_id', productId);
+
+    axios.post(url, data)
+        .then((response) => {
+            updateCartQuantity(response.data.cartQuantity, response.data.cartTotalPrice);
+            deleteButton.closest('.cart-item').remove();
+        }).catch((error) => {
+            showRequestError(error);
+        }).then(() => {
+            deleteButton.prop("disabled", false);
+        });
+});
+
 // Contact Form
 $(document).on("submit", "#email-subscription-form", function(e) {
     e.preventDefault();
@@ -347,10 +455,7 @@ $(document).on("submit", "#add-to-cart-form", function(e) {
             $(".ajs-message").addClass("bg-color-1");
             $(".ajs-message").css("text-shadow", "initial");
 
-            if(response.data.cartQuantity > 0) {
-                $("#cart-quantity-badge").html(response.data.cartQuantity);
-                $("#cart-quantity-badge").removeClass("d-none");
-            }
+            updateCartQuantity(response.data.cartQuantity, null);
         }).catch((error) => {
             showRequestError(error);
         }).then(() => {

@@ -56,8 +56,9 @@
                 @endif
 
                 <div class="ps-4 ps-sm-5">
-                    <a href="#" class="text-white position-relative">
-                        <div class="position-absolute cerebri-sans-pro-regular tw-pt-[2px] d-flex justify-content-center align-items-center bg-color-10 tw-min-w-[20px] tw-min-h-[20px] tw-top-[-20px] tw-right-[-15px] font-size-90 px-2 tw-rounded-[10px] {{ cartQuantity() == 0 ? 'd-none' : '' }}" id="cart-quantity-badge">{{ cartQuantity() }}</div>
+                    <a href="{{ route('cart.index') }}" class="text-white position-relative">
+                        @php $cartQuantity = cartQuantity(); @endphp
+                        <div class="position-absolute cerebri-sans-pro-regular tw-pt-[2px] d-flex justify-content-center align-items-center bg-color-10 tw-min-w-[20px] tw-min-h-[20px] tw-top-[-20px] tw-right-[-15px] font-size-90 px-2 tw-rounded-[10px] {{ $cartQuantity == 0 ? 'd-none' : '' }}" id="cart-quantity-badge">{{ $cartQuantity }}</div>
 
                         <i class="fa-light fa-cart-shopping text-white font-size-140 font-size-sm-180"></i>
                     </a>

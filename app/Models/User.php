@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -47,9 +48,26 @@ class User extends Authenticatable
         return $this->hasMany(Cart::class);
     }
 
+    public function cartItemsWithProducts() {
+        return Auth::user()->cartItems()
+            ->leftJoin('products', 'product_id', 'products.id')
+            ->select('carts.*', 'name', 'category', 'variations', 'price', 'photo')
+            ->get();
+    }
+
     public function cartQuantity() {
-        return $this->hasMany(Cart::class)
+        return $this->cartItems()
             ->count();
+    }
+
+    public function cartTotalPrice() {
+        $cartTotalPrice = 0;
+
+        foreach(Auth::user()->cartItemsWithProducts() as $cartItem) {
+            $cartTotalPrice += $cartItem['quantity'] * $cartItem['price'];
+        }
+
+        return $cartTotalPrice;
     }
 
     public function photo() {

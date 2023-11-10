@@ -44,7 +44,7 @@
             <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-230 font-size-sm-260 mb-4 mb-xl-3 mb-xxl-0">MOST LOVED</p>
 
             <div class="justify-content-center pt-4 autoplay tw-px-[40px] sm:tw-px-[40px] md:tw-px-[50px] lg:tw-px-[40px]">
-                @foreach($groupedProducts as $groupedProduct)
+                @foreach($groupedProducts as $i => $groupedProduct)
                 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 p-1 p-sm-2 p-md-3 p-lg-3 p-xl-4 mb-5">
                     <div class="">
                         <div class="mb-4">
@@ -55,7 +55,13 @@
                         <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-130 font-size-md-140 letter-spacing-5 mb-3">PHP {{ number_format($groupedProduct['price'],2) }}</p>
 
                         <div class="">
-                            <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>
+                            <form class="update-cart-form" data-index="{{ $i }}">
+                                <input type="hidden" name="name" value="{{ $groupedProduct['name'] }}" />
+                                <input type="hidden" name="category" value="{{ $groupedProduct['category'] }}" />
+                                <input type="hidden" name="variations" value="{{ json_encode($groupedProduct['variations']) }}" />
+
+                                <button type="submit" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 w-100" style="padding-top:8px">ADD TO CART</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -94,6 +100,7 @@
 
 </div>
 
+@include('shop.includes.modalVariation')
 @include('home.includes.footer')
 
 @endsection

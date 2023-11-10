@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content" style="border-radius:0">
             <form id="add-to-cart-form">
-                <input type="hidden" name="url" value="{{ route('shop.addToCart') }}" />
+                <input type="hidden" name="url" value="{{ route('cart.store') }}" />
                 <input type="hidden" name="name" />
                 <input type="hidden" name="category" />
 

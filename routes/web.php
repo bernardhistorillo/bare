@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminSubscriberController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -39,16 +40,19 @@ Route::middleware(['guest'])->group(function() {
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout.index');
+
+    Route::prefix('cart')->group(function () {
+        Route::get('/', [CartController::class, 'index'])->name('cart.index');
+        Route::post('/store', [CartController::class, 'store'])->name('cart.store');
+        Route::post('/updateQuantity', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
+        Route::post('/delete', [CartController::class, 'delete'])->name('cart.delete');
+    });
 });
 
 Route::prefix('shop')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
     Route::get('/{category}', [ShopController::class, 'category'])->name('shop.category');
     Route::get('/{category}/{product}', [ShopController::class, 'product'])->name('shop.product');
-
-    Route::middleware(['auth'])->group(function() {
-        Route::post('/addToCart', [ShopController::class, 'addToCart'])->name('shop.addToCart');
-    });
 });
 
 Route::prefix('about')->group(function () {
