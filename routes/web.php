@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminSubscriberController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -46,6 +47,15 @@ Route::middleware(['auth'])->group(function() {
         Route::post('/store', [CartController::class, 'store'])->name('cart.store');
         Route::post('/updateQuantity', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
         Route::post('/delete', [CartController::class, 'delete'])->name('cart.delete');
+    });
+
+    Route::prefix('checkout')->group(function () {
+        Route::get('/', [CheckoutController::class, 'index'])->name('checkout.index');
+        Route::post('/placeOrder', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+    });
+
+    Route::prefix('orders')->group(function () {
+        Route::get('/', [CheckoutController::class, 'index'])->name('orders.index');
     });
 });
 

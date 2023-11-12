@@ -92,7 +92,7 @@
                     <div class="d-flex flex-column flex-sm-row align-items-center">
                         <div class="cerebri-sans-pro-regular mb-4 mb-sm-0 pe-sm-4">Total Price:&nbsp; <i class="fa-regular fa-peso-sign"></i> <span class="cerebri-sans-pro-regular" id="cart-total-price">{{ number_format(Auth::user()->cartTotalPrice(), 2) }}</span></div>
                         <div>
-                            <a href="" class="btn btn-custom-4 px-5 py-2">Check Out</a>
+                            <a href="{{ route('checkout.index') }}" class="btn btn-custom-4 px-5 py-2">Check Out</a>
                         </div>
                     </div>
                 </div>

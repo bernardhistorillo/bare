@@ -298,6 +298,42 @@ $(document).on("click", ".cart-item-delete", function() {
         });
 });
 
+// Check Out
+$(document).on("submit", "#checkout-form", function(e) {
+    e.preventDefault();
+
+    $("#modal-place-order-confirmation").modal("show");
+});
+
+$(document).on("click", "#place-order", function() {
+    let closeButtons = $("#modal-place-order-confirmation [data-bs-dismiss='modal']");
+    closeButtons.addClass("d-none");
+
+    let button = $(this);
+    button.prop("disabled", true);
+    button.html('Placing Order');
+
+    let data = new FormData($("#checkout-form")[0]);
+    let url = data.get('url').toString();
+
+    axios.post(url, data)
+        .then((response) => {
+            initializeReloadButton(response.data.redirect);
+
+            $("#modal-success .message").html("Success! Your order is confirmed and will be processed shortly. Thank you for your purchase!");
+            $("#modal-success").modal("show");
+        }).catch((error) => {
+            showRequestError(error);
+        }).then(() => {
+            closeButtons.removeClass("d-none");
+
+            button.prop("disabled", false);
+            button.html('Confirm');
+
+            $("#modal-place-order-confirmation").modal("hide");
+        });
+});
+
 // Contact Form
 $(document).on("submit", "#email-subscription-form", function(e) {
     e.preventDefault();
