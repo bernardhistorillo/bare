@@ -70,6 +70,20 @@ class User extends Authenticatable
         return $cartTotalPrice;
     }
 
+    public function orders() {
+        return $this->hasMany(Order::class);
+    }
+
+    public function recentOrders() {
+        return $this->orders()
+            ->with('orderItems.product')
+            ->with(['orderStatus' => function ($query) {
+                $query->orderBy('id', 'desc');
+            }])
+            ->orderBy('id', 'desc')
+            ->get();
+    }
+
     public function photo() {
         return 'https://avatars.dicebear.com/api/avataaars/' . $this->id . '.svg';
     }

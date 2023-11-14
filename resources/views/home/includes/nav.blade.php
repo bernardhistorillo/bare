@@ -40,6 +40,12 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
+                            <a class="dropdown-item cerebri-sans-pro-regular" href="{{ route('orders.index') }}">
+                                <i class="fa-regular fa-bag-shopping me-2"></i>
+                                My Purchases
+                            </a>
+                        </li>
+                        <li>
                             <a class="dropdown-item cerebri-sans-pro-regular" href="{{ route('logout.index') }}">
                                 <i class="fa-regular fa-right-from-bracket me-2"></i>
                                 Logout

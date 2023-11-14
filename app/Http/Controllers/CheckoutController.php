@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Order;
-use App\Models\OrderedItem;
 use App\Models\OrderItem;
 use App\Models\OrderStatus;
 use Illuminate\Http\Request;
@@ -14,6 +13,10 @@ class CheckoutController extends Controller
 {
     public function index() {
         $cartItems = Auth::user()->cartItemsWithProducts();
+
+        if(count($cartItems) == 0) {
+            return redirect()->route('cart.index');
+        }
 
         return view('checkout.index', compact('cartItems'));
     }

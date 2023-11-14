@@ -300,6 +300,13 @@ html, body {
 .dropdown-toggle-user::after {
     display:none;
 }
+.order-accordion .accordion-button:not(.collapsed) {
+    background-color: rgba(0,0,0,0);
+}
+.order-accordion .accordion-button:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
 
 /*##################################################################*/
 

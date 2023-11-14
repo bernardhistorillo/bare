@@ -9,6 +9,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,7 +56,7 @@ Route::middleware(['auth'])->group(function() {
     });
 
     Route::prefix('orders')->group(function () {
-        Route::get('/', [CheckoutController::class, 'index'])->name('orders.index');
+        Route::get('/', [OrderController::class, 'index'])->name('orders.index');
     });
 });
 
