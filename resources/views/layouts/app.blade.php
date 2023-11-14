@@ -29,7 +29,7 @@
 
     <title>@yield('title') | {{ config('app.name') }}</title>
 </head>
-<body style="overflow-x:hidden">
+<body class="app" style="overflow-x:hidden">
     @yield('content')
 
     @include('layouts.includes.modals')

@@ -22,7 +22,7 @@
                 <tbody>
                     @foreach($subscribers as $subscriber)
                     <tr>
-                        <td class="align-middle">{{ \Carbon\Carbon::parse($subscriber['created_at'])->isoFormat('llll') }}</td>
+                        <td class="align-middle">{{ \Carbon\Carbon::parse($subscriber['created_at'])->setTimezone('Asia/Manila')->isoFormat('llll') }}</td>
                         <td class="align-middle">{{ json_decode($subscriber['data'], true)['name'] }}</td>
                         <td class="align-middle">{{ $subscriber['email'] }}</td>
                     </tr>

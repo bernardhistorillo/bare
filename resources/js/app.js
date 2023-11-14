@@ -8,6 +8,8 @@ let pageOnload = async function() {
 
     if(currentRouteName === "home.index") {
         homeOnload();
+    } else if(currentRouteName === "admin.orders.index") {
+        adminOrdersOnload();
     } else if(currentRouteName === "admin.subscribers.index") {
         adminSubscribersOnload();
     }
@@ -61,6 +63,25 @@ let homeOnload = function() {
             }
         ]
     });
+};
+let adminOrdersOnload = function() {
+    $('#orders-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: $("#orders-table").attr("data-url"),
+        columns: [
+            { data: 'date_time', name: 'orders.created_at' },
+            { data: 'reference', name: 'orders.reference' },
+            { data: 'name', name: 'users.name' },
+            { data: 'delivery_details', name: 'delivery_details', orderable: false, searchable: false },
+            { data: 'price', name: 'orders.price' },
+            { data: 'status', name: 'order_statuses.status' },
+            { data: 'actions', name: 'actions', orderable: false, searchable: false }
+        ]
+    });
+
+    $(".loading-text").addClass("d-none");
+    $(".data-table").removeClass("d-none");
 };
 let adminSubscribersOnload = function() {
     initializeDataTables();
@@ -528,4 +549,10 @@ $(document).on("submit", "#login-form", function(e) {
 
             showRequestError(error);
         });
+});
+
+// Admin Orders
+$(document).on("click", ".view-order-items", function() {
+    $("#order-items-container").html($(this).closest("td").find(".order-items-table-container").html());
+    $("#modal-view-order-items").modal("show");
 });

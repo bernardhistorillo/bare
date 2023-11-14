@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AdminSubscriberController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BlogController;
@@ -86,9 +87,10 @@ Route::prefix('admin')->group(function () {
         Route::post('/login', [LoginController::class, 'login'])->name('admin.login.submit');
     });
 
-    Route::middleware(['auth'])->group(function() {
-        Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+    Route::middleware(['auth', 'is_admin'])->group(function() {
+        Route::get('/logout', [AuthenticationController::class, 'logout'])->name('auth.logout');
 
+        Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
         Route::get('/subscribers', [AdminSubscriberController::class, 'index'])->name('admin.subscribers.index');
     });
 });

@@ -4,11 +4,18 @@
             <img src="{{ asset('img/home/bare-white.png') }}" alt="{{ config('app.name') }}" width="54" />
         </div>
         <div class="sidebar-brand-text mx-3">
-            <img src="{{ asset('img/home/bare-white.png') }}" alt="{{ config('app.name') }}" height="22" />
+            <img src="{{ asset('img/home/bare-white.png') }}" alt="{{ config('app.name') }}" class="tw-max-h-[30px]" />
         </div>
     </a>
 
     <hr class="sidebar-divider my-0">
+
+    <li class="nav-item text-white {{ (Route::currentRouteName() == 'admin.orders.index') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.orders.index') }}">
+            <i class="fa-solid fa-fw fa-bag-shopping"></i>
+            <span>Orders</span>
+        </a>
+    </li>
 
     <li class="nav-item text-white {{ (Route::currentRouteName() == 'admin.subscribers.index') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.subscribers.index') }}">
