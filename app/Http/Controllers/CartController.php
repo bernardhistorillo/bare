@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
     public function index() {
-        $cartItems = Auth::user()->cartItemsWithProducts();
+        if(Auth::check()) {
+            $cartItems = Auth::user()->cartItemsWithProducts();
 
-        return view('cart.index', compact('cartItems'));
+            return view('cart.index', compact('cartItems'));
+        } else {
+            return redirect()->route('login.index');
+        }
     }
 
     public function store(Request $request) {

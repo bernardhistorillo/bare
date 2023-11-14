@@ -50,7 +50,7 @@
                             </thead>
                             <tbody>
                                 @foreach($order['orderItems'] as $orderItem)
-                                <tr class="cart-item">
+                                <tr>
                                     <td class="align-middle">
                                         <div class="d-flex align-items-center">
                                             <div class="pe-3">
@@ -150,42 +150,26 @@
                             </h2>
                             <div id="order-status-{{ $i }}" class="accordion-collapse collapse" data-bs-parent="#accordion-order-status-{{ $i }}">
                                 <div class="accordion-body">
-                                    <div class="row tw-mx-[-8px]">
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Full Name</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['full_name'] }}" disabled />
-                                        </div>
-
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Contact Number</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['contact_number'] }}" disabled />
-                                        </div>
-
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Zip Code</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['zip_code'] }}" disabled />
-                                        </div>
-
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Province</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['province'] }}" disabled />
-                                        </div>
-
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">City</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['city'] }}" disabled />
-                                        </div>
-
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Barangay</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['barangay'] }}" disabled />
-                                        </div>
-
-                                        <div class="col-md-12 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Home Address</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['home_address'] }}" disabled />
-                                        </div>
-                                    </div>
+                                    <table class="table table-bordered mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-color-1 cerebri-sans-pro-regular aign-middle font-size-90 text-center w-50">Date&nbsp;&amp;Time</th>
+                                                <th class="text-color-1 cerebri-sans-pro-regular aign-middle font-size-90 text-center w-50">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($order['orderStatus'] as $orderStatus)
+                                            <tr class="cart-item">
+                                                <td class="align-middle">
+                                                    <p class="cerebri-sans-pro-regular font-size-90 text-center mb-0">{{ \Carbon\Carbon::parse($orderStatus['created_at'])->setTimezone('Asia/Manila')->isoFormat('llll') }}</p>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <p class="cerebri-sans-pro-regular font-size-90 text-center mb-0">{{ $orderStatus['status'] }}</p>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
