@@ -65,7 +65,7 @@ let homeOnload = function() {
     });
 };
 let adminOrdersOnload = function() {
-    $('#orders-table').DataTable({
+    adminOrderTable = $('#orders-table').DataTable({
         processing: true,
         serverSide: true,
         ajax: $("#orders-table").attr("data-url"),
@@ -102,6 +102,26 @@ let numberFormat = function(x, decimal) {
         return parts.join(".");
     } else {
         return parts[0];
+    }
+};
+let formatDateTime = function(date, type) {
+    date = new Date(date);
+
+    if(type === 'llll') {
+        const options = {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'Asia/Manila',
+            hour12: true
+        };
+
+        const formatter = new Intl.DateTimeFormat('en-US', options);
+
+        return formatter.format(date);
     }
 };
 let initializeReloadButton = function(link) {
@@ -541,7 +561,7 @@ $(document).on("submit", "#login-form", function(e) {
 
     axios.post(url, data)
         .then((response) => {
-            button.html("REDIRECTING");
+            button.html("Redirecting");
             window.location = response.data.redirect;
         }).catch((error) => {
             button.prop("disabled",false);
@@ -552,7 +572,68 @@ $(document).on("submit", "#login-form", function(e) {
 });
 
 // Admin Orders
+let adminOrderTable;
+
 $(document).on("click", ".view-order-items", function() {
     $("#order-items-container").html($(this).closest("td").find(".order-items-table-container").html());
     $("#modal-view-order-items").modal("show");
+});
+
+$(document).on("click", ".update-order-status", function() {
+    let orderStatuses = JSON.parse($(this).closest("td").find(".order-status-container").html());
+    let currentOrderStatus = $(this).closest("td").find(".order-status-container").attr("data-current-status");
+    let orderId = $(this).closest("td").find(".order-status-container").attr("data-order-id");
+
+    $("#order-status").val(currentOrderStatus);
+    $("#update-order-status").val(orderId);
+
+    let content = '';
+    content += '<div class="table-responsive">';
+    content += '    <table class="table table-bordered font-size-90 mb-0">';
+    content += '        <thead>';
+    content += '            <tr>';
+    content += '                <th class="align-middle">Date&nbsp;&amp; Time</th>';
+    content += '                <th class="align-middle">Status</th>';
+    content += '            </tr>';
+    content += '        </thead>';
+    content += '        <tbody>';
+    for (let i = 0; i < orderStatuses.length; i++) {
+        content += '        <tr>';
+        content += '            <td class="align-middle">' + formatDateTime(orderStatuses[i].created_at, 'llll') + '</td>';
+        content += '            <td class="align-middle">' + orderStatuses[i].status + '</td>';
+        content += '        </tr>';
+    }
+    content += '        </thead>';
+    content += '    </table>';
+    content += '</div>';
+
+    $("#order-status-table-container").html(content);
+    $("#modal-update-order-status").modal("show");
+});
+
+$(document).on("click", "#update-order-status", function() {
+    let button = $(this);
+
+    button.prop("disabled", true);
+
+    $("#modal-update-order-status [data-bs-dismiss='modal']").addClass("d-none");
+
+    let url = $(this).attr("data-url");
+    let data = new FormData();
+    data.append('status', $("#order-status").val());
+    data.append('order_id', button.val());
+
+    axios.post(url, data)
+        .then((response) => {
+            adminOrderTable.ajax.reload(null, false);
+
+            $("#modal-success .message").html("The order status has been updated successfully.");
+            $("#modal-success").modal("show");
+        }).catch((error) => {
+            showRequestError(error);
+        }).then(() => {
+            button.prop("disabled", false);
+            $("#modal-update-order-status [data-bs-dismiss='modal']").removeClass("d-none");
+            $("#modal-update-order-status").modal("hide");
+        });
 });

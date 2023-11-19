@@ -153,7 +153,7 @@
                                     <table class="table table-bordered mb-0">
                                         <thead>
                                             <tr>
-                                                <th class="text-color-1 cerebri-sans-pro-regular aign-middle font-size-90 text-center w-50">Date&nbsp;&amp;Time</th>
+                                                <th class="text-color-1 cerebri-sans-pro-regular aign-middle font-size-90 text-center w-50">Date&nbsp;&amp; Time</th>
                                                 <th class="text-color-1 cerebri-sans-pro-regular aign-middle font-size-90 text-center w-50">Status</th>
                                             </tr>
                                         </thead>
@@ -164,7 +164,8 @@
                                                     <p class="cerebri-sans-pro-regular font-size-90 text-center mb-0">{{ \Carbon\Carbon::parse($orderStatus['created_at'])->setTimezone('Asia/Manila')->isoFormat('llll') }}</p>
                                                 </td>
                                                 <td class="align-middle">
-                                                    <p class="cerebri-sans-pro-regular font-size-90 text-center mb-0">{{ $orderStatus['status'] }}</p>
+                                                    <p class="cerebri-sans-pro-regular font-size-90 font-weight-800 mb-1">{{ $orderStatus['status'] }}</p>
+                                                    <p class="cerebri-sans-pro-regular font-size-90 mb-0">{{ orderStatusDescription($orderStatus['status']) }}</p>
                                                 </td>
                                             </tr>
                                             @endforeach

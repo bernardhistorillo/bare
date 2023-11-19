@@ -49,7 +49,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{ route('auth.logout') }}">
+                                <a class="dropdown-item" href="{{ route('admin.logout') }}">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

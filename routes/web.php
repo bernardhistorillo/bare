@@ -88,9 +88,13 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::middleware(['auth', 'is_admin'])->group(function() {
-        Route::get('/logout', [AuthenticationController::class, 'logout'])->name('auth.logout');
+        Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
-        Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
+        Route::prefix('orders')->group(function () {
+            Route::get('/', [AdminOrderController::class, 'index'])->name('admin.orders.index');
+            Route::post('/updateStatus', [AdminOrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
+        });
+
         Route::get('/subscribers', [AdminSubscriberController::class, 'index'])->name('admin.subscribers.index');
     });
 });

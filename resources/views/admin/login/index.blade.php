@@ -8,10 +8,10 @@
         <div class="col-sm-10 col-md-7 col-lg-6 col-xl-5 py-5">
             <div class="card border-radius-0 mb-4" style="border:1px solid #000000">
                 <div class="card-body p-4 p-sm-5">
-                    <p class="text-center code-pro-lc font-size-130">Log In</p>
+                    <p class="text-center code-pro-lc font-size-130 mb-3">Log In</p>
                     <form id="login-form" action="{{ route('admin.login.submit') }}">
                         <div class="position-relative mb-3">
-                            <input class="form-control form-control-1 px-5 py-2" name="name" type="text" placeholder="Username">
+                            <input class="form-control form-control-1 px-5 py-2" name="email" type="text" placeholder="Email Address">
                             <div class="position-absolute" style="right:20px; top:9px">
                                 <i class="fas fa-user"></i>
                             </div>

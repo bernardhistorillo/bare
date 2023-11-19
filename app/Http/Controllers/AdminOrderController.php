@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderStatus;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,9 @@ class AdminOrderController extends Controller
                     'latest_status', 'orders.id', '=', 'latest_status.order_id'
                 )
                 ->with('orderItems.product')
+                ->with(['orderStatus' => function ($query) {
+                    $query->orderBy('id', 'desc');
+                }])
                 ->leftJoin('order_statuses', 'order_statuses.id', '=', 'latest_status.id')
                 ->select('orders.*', 'users.name', 'users.email', 'order_statuses.status', 'order_statuses.created_at as order_status_created_at');
 
@@ -38,7 +42,9 @@ class AdminOrderController extends Controller
                 ->addColumn('actions', function ($row) {
                     $content = '
                         <div class="text-center"><button class="btn btn-custom-1 btn-sm font-size-80 mb-1 view-order-items" style="min-width:93px">View Items</button></div>
-                        <div class="text-center"><button class="btn btn-custom-1 btn-sm font-size-80" style="min-width:93px">Update Status</button></div>
+                        <div class="text-center"><button class="btn btn-custom-1 btn-sm font-size-80 update-order-status" value="' . $row['id'] . '" style="min-width:93px">Update Status</button></div>
+
+                        <div class="order-status-container d-none" data-order-id="' . $row['id'] . '" data-current-status="' . $row['status'] . '">' . json_encode($row['orderStatus']) . '</div>
 
                         <div class="order-items-table-container d-none">
                             <p class="text-color-1 mb-3">Reference: ' . $row['reference'] . '</p>
@@ -111,5 +117,25 @@ class AdminOrderController extends Controller
         }
 
         return view('admin.orders.index');
+    }
+
+    public function updateStatus(Request $request) {
+        $request->validate([
+            'status' => 'required',
+            'order_id' => 'required|exists:orders,id',
+        ]);
+
+        OrderStatus::where('order_id')
+            ->update([
+                'is_current' => 0
+            ]);
+
+        $orderStatus = new OrderStatus();
+        $orderStatus->order_id = $request->order_id;
+        $orderStatus->status = $request->status;
+        $orderStatus->is_current = 1;
+        $orderStatus->save();
+
+        return response()->json();
     }
 }

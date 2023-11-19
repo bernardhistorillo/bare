@@ -25,7 +25,7 @@ class LoginController extends Controller
         }
 
         return response()->json([
-            'redirect' => route('admin.subscribers.index')
+            'redirect' => route('admin.orders.index')
         ]);
     }
 
