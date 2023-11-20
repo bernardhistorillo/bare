@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin Subscribers')
+@section('title', 'Admin Accounts')
 
 @section('content')
 <main class="main">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h6 class="h6 mb-0 text-gray-800">Subscribers</h6>
+        <h6 class="h6 mb-0 text-gray-800">Accounts</h6>
     </div>
 
     <div class="animated fadeIn pb-5">
@@ -14,17 +14,17 @@
             <table class="table table-bordered data-table d-none">
                 <thead>
                     <tr>
-                        <th class="align-middle tw-min-w-[99px]">Date &amp; Time</th>
                         <th class="align-middle">Name</th>
                         <th class="align-middle">Email Address</th>
+                        <th class="align-middle tw-min-w-[99px]">Date &amp; Time Registered</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($subscribers as $subscriber)
+                    @foreach($users as $user)
                     <tr>
-                        <td class="align-middle">{{ \Carbon\Carbon::parse($subscriber['created_at'])->setTimezone('Asia/Manila')->isoFormat('llll') }}</td>
-                        <td class="align-middle">{{ json_decode($subscriber['data'], true)['name'] }}</td>
-                        <td class="align-middle">{{ $subscriber['email'] }}</td>
+                        <td class="align-middle">{{ $user['name'] }}</td>
+                        <td class="align-middle">{{ $user['email'] }}</td>
+                        <td class="align-middle">{{ \Carbon\Carbon::parse($user['created_at'])->setTimezone('Asia/Manila')->isoFormat('llll') }}</td>
                     </tr>
                     @endforeach
                 </tbody>

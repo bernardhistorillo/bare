@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminAccountController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AdminSubscriberController;
 use App\Http\Controllers\AuthenticationController;
@@ -96,5 +97,6 @@ Route::prefix('admin')->group(function () {
         });
 
         Route::get('/subscribers', [AdminSubscriberController::class, 'index'])->name('admin.subscribers.index');
+        Route::get('/accounts', [AdminAccountController::class, 'index'])->name('admin.accounts.index');
     });
 });

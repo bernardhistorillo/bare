@@ -10,6 +10,8 @@ let pageOnload = async function() {
         homeOnload();
     } else if(currentRouteName === "admin.orders.index") {
         adminOrdersOnload();
+    } else if(currentRouteName === "admin.accounts.index") {
+        adminAccountsOnload();
     } else if(currentRouteName === "admin.subscribers.index") {
         adminSubscribersOnload();
     }
@@ -82,6 +84,9 @@ let adminOrdersOnload = function() {
 
     $(".loading-text").addClass("d-none");
     $(".data-table").removeClass("d-none");
+};
+let adminAccountsOnload = function() {
+    initializeDataTables();
 };
 let adminSubscribersOnload = function() {
     initializeDataTables();

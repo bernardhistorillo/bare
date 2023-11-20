@@ -153,7 +153,7 @@
                                     <table class="table table-bordered mb-0">
                                         <thead>
                                             <tr>
-                                                <th class="text-color-1 cerebri-sans-pro-regular aign-middle font-size-90 text-center w-50">Date&nbsp;&amp; Time</th>
+                                                <th class="text-color-1 cerebri-sans-pro-regular aign-middle font-size-90 text-center w-50 min-w-[108px]">Date&nbsp;&amp; Time</th>
                                                 <th class="text-color-1 cerebri-sans-pro-regular aign-middle font-size-90 text-center w-50">Status</th>
                                             </tr>
                                         </thead>
