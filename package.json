@@ -7,8 +7,7 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "obfuscate": "javascript-obfuscator public/js/app.js --output public/js/app.js",
-        "production": "mix --production"
+        "production": "mix --production && javascript-obfuscator public/js/app.js --output public/js/app.js"
     },
     "devDependencies": {
         "@popperjs/core": "^2.10.2",

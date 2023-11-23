@@ -73,7 +73,7 @@
     <div class="bg-color-6">
         <div class="container-fluid">
             <div class="row min-vh-100 align-items-stretch">
-                <div class="col-md-6 background-image-cover p-0" id="about-left-section" style="background-image:url('{{ asset('img/home/about.webp') }}')"></div>
+                <div class="col-md-6 background-image-cover p-0" id="about-left-section" style="background-image:url('{{ asset('img/home/about-1.webp') }}')"></div>
 
                 <div class="col-md-6" id="about-right-section">
                     <div class="h-100 d-flex align-items-center ps-md-4 ps-lg-5">

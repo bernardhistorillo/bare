@@ -8,7 +8,7 @@
         <p class="cerebri-sans-pro-regular text-white font-size-100 letter-spacing-5 mb-0">PRE-SALE COMING SOON</p>
     </div>
 
-    <div class="background-image-cover" style="background-image:url('{{ asset('img/contact/bg.webp') }}')">
+    <div class="background-image-cover" style="background-image:url('{{ asset('img/contact/bg-1.webp') }}')">
         @include('home.includes.nav')
 
         <div class="container" style="min-height:80vh; padding-top:84px"></div>
