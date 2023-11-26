@@ -250,7 +250,7 @@
     height:30px;
 }
 #hero-section {
-    min-height: calc(100vh - 40px);
+    min-height: calc(100vh - 124px);
 }
 #nav-buttons {
     position: absolute;

@@ -13,7 +13,7 @@
                 <div class="card border-radius-0 mb-4 mb-lg-0 h-100" style="border:1px solid #a24e4e">
                     <div class="card-body position-relative px-4 py-5 p-sm-5">
                         <div class="position-absolute text-center w-100" style="top:-70px; left:0">
-                            <div class="rounded-circle d-inline-block bg-color-2" style="height:140px; width:140px"></div>
+                            <div class="rounded-circle d-inline-block bg-color-2 background-image-cover" style="background-image:url('{{ asset('img/home/comfort.webp') }}'); height:140px; width:140px"></div>
                         </div>
 
                         <div class="d-flex flex-column h-100 justify-content-between pt-5">
@@ -28,7 +28,7 @@
                 <div class="card border-radius-0 mb-4 mb-lg-0 h-100" style="border:1px solid #a24e4e">
                     <div class="card-body position-relative px-4 py-5 p-sm-5">
                         <div class="position-absolute text-center w-100" style="top:-70px; left:0">
-                            <div class="rounded-circle d-inline-block bg-color-2" style="height:140px; width:140px"></div>
+                            <div class="rounded-circle d-inline-block bg-color-2 background-image-cover" style="background-image:url('{{ asset('img/home/confidence.webp') }}'); height:140px; width:140px"></div>
                         </div>
 
                         <div class="d-flex flex-column h-100 justify-content-between pt-5">
@@ -43,7 +43,7 @@
                 <div class="card border-radius-0 h-100" style="border:1px solid #a24e4e">
                     <div class="card-body position-relative px-4 py-5 p-sm-5">
                         <div class="position-absolute text-center w-100" style="top:-70px; left:0">
-                            <div class="rounded-circle d-inline-block bg-color-2" style="height:140px; width:140px"></div>
+                            <div class="rounded-circle d-inline-block bg-color-2 background-image-cover" style="background-image:url('{{ asset('img/home/convenience.webp') }}'); height:140px; width:140px"></div>
                         </div>
 
                         <div class="d-flex flex-column h-100 justify-content-between pt-5">
