@@ -8,6 +8,7 @@ use App\Models\OrderItem;
 use App\Models\OrderStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CheckoutController extends Controller
 {
@@ -30,6 +31,7 @@ class CheckoutController extends Controller
             'city' => 'required',
             'barangay' => 'required',
             'home_address' => 'required',
+            'payment' => 'required|mimes:jpg,jpeg,png,bmp,tiff,pdf|max:10240',
         ]);
 
         do {
@@ -45,6 +47,12 @@ class CheckoutController extends Controller
             $totalPrice += $cartItem['quantity'] * $cartItem['price'];
         }
 
+        $file = $request->file('payment');
+        $name = $file->hashName();
+        $path = '/payments/';
+        Storage::disk('public')->put($path, $file, "public");
+        $payment = config('filesystems.disks.public.url') . $path . $name;
+
         $order = new Order();
         $order->reference = $referenceCode;
         $order->user_id = Auth::user()->id;
@@ -56,6 +64,7 @@ class CheckoutController extends Controller
         $order->city = $request->city;
         $order->province = $request->province;
         $order->zip_code = $request->zip_code;
+        $order->payment = $payment;
         $order->save();
 
         foreach($cartItems as $cartItem) {

@@ -141,6 +141,23 @@
                         </div>
                     </div>
 
+                    <div class="accordion order-accordion mb-3" id="accordion-order-payment-{{ $i }}">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-color-2 cerebri-sans-pro-medium" type="button" data-bs-toggle="collapse" data-bs-target="#order-payment-{{ $i }}" aria-expanded="false" aria-controls="collapseOne">
+                                    <i class="fa-regular fa-credit-card pe-3"></i> Payment
+                                </button>
+                            </h2>
+                            <div id="order-payment-{{ $i }}" class="accordion-collapse collapse" data-bs-parent="#accordion-order-payment-{{ $i }}">
+                                <div class="accordion-body">
+                                    <a href="{{ $order['payment'] }}" data-fancybox="">
+                                        <div class="d-flex align-items-center background-image-contain justify-content-center tw-w-[160px] tw-h-[240px] tw-border-[1px] tw-border-[#423225] p-3" style="background-image:url('{{ $order['payment'] }}')"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="accordion order-accordion" id="accordion-order-status-{{ $i }}">
                         <div class="accordion-item">
                             <h2 class="accordion-header">

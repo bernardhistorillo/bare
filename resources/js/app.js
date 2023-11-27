@@ -351,6 +351,31 @@ $(document).on("submit", "#checkout-form", function(e) {
     $("#modal-place-order-confirmation").modal("show");
 });
 
+$(document).on("click", "#attach-payment", function() {
+    $("input[name='payment']").trigger("click");
+});
+
+$(document).on("change", "input[name='payment']", function() {
+    let reader = new FileReader();
+
+    let container = $("#attach-payment");
+
+    reader.onload = function(event) {
+        let img = new Image();
+
+        img.onload = function() {
+            container.find("div").addClass("d-none");
+            container.css("background-image", "url('" + img.src + "')");
+        };
+
+        img.src = event.target.result;
+    };
+
+    if($(this)[0].files.length) {
+        reader.readAsDataURL($(this)[0].files[0]);
+    }
+});
+
 $(document).on("click", "#place-order", function() {
     let closeButtons = $("#modal-place-order-confirmation [data-bs-dismiss='modal']");
     closeButtons.addClass("d-none");
