@@ -8,7 +8,7 @@
         <p class="cerebri-sans-pro-regular text-white font-size-100 letter-spacing-5 mb-0">PRE-SALE COMING SOON</p>
     </div>
 
-    <div class="background-image-cover" id="hero-section" style="background-image:url('{{ asset('img/shop/hero.webp') }}')">
+    <div class="background-image-cover" id="hero-section" style="background-image:url('{{ asset('img/shop/bg-1.webp') }}')">
         @include('home.includes.nav')
 
         <div class="container">
@@ -26,8 +26,8 @@
                                     <p class="cerebri-sans-pro-medium text-white text-center font-size-160 font-size-sm-220 line-height-110 letter-spacing-10 mb-5">Bare Confidence</p>
 
                                     <div class="text-center">
-                                        <a href="{{ route('shop.index') }}" class="btn btn-custom-3 px-4 py-3">
-                                            <div class="cerebri-sans-pro-bold letter-spacing-10 font-size-170 font-size-sm-240 line-height-80" style="padding-top:6px">SHOP NOW</div>
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 px-4 py-3">
+                                            <div class="cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-sm-150 line-height-140" style="padding-top:6px">SHOP NIPPLE COVERS</div>
                                         </a>
                                     </div>
                                 </div>
@@ -57,85 +57,114 @@
                             <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">{{ $product['description'] }}</p>
                         </div>
 
+                        @if($product['name'] != 'Zip Bag' || $product['name'] == 'Zip Pouch' || $product['name'] == 'Drawstring Bag')
                         <div class="mb-4">
                             <p class="cerebri-sans-pro-regular text-color-2 font-size-140 letter-spacing-10 mb-1">MATERIAL</p>
-                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">Lorem ipsum dolor</p>
-                        </div>
-
-                        <div class="mb-4">
-                            <p class="cerebri-sans-pro-regular text-color-2 font-size-140 letter-spacing-10 mb-1">COLOR</p>
-                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">Lorem ipsum dolor</p>
+                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">Silicone</p>
                         </div>
 
                         <div class="mb-4">
                             <p class="cerebri-sans-pro-regular text-color-2 font-size-140 letter-spacing-10 mb-1">TYPE</p>
-                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">Lorem ipsum dolor</p>
+                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">Choice between ADHESIVE and NON-ADHESIVE</p>
                         </div>
 
                         <div class="mb-4">
                             <p class="cerebri-sans-pro-regular text-color-2 font-size-140 letter-spacing-10 mb-1">SIZE</p>
-                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">Lorem ipsum dolor</p>
-                        </div>
 
-                        <p class="text-color-2 cerebri-sans-pro-bold font-size-140 letter-spacing-5 mb-3">PHP 000.00</p>
+                            <div class="row">
+                                @if($product['name'] == 'Nude' || $product['name'] == 'Taupe')
+                                <div class="col-lg-2">
+                                    <div class="tw-bg-[#f6f3ee]">
+                                        <p class="cerebri-sans-pro-medium tw-text-[#949494] text-center tw-pt-[5px] pb-1">6 CM</p>
+                                    </div>
+                                </div>
+                                @endif
+
+                                <div class="col-lg-2">
+                                    <div class="tw-bg-[#f6f3ee]">
+                                        <p class="cerebri-sans-pro-medium tw-text-[#949494] text-center tw-pt-[5px] pb-1">8 CM</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2">
+                                    <div class="tw-bg-[#f6f3ee]">
+                                        <p class="cerebri-sans-pro-medium tw-text-[#949494] text-center tw-pt-[5px] pb-1">10 CM</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="tw-bg-[#f6f3ee]">
+                                        <p class="cerebri-sans-pro-medium tw-text-[#949494] text-center tw-pt-[5px] pb-1">SIZE GUIDE</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                        <hr class="my-5">
+
+                        <p class="text-color-2 cerebri-sans-pro-bold font-size-140 letter-spacing-5 mb-3">PHP {{ number_format($product['price'],2) }}</p>
 
                         <div class="">
-                            <button class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-xl-130 py-0" style="padding-top:4px!important">ADD TO CART</button>
+                            <form class="update-cart-form">
+                                <input type="hidden" name="name" value="{{ $product['name'] }}" />
+                                <input type="hidden" name="category" value="{{ $product['category'] }}" />
+                                <input type="hidden" name="variations" value="{{ json_encode($product['variations']) }}" />
+
+                                <button type="submit" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 px-4" style="padding-top:8px">ADD TO CART</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-3 col-lg-2 mb-4">
-                    <div class="w-100 bg-color-1" style="padding-top:100%"></div>
+            <div class="row tw-px-[4px] lg:tw-px-[0px]">
+                @foreach(json_decode($product['sub_photos'], true) as $sub_photos)
+                <div class="col-4 col-lg-3 px-2 px-lg-3 mb-4">
+                    <div class="w-100 background-image-cover" style="padding-top:100%;  background-image:url('{{ $sub_photos }}')"></div>
                 </div>
-
-                <div class="col-3 col-lg-2 mb-4">
-                    <div class="w-100 bg-color-1" style="padding-top:100%"></div>
-                </div>
-
-                <div class="col-3 col-lg-2 mb-4">
-                    <div class="w-100 bg-color-1" style="padding-top:100%"></div>
-                </div>
-
-                <div class="col-3 col-lg-2 mb-4">
-                    <div class="w-100 bg-color-1" style="padding-top:100%"></div>
-                </div>
-
-                <div class="col-3 col-lg-2 mb-4">
-                    <div class="w-100 bg-color-1" style="padding-top:100%"></div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
 
+    @if($product['name'] != 'Zip Bag' || $product['name'] == 'Zip Pouch' || $product['name'] == 'Drawstring Bag')
     <div class="bg-color-5 py-5">
-        <div class="container pt-5">
+        <div class="container pt-md-5">
             <p class="text-color-2 cerebri-sans-pro-bold text-center letter-spacing-10 font-size-230 font-size-sm-260 mb-3">SIZE GUIDE</p>
             <div class="row justify-content-center mb-5">
-                <div class="col-lg-9 col-xl-8">
-                    <p class="text-color-5 cerebri-sans-pro-regular text-center font-size-120 font-size-lg-130 letter-spacing-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+                <div class="col-lg-9 col-xl-7">
+                    <p class="text-color-5 cerebri-sans-pro-regular text-center font-size-120 font-size-lg-130 letter-spacing-10">Here's a size guide for nipple covers based on nipple diameter and cup sizes:</p>
                 </div>
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-5 col-md-4 col-lg-3">
+                @if($product['name'] == 'Nude' || $product['name'] == 'Taupe')
+                <div class="col-6 col-md-4 col-lg-4 px-lg-5">
                     <div>
-                        <img src="{{ asset('img/shop/size-2.webp') }}" class="w-100" />
+                        <img src="{{ asset('img/shop/sizes/6cm.webp') }}" class="w-100" />
+                    </div>
+                </div>
+                @endif
+
+                <div class="col-6 col-md-4 col-lg-4 px-lg-5">
+                    <div>
+                        <img src="{{ asset('img/shop/sizes/8cm.webp') }}" class="w-100" />
                     </div>
                 </div>
 
-                <div class="offset-1 col-5 col-md-4 offset-lg-2 col-lg-3">
+                <div class="col-6 col-md-4 col-lg-4 px-lg-5 mt-3 mt-md-0">
                     <div>
-                        <img src="{{ asset('img/shop/size-1.webp') }}" class="w-100" />
+                        <img src="{{ asset('img/shop/sizes/10cm.webp') }}" class="w-100" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @endif
 </div>
 
 @include('home.includes.footer')
+@include('shop.includes.modalVariation')
 
 @endsection

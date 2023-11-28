@@ -55,13 +55,11 @@
                         </div>
 
                         <div class="text-center text-md-end">
-                            <p class="font-size-lg-120 font-size-xl-140 letter-spacing-10 text-white cerebri-sans-pro-regular mb-0">YOUR ADDRESS HERE</p>
-
                             <div>
                                 <a href="mailto:help@wearebare.co" class="text-decoration-none font-size-lg-120 font-size-xl-140 letter-spacing-10 text-white cerebri-sans-pro-regular mb-0">HELP@WEAREBARE.CO</a>
                             </div>
                             <div>
-                                <a href="tel:09000000000" class="text-decoration-none font-size-lg-120 font-size-xl-140 letter-spacing-10 text-white cerebri-sans-pro-regular">090 000 000 00</a>
+                                <a href="tel:09175160239" class="text-decoration-none font-size-lg-120 font-size-xl-140 letter-spacing-10 text-white cerebri-sans-pro-regular">0917 516 0239</a>
                             </div>
                         </div>
                     </div>

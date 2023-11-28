@@ -8,7 +8,7 @@
         <p class="cerebri-sans-pro-regular text-white font-size-100 letter-spacing-5 mb-0">PRE-SALE COMING SOON</p>
     </div>
 
-    <div class="background-image-cover" id="hero-section" style="background-image:url('{{ asset('img/shop/hero.webp') }}')">
+    <div class="background-image-cover" id="hero-section" style="background-image:url('{{ asset('img/shop/bg-1.webp') }}')">
         @include('home.includes.nav')
 
         <div class="container">
@@ -26,8 +26,8 @@
                                     <p class="cerebri-sans-pro-medium text-white text-center font-size-160 font-size-sm-220 line-height-110 letter-spacing-10 mb-5">Bare Confidence</p>
 
                                     <div class="text-center">
-                                        <a href="{{ route('shop.index') }}" class="btn btn-custom-3 px-4 py-3">
-                                            <div class="cerebri-sans-pro-bold letter-spacing-10 font-size-170 font-size-sm-240 line-height-80" style="padding-top:6px">SHOP NOW</div>
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 px-4 py-3">
+                                            <div class="cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-sm-150 line-height-140" style="padding-top:6px">SHOP NIPPLE COVERS</div>
                                         </a>
                                     </div>
                                 </div>

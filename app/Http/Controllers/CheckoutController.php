@@ -78,7 +78,7 @@ class CheckoutController extends Controller
 
         $orderStatus = new OrderStatus();
         $orderStatus->order_id = $order['id'];
-        $orderStatus->status = 'Placed';
+        $orderStatus->status = 'Pending';
         $orderStatus->is_current = 1;
         $orderStatus->save();
 

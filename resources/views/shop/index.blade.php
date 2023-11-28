@@ -8,7 +8,7 @@
         <p class="cerebri-sans-pro-regular text-white font-size-100 letter-spacing-5 mb-0">PRE-SALE COMING SOON</p>
     </div>
 
-    <div class="background-image-cover" id="hero-section" style="background-image:url('{{ asset('img/shop/hero.webp') }}')">
+    <div class="background-image-cover" id="hero-section" style="background-image:url('{{ asset('img/shop/bg-1.webp') }}')">
         @include('home.includes.nav')
 
         <div class="container">
@@ -26,8 +26,8 @@
                                     <p class="cerebri-sans-pro-medium text-white text-center font-size-160 font-size-sm-220 line-height-110 letter-spacing-10 mb-5">Bare Confidence</p>
 
                                     <div class="text-center">
-                                        <a href="{{ route('shop.index') }}" class="btn btn-custom-3 px-4 py-3">
-                                            <div class="cerebri-sans-pro-bold letter-spacing-10 font-size-170 font-size-sm-240 line-height-80" style="padding-top:6px">SHOP NOW</div>
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 px-4 py-3">
+                                            <div class="cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-sm-150 line-height-140" style="padding-top:6px">SHOP NIPPLE COVERS</div>
                                         </a>
                                     </div>
                                 </div>
@@ -73,14 +73,6 @@
                         </div>
                     </a>
                 </div>
-
-                <div class="col-11 col-sm-6 p-xl-4 p-xxl-5 mb-5 mb-sm-4">
-                    <div class="w-100 position-relative" style="padding-top:100%">
-                        <div class="position-absolute background-image-cover w-100 h-100 d-flex align-items-end p-4 p-lg-5" style="top:0; left:0; background-image:url('{{ asset('img/shop/categories/category-2.webp') }}')">
-                            <p class="text-white text-decoration-underline cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-md-140 font-size-xl-180 font-size-xxl-190 mb-0">BODYSUITS</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -99,8 +91,8 @@
                 <div class="col-lg-6">
                     <div class="ps-md-4">
                         <div class="ps-xl-4 ps-xxl-5">
-                            <p class="text-white cerebri-sans-pro-regular text-center text-lg-start font-size-280 font-size-sm-300 font-size-md-350 font-size-lg-400 font-size-xl-500 line-height-130 mb-lg-0">Bare Zip Bag</p>
-                            <p class="text-white cerebri-sans-pro-regular text-center text-lg-start font-size-130 font-size-xl-150 letter-spacing-10">LOREM IPSUM DOLOR</p>
+                            <p class="text-white cerebri-sans-pro-regular text-center text-lg-start font-size-280 font-size-sm-300 font-size-md-350 font-size-lg-400 font-size-xl-500 line-height-130 mb-lg-2">Bare Zip Bag</p>
+
                             <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-3">Introducing our complimentary Ziplock Bag for Nipple Covers, designed to provide you with a convenient storage solution for your nipple covers. Made from durable material, this ziplock bag offers both practicality and visibility. With it’s compact size, it easily fits into your purse, gym bag, or suitcase, allowing you to keep your nipple covers within reach whenever you need them.</p>
                             <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-5">Our free Ziplock Bag for Nipple Covers is a thoughtful addition to your purchase, ensuring that you can confidently carry and store your covers with ease.</p>
 

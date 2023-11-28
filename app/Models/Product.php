@@ -16,6 +16,7 @@ class Product extends Model
         'price',
         'variations',
         'photo',
+        'sub_photos',
         'status',
     ];
 
@@ -28,9 +29,11 @@ class Product extends Model
 
             if (!isset($productGroups[$name])) {
                 $productGroups[$name] = [
+                    'id' => $item['id'],
                     'price' => $item['price'],
                     'category' => $item['category'],
                     'photo' => $item['photo'],
+                    'sub_photos' => $item['sub_photos'],
                     'description' => $item['description'],
                     'variations' => []
                 ];
@@ -58,10 +61,12 @@ class Product extends Model
             }
 
             $products[] = [
+                'id' => $data['id'],
                 'name' => $name,
                 'price' => $data['price'],
                 'category' => $data['category'],
                 'photo' => $data['photo'],
+                'sub_photos' => $data['sub_photos'],
                 'description' => $data['description'],
                 'variations' => $productVariations
             ];
