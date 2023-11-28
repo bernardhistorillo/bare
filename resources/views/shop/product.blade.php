@@ -55,7 +55,7 @@
                             <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">{{ $product['description'] }}</p>
                         </div>
 
-                        @if($product['name'] != 'Zip Bag' || $product['name'] == 'Zip Pouch' || $product['name'] == 'Drawstring Bag')
+                        @if($product['name'] != 'Zip Pouch' && $product['name'] != 'Drawstring Bag')
                         <div class="mb-4">
                             <p class="cerebri-sans-pro-regular text-color-2 font-size-140 letter-spacing-10 mb-1">MATERIAL</p>
                             <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">Silicone</p>
@@ -119,14 +119,16 @@
             <div class="row tw-px-[4px] lg:tw-px-[0px]">
                 @foreach(json_decode($product['sub_photos'], true) as $sub_photos)
                 <div class="col-4 col-lg-3 px-2 px-lg-3 mb-4">
-                    <div class="w-100 background-image-cover" style="padding-top:100%;  background-image:url('{{ $sub_photos }}')"></div>
+                    <a href="{{ $sub_photos }}" data-fancybox="gallery">
+                        <div class="w-100 background-image-cover" style="padding-top:100%;  background-image:url('{{ $sub_photos }}')"></div>
+                    </a>
                 </div>
                 @endforeach
             </div>
         </div>
     </div>
 
-    @if($product['name'] != 'Zip Bag' || $product['name'] == 'Zip Pouch' || $product['name'] == 'Drawstring Bag')
+    @if($product['name'] != 'Zip Pouch' && $product['name'] != 'Drawstring Bag')
     <div class="bg-color-5 py-5">
         <div class="container pb-5">
             <p class="text-color-2 cerebri-sans-pro-bold text-center letter-spacing-10 font-size-230 font-size-sm-260 mb-3">SIZE GUIDE</p>
