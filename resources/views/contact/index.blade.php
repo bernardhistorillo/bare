@@ -41,7 +41,7 @@
                                 <textarea name="message" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 tw-h-[150px]" style="border:3px solid #946C51; color:#946C51!important" placeholder="Your message" required></textarea>
 
                                 <div class="">
-                                    <button type="submit" class="btn btn-custom-6 pb-0 font-size-120 font-size-md-140 font-size-xl-180 font-weight-600 cerebri-sans-pro-bold letter-spacing-10" style="padding-top:5px">SUBMIT</button>
+                                    <button type="submit" class="btn btn-custom-6 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SUBMIT</button>
                                 </div>
                             </form>
                         </div>

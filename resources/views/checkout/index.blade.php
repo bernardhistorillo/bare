@@ -136,7 +136,7 @@
                     <div class="d-flex justify-content-center justify-content-sm-start">
                         <div class="d-flex flex-column flex-sm-row align-items-center">
                             <div>
-                                <button type="submit" class="btn btn-custom-4 font-size-120 px-5 py-3">Place Order</button>
+                                <button type="submit" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-5">Place Order</button>
                             </div>
                         </div>
                     </div>

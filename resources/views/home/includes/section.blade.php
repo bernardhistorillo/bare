@@ -6,7 +6,7 @@
                 <p class="text-color-3 cerebri-sans-pro-regular text-center font-size-130 font-size-lg-150 letter-spacing-10 mb-5">A movement that seeks to free you from the constraints of uncomfortable clothing. We've been there, and we know the feeling. That's why we offer you a range of products  designed to enhance your experience, without sacrificing style.</p>
 
                 <div class="text-center">
-                    <a href="{{ route('shop.index') }}" class="btn btn-custom-4 font-size-180 font-size-md-200 font-size-lg-250 cerebri-sans-pro-bold letter-spacing-10 line-height-110 px-3 tw-pt-[13px] md:tw-pt-[12px] lg:tw-pt-[13px] xl:tw-pt-[14px]">SHOP NOW</a>
+                    <a href="{{ route('shop.index') }}" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NOW</a>
                 </div>
             </div>
         </div>

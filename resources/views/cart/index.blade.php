@@ -106,9 +106,7 @@
                 <p class="cerebri-sans-pro-regular text-color-1 mb-4">Your cart is currently empty.<br> Browse our selection and add items to your cart to begin your purchase.</p>
 
                 <div class="text-center mb-2">
-                    <a href="{{ route('shop.index') }}" class="btn btn-custom-1 px-4 py-2">
-                        <div class="cerebri-sans-pro-bold letter-spacing-10 font-size-120 line-height-80 tw-pt-[4px]">SHOP NOW</div>
-                    </a>
+                    <a href="{{ route('shop.index') }}" class="btn btn-custom-1 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NOW</a>
                 </div>
             </div>
         </div>

@@ -26,9 +26,7 @@
                                     <p class="cerebri-sans-pro-medium text-white text-center font-size-160 font-size-sm-220 line-height-110 letter-spacing-10 mb-5">Bare Confidence</p>
 
                                     <div class="text-center">
-                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 px-4 py-3">
-                                            <div class="cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-sm-150 line-height-140" style="padding-top:6px">SHOP NIPPLE COVERS</div>
-                                        </a>
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +109,7 @@
                                 <input type="hidden" name="category" value="{{ $product['category'] }}" />
                                 <input type="hidden" name="variations" value="{{ json_encode($product['variations']) }}" />
 
-                                <button type="submit" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-lg-130 font-size-xl-140 px-4" style="padding-top:8px">ADD TO CART</button>
+                                <button type="submit" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">ADD TO CART</button>
                             </form>
                         </div>
                     </div>
@@ -130,7 +128,7 @@
 
     @if($product['name'] != 'Zip Bag' || $product['name'] == 'Zip Pouch' || $product['name'] == 'Drawstring Bag')
     <div class="bg-color-5 py-5">
-        <div class="container pt-md-5">
+        <div class="container pb-5">
             <p class="text-color-2 cerebri-sans-pro-bold text-center letter-spacing-10 font-size-230 font-size-sm-260 mb-3">SIZE GUIDE</p>
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-9 col-xl-7">
@@ -138,7 +136,7 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mb-5 pb-3">
                 @if($product['name'] == 'Nude' || $product['name'] == 'Taupe')
                 <div class="col-6 col-md-4 col-lg-4 px-lg-5">
                     <div>
@@ -159,9 +157,110 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row justify-content-center">
+                <div class="col-11 col-md-10 col-lg-8 col-xl-7 tw-bg-[#e1dccb] p-3">
+                    <p class="cerebri-sans-pro-regular text-center tw-text-[#572231] font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-0">Keep in mind that cup size alone isn't the only factor to consider when choosing nipple covers. Nipple diameter and personal comfort preferences also play crucial roles. It's recommended to measure your nipple diameter to ensure the best fit. If you're unsure, it's a good idea to opt for slightly larger nipple covers to ensure full coverage and comfort.</p>
+                </div>
+            </div>
         </div>
     </div>
     @endif
+
+    <div class="background-image-cover py-5" style="background-image:url('{{ asset('img/shop/pouch-bg.webp') }}')">
+        <div class="container-fluid py-5">
+            <div id="carouselExample" class="carousel slide lg:tw-px-[120px] xl:tw-px-[150px]">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-11 col-sm-8 col-md-7 col-lg-6">
+                                <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
+                                    <div class="card-body p-4 p-lg-5">
+                                        <img src="{{ asset('img/shop/pouch.webp') }}" class="w-100" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="ps-md-4">
+                                    <div class="ps-xl-4 ps-xxl-5">
+                                        <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-260 font-size-sm-280 font-size-md-260 font-size-lg-300 line-height-130 mb-lg-2">ZIP BAG</p>
+
+                                        <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-3">Introducing our complimentary Ziplock Bag for Nipple Covers, designed to provide you with a convenient storage solution for your nipple covers. Made from durable material, this ziplock bag offers both practicality and visibility. With it’s compact size, it easily fits into your purse, gym bag, or suitcase, allowing you to keep your nipple covers within reach whenever you need them.</p>
+                                        <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-5">Our free Ziplock Bag for Nipple Covers is a thoughtful addition to your purchase, ensuring that you can confidently carry and store your covers with ease.</p>
+
+                                        <div class="text-center text-lg-start">
+                                            <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-5 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-11 col-sm-8 col-md-7 col-lg-6">
+                                <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
+                                    <div class="card-body p-4 p-lg-5">
+                                        <img src="{{ asset('img/shop/pouch.webp') }}" class="w-100" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="ps-md-4">
+                                    <div class="ps-xl-4 ps-xxl-5">
+                                        <p class="text-white cerebri-sans-pro-regular text-center text-lg-start font-size-280 font-size-sm-300 font-size-md-350 font-size-lg-400 font-size-xl-500 line-height-130 mb-lg-2">Bare Zip Bag</p>
+
+                                        <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-3">Introducing our complimentary Ziplock Bag for Nipple Covers, designed to provide you with a convenient storage solution for your nipple covers. Made from durable material, this ziplock bag offers both practicality and visibility. With it’s compact size, it easily fits into your purse, gym bag, or suitcase, allowing you to keep your nipple covers within reach whenever you need them.</p>
+                                        <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-5">Our free Ziplock Bag for Nipple Covers is a thoughtful addition to your purchase, ensuring that you can confidently carry and store your covers with ease.</p>
+
+                                        <div class="text-center text-lg-start">
+                                            <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-5 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-11 col-sm-8 col-md-7 col-lg-6">
+                                <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
+                                    <div class="card-body p-4 p-lg-5">
+                                        <img src="{{ asset('img/shop/pouch.webp') }}" class="w-100" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="ps-md-4">
+                                    <div class="ps-xl-4 ps-xxl-5">
+                                        <p class="text-white cerebri-sans-pro-regular text-center text-lg-start font-size-280 font-size-sm-300 font-size-md-350 font-size-lg-400 font-size-xl-500 line-height-130 mb-lg-2">Bare Zip Bag</p>
+
+                                        <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-3">Introducing our complimentary Ziplock Bag for Nipple Covers, designed to provide you with a convenient storage solution for your nipple covers. Made from durable material, this ziplock bag offers both practicality and visibility. With it’s compact size, it easily fits into your purse, gym bag, or suitcase, allowing you to keep your nipple covers within reach whenever you need them.</p>
+                                        <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-5">Our free Ziplock Bag for Nipple Covers is a thoughtful addition to your purchase, ensuring that you can confidently carry and store your covers with ease.</p>
+
+                                        <div class="text-center text-lg-start">
+                                            <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-5 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 @include('home.includes.footer')

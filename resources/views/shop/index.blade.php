@@ -26,9 +26,7 @@
                                     <p class="cerebri-sans-pro-medium text-white text-center font-size-160 font-size-sm-220 line-height-110 letter-spacing-10 mb-5">Bare Confidence</p>
 
                                     <div class="text-center">
-                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 px-4 py-3">
-                                            <div class="cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-sm-150 line-height-140" style="padding-top:6px">SHOP NIPPLE COVERS</div>
-                                        </a>
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +95,7 @@
                             <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-5">Our free Ziplock Bag for Nipple Covers is a thoughtful addition to your purchase, ensuring that you can confidently carry and store your covers with ease.</p>
 
                             <div class="text-center text-lg-start">
-                                <button class="btn btn-custom-5 font-size-150 font-size-lg-200 cerebri-sans-pro-bold letter-spacing-10 line-height-110 px-3" style="padding-top:10px">SHOP NOW</button>
+                                <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-5 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
                             </div>
                         </div>
                     </div>

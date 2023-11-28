@@ -68,7 +68,7 @@
                                 <p class="text-color-2 cerebri-sans-pro-medium text-center text-md-start font-size-90 font-size-lg-100 line-height-170 letter-spacing-10 mb-5">Want to learn more about fashion-forward ideas? Check out our blog, where we share stories, insights, and tips that will inspire you to make informed choices about your comfort and style. Your journey towards feeling confident, secure, and comfortable begins with knowledge. Visit our blog and become a part of our community today.</p>
 
                                 <div class="text-center text-md-start">
-                                    <a href="{{ route('blog.index') }}" class="btn btn-custom-4 font-size-180 font-size-md-200 font-size-xl-250 cerebri-sans-pro-bold letter-spacing-10 line-height-110 px-3" style="padding-top:0.35em">READ MORE</a>
+                                    <a href="{{ route('blog.index') }}" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">READ MORE</a>
                                 </div>
                             </div>
                         </div>
