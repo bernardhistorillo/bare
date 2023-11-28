@@ -75,34 +75,7 @@
         </div>
     </div>
 
-    <div class="background-image-cover py-5" style="background-image:url('{{ asset('img/shop/pouch-bg.webp') }}')">
-        <div class="container py-5">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-11 col-sm-8 col-md-7 col-lg-6">
-                    <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
-                        <div class="card-body p-4 p-lg-5">
-                            <img src="{{ asset('img/shop/pouch.webp') }}" class="w-100" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="ps-md-4">
-                        <div class="ps-xl-4 ps-xxl-5">
-                            <p class="text-white cerebri-sans-pro-regular text-center text-lg-start font-size-280 font-size-sm-300 font-size-md-350 font-size-lg-400 font-size-xl-500 line-height-130 mb-lg-2">Bare Zip Bag</p>
-
-                            <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-3">Introducing our complimentary Ziplock Bag for Nipple Covers, designed to provide you with a convenient storage solution for your nipple covers. Made from durable material, this ziplock bag offers both practicality and visibility. With it’s compact size, it easily fits into your purse, gym bag, or suitcase, allowing you to keep your nipple covers within reach whenever you need them.</p>
-                            <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-5">Our free Ziplock Bag for Nipple Covers is a thoughtful addition to your purchase, ensuring that you can confidently carry and store your covers with ease.</p>
-
-                            <div class="text-center text-lg-start">
-                                <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-5 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('shop.includes.travel-bags')
 </div>
 
 @include('home.includes.footer')
