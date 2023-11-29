@@ -5,8 +5,8 @@
                 <div class="carousel-item active">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-11 col-sm-8 col-md-7 col-lg-6">
-                            <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
-                                <div class="card-body p-4 p-lg-5">
+                            <div class="card mb-5 mb-lg-0" style="border:0">
+                                <div class="card-body tw-bg-[#F6F3EE] p-4 p-sm-5">
                                     <img src="{{ asset('img/shop/products/zip-bag.webp') }}" class="w-100" />
                                 </div>
                             </div>
@@ -31,8 +31,8 @@
                 <div class="carousel-item">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-11 col-sm-8 col-md-7 col-lg-6">
-                            <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
-                                <div class="card-body p-4 p-lg-5">
+                            <div class="card mb-5 mb-lg-0" style="border:0">
+                                <div class="card-body tw-bg-[#F6F3EE] p-4 p-sm-5">
                                     <img src="{{ asset('img/shop/products/zip-pouch-1.webp') }}" class="w-100" />
                                 </div>
                             </div>
@@ -57,8 +57,8 @@
                 <div class="carousel-item">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-11 col-sm-8 col-md-7 col-lg-6">
-                            <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
-                                <div class="card-body p-4 p-lg-5">
+                            <div class="card mb-5 mb-lg-0" style="border:0">
+                                <div class="card-body tw-bg-[#F6F3EE] p-4 p-sm-5">
                                     <img src="{{ asset('img/shop/products/zip-pouch-2.webp') }}" class="w-100" />
                                 </div>
                             </div>
@@ -83,8 +83,8 @@
                 <div class="carousel-item">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-11 col-sm-8 col-md-7 col-lg-6">
-                            <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
-                                <div class="card-body p-4 p-lg-5">
+                            <div class="card mb-5 mb-lg-0" style="border:0">
+                                <div class="card-body tw-bg-[#F6F3EE] p-4 p-sm-5">
                                     <img src="{{ asset('img/shop/products/drawstring-bag.webp') }}" class="w-100" />
                                 </div>
                             </div>
