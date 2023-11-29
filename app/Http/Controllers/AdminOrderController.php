@@ -42,6 +42,7 @@ class AdminOrderController extends Controller
                 ->addColumn('actions', function ($row) {
                     $content = '
                         <div class="text-center"><button class="btn btn-custom-1 btn-sm font-size-80 mb-1 view-order-items" style="min-width:93px">View Items</button></div>
+                        <div class="text-center"><a href="' . $row['payment'] . '" data-fancybox="" class="btn btn-custom-1 btn-sm font-size-80 mb-1" style="min-width:93px">View Payment</a></div>
                         <div class="text-center"><button class="btn btn-custom-1 btn-sm font-size-80 update-order-status" value="' . $row['id'] . '" style="min-width:93px">Update Status</button></div>
 
                         <div class="order-status-container d-none" data-order-id="' . $row['id'] . '" data-current-status="' . $row['status'] . '">' . json_encode($row['orderStatus']) . '</div>
