@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="bg-color-5 py-5">
+    <div class="bg-white py-5">
         <div class="container pt-5">
             <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-230 font-size-sm-260 mb-4 mb-xl-3 mb-xxl-0">SHOP ITEMS</p>
 
@@ -50,6 +50,14 @@
                             </div>
                         </div>
                     </a>
+                </div>
+
+                <div class="col-11 col-sm-6 p-xl-4 p-xxl-5 mb-5 mb-sm-4">
+                    <div class="w-100 position-relative" style="padding-top:100%">
+                        <div class="position-absolute background-image-cover w-100 h-100 d-flex align-items-end p-4 p-lg-5" style="top:0; left:0; background-image:url('{{ asset('img/shop/categories/coming-soon.webp') }}')">
+                            <p class="text-white text-decoration-underline cerebri-sans-pro-bold letter-spacing-10 font-size-120 font-size-md-140 font-size-xl-180 font-size-xxl-190 mb-0">COMING SOON</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-11 col-sm-6 p-xl-4 p-xxl-5 mb-5 mb-sm-4">

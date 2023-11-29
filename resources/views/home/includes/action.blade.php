@@ -1,4 +1,4 @@
-<div class="bg-color-5">
+<div class="bg-white">
     <div class="container-fluid">
         <div class="row min-vh-100 align-items-stretch justify-content-end">
             <div class="col-md-6" id="action-left-section">

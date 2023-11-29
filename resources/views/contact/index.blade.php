@@ -14,7 +14,7 @@
         <div class="container" style="min-height:80vh; padding-top:84px"></div>
     </div>
 
-    <div class="bg-color-5 py-5">
+    <div class="bg-white py-5">
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-6">

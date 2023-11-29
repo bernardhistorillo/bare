@@ -1,4 +1,4 @@
-<div class="bg-color-5 py-5">
+<div class="bg-white py-5">
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-sm-10 col-md-9 col-lg-9 col-xl-8 col-xxl-7">

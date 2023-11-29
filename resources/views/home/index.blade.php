@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="bg-color-5 py-5">
+    <div class="bg-white py-5">
         <div class="container pt-5">
             <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-230 font-size-sm-260 mb-4 mb-xl-3 mb-xxl-0">MOST LOVED</p>
 
@@ -45,12 +45,14 @@
                 @foreach($groupedProducts as $i => $groupedProduct)
                 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 p-1 p-sm-2 p-md-3 p-lg-3 p-xl-4 mb-5">
                     <div class="">
-                        <div class="mb-4">
-                            <img src="{{ $groupedProduct['photo'] }}" class="w-100" alt="Product" />
-                        </div>
+                        <a href="{{ route('shop.product', [str_replace(' ', '-', strtolower($groupedProduct['category'])), strtolower($groupedProduct['name'])]) }}" class="text-decoration-none">
+                            <div class="mb-4">
+                                <img src="{{ $groupedProduct['photo'] }}" class="w-100" alt="Product" />
+                            </div>
 
-                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-130 font-size-md-140 letter-spacing-5 mb-1">{{ strtoupper($groupedProduct['name']) }}</p>
-                        <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-130 font-size-md-140 letter-spacing-5 mb-3">PHP {{ number_format($groupedProduct['price'],2) }}</p>
+                            <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-130 font-size-md-140 letter-spacing-5 mb-1">{{ strtoupper($groupedProduct['name']) }}</p>
+                            <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-130 font-size-md-140 letter-spacing-5 mb-3">PHP {{ number_format($groupedProduct['price'],2) }}</p>
+                        </a>
 
                         <div class="">
                             <form class="update-cart-form" data-index="{{ $i }}">

@@ -14,7 +14,7 @@
         <div class="container" style="padding-top:84px"></div>
     </div>
 
-    <div class="bg-color-5">
+    <div class="bg-white">
         <div class="container d-flex justify-content-center align-items-center py-5" style="min-height: calc(100vh - 124px)">
             <div class="w-100 pb-5">
                 <p class="text-color-2 cerebri-sans-pro-bold font-size-180 font-size-sm-220 font-size-md-260 mb-4">Checkout</p>

@@ -14,7 +14,7 @@
         <div class="container" style="padding-top:84px"></div>
     </div>
 
-    <div class="bg-color-5">
+    <div class="bg-white">
         <div class="container">
             <div class="d-flex justify-content-center align-items-center">
                 <div class="py-5">
@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="bg-color-5 py-5">
+    <div class="bg-white py-5">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-md-11 col-lg-10 col-xl-10 col-xxl-9">
@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <div class="bg-color-5">
+    <div class="bg-white">
         <div class="container-fluid">
             <div class="row min-vh-100 align-items-stretch justify-content-end">
                 <div class="col-md-6" id="action-left-section">

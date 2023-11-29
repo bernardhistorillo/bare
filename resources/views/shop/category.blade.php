@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="bg-color-5 py-5">
+    <div class="bg-white py-5">
         <div class="container pt-5">
             <p class="text-color-2 cerebri-sans-pro-bold text-center letter-spacing-10 font-size-230 font-size-sm-260 mb-3">{{ strtoupper($categoryName) }}</p>
             <div class="row justify-content-center mb-3 mb-xl-0">

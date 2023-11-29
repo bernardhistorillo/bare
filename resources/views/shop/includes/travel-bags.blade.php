@@ -7,7 +7,33 @@
                         <div class="col-11 col-sm-8 col-md-7 col-lg-6">
                             <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
                                 <div class="card-body p-4 p-lg-5">
-                                    <img src="{{ asset('img/shop/products/zip-pouch.webp') }}" class="w-100" />
+                                    <img src="{{ asset('img/shop/products/zip-bag.webp') }}" class="w-100" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="ps-md-4">
+                                <div class="ps-xl-4 ps-xxl-5">
+                                    <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-180 font-size-sm-200 font-size-md-220 line-height-130 mb-3 mb-lg-2">ZIP BAG</p>
+
+                                    <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-5">Stay organized and prepared with our complimentary Ziplock Bags. These handy storage solutions are made from tough materials, ensuring both practicality and visibility. Their small size fits perfectly in your purse, gym bag, or suitcase, guaranteeing that your nipple covers are always within reach. A considerate addition to your purchase, offering convenience and peace of mind.</p>
+
+                                    <div class="text-center text-lg-start">
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-5 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-11 col-sm-8 col-md-7 col-lg-6">
+                            <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
+                                <div class="card-body p-4 p-lg-5">
+                                    <img src="{{ asset('img/shop/products/zip-pouch-1.webp') }}" class="w-100" />
                                 </div>
                             </div>
                         </div>
@@ -27,6 +53,33 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="carousel-item">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-11 col-sm-8 col-md-7 col-lg-6">
+                            <div class="card mb-5 mb-lg-0" style="border:1px solid #572231">
+                                <div class="card-body p-4 p-lg-5">
+                                    <img src="{{ asset('img/shop/products/zip-pouch-2.webp') }}" class="w-100" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="ps-md-4">
+                                <div class="ps-xl-4 ps-xxl-5">
+                                    <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-180 font-size-sm-200 font-size-md-220 line-height-130 mb-3 mb-lg-2">ZIP POUCH</p>
+
+                                    <p class="text-white cerebri-sans-pro-medium text-center text-lg-start font-size-90 font-size-lg-100 line-height-xl-170 letter-spacing-10 mb-5">Care for your nipple covers with our Dust Bags. These essential accessories ensure your covers stay clean and free from debris. Crafted from soft, breathable fabric, the drawstring closure provides a hygienic storage solution, preserving your nipple covers' quality and longevity.</p>
+
+                                    <div class="text-center text-lg-start">
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-5 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="carousel-item">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-11 col-sm-8 col-md-7 col-lg-6">

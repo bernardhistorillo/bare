@@ -566,7 +566,7 @@ class InitializeApp extends Command
                 'category' => 'Travel Pouch',
                 'price' => 299,
                 'variations' => json_encode([]),
-                'photo' => config('app.prod_url') . '/img/shop/products/zip-pouch.webp',
+                'photo' => config('app.prod_url') . '/img/shop/products/zip-pouch-1.webp',
                 'sub_photos' => json_encode([]),
                 'status' => 1,
             ], [
