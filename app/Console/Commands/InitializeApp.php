@@ -561,12 +561,21 @@ class InitializeApp extends Command
                 ]),
                 'status' => 1,
             ], [
-                'name' => 'Zip Pouch',
+                'name' => 'Cocoa Zip Pouch',
                 'description' => 'Care for your nipple covers with our Dust Bags. These essential accessories ensure your covers stay clean and free from debris. Crafted from soft, breathable fabric, the drawstring closure provides a hygienic storage solution, preserving your nipple covers\' quality and longevity.',
                 'category' => 'Travel Pouch',
                 'price' => 299,
                 'variations' => json_encode([]),
-                'photo' => config('app.prod_url') . '/img/shop/products/zip-pouch-1.webp',
+                'photo' => config('app.prod_url') . '/img/shop/products/cocoa-zip-pouch.webp',
+                'sub_photos' => json_encode([]),
+                'status' => 1,
+            ], [
+                'name' => 'Taupe Zip Pouch',
+                'description' => 'Care for your nipple covers with our Dust Bags. These essential accessories ensure your covers stay clean and free from debris. Crafted from soft, breathable fabric, the drawstring closure provides a hygienic storage solution, preserving your nipple covers\' quality and longevity.',
+                'category' => 'Travel Pouch',
+                'price' => 299,
+                'variations' => json_encode([]),
+                'photo' => config('app.prod_url') . '/img/shop/products/taupe-zip-pouch.webp',
                 'sub_photos' => json_encode([]),
                 'status' => 1,
             ], [
