@@ -59,7 +59,7 @@
                                 <a href="mailto:help@wearebare.co" class="text-decoration-none font-size-lg-120 font-size-xl-140 letter-spacing-10 text-white cerebri-sans-pro-regular mb-0">HELP@WEAREBARE.CO</a>
                             </div>
                             <div>
-                                <a href="tel:09175160239" class="text-decoration-none font-size-lg-120 font-size-xl-140 letter-spacing-10 text-white cerebri-sans-pro-regular">0917 516 0239</a>
+                                <a href="tel:09692300908" class="text-decoration-none font-size-lg-120 font-size-xl-140 letter-spacing-10 text-white cerebri-sans-pro-regular">0969 2300 908</a>
                             </div>
                         </div>
                     </div>
