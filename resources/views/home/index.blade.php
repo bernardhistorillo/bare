@@ -80,8 +80,8 @@
                         <div class="py-5">
                             <div class="ps-xl-4 ps-xxl-5 py-5">
                                 <p class="text-white cerebri-sans-pro-regular text-center text-md-start font-size-280 font-size-sm-300 font-size-md-350 font-size-lg-500 line-height-130 mb-lg-0">About</p>
-                                <p class="text-white cerebri-sans-pro-regular text-center text-md-start font-size-130 font-size-lg-150 letter-spacing-10">BARE NECESSITY, BARE CONFIDENCE</p>
-                                <p class="text-white cerebri-sans-pro-medium text-center text-md-start font-size-90 font-size-lg-100 line-height-170 letter-spacing-10 mb-5">It all started with a simple desire – to be unburdened by traditional undergarments that didn't align with our comfort and confidence. We understand the frustration of feeling suffocated by clothing that just don't "get" you. That's why we started this journey - making comfort accessible to everyone.</p>
+                                <p class="text-white cerebri-sans-pro-regular text-center text-md-start font-size-130 font-size-lg-150 mb-3 letter-spacing-10">BARE NECESSITY, BARE CONFIDENCE</p>
+                                <p class="text-white cerebri-sans-pro-regular text-center text-md-start font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-5">It all started with a simple desire – to be unburdened by traditional undergarments that didn't align with our comfort and confidence. We understand the frustration of feeling suffocated by clothing that just don't "get" you. That's why we started this journey - making comfort accessible to everyone.</p>
 
                                 <div class="text-center text-md-start">
                                     <a href="{{ route('about.index') }}" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4" style="padding-top:10px">LEARN MORE</a>

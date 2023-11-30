@@ -45,12 +45,12 @@
                 <div class="col-md-11 col-lg-10 col-xl-10 col-xxl-9">
                     <div class="pb-5">
                         <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-280 font-size-sm-300 font-size-md-350 font-size-lg-390 font-size-xl-420 font-size-xxl-450 line-height-130 letter-spacing-10 mb-4">MISSION</p>
-                        <p class="text-color-3 cerebri-sans-pro-regular text-center font-size-130 font-size-lg-150 letter-spacing-5 line-height-130 mb-5">At Bare, our mission is to redefine the way people experience comfort, style, and self-expression. We are committed to providing products that offer comfort and confidence, effortlessly blending style and comfort, and celebrating individuality.</p>
+                        <p class="text-color-3 cerebri-sans-pro-regular text-center font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-5">At Bare, our mission is to redefine the way people experience comfort, style, and self-expression. We are committed to providing products that offer comfort and confidence, effortlessly blending style and comfort, and celebrating individuality.</p>
                     </div>
 
                     <div>
                         <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-280 font-size-sm-300 font-size-md-350 font-size-lg-390 font-size-xl-420 font-size-xxl-450 line-height-130 letter-spacing-10 mb-4">VISION</p>
-                        <p class="text-color-3 cerebri-sans-pro-regular text-center font-size-130 font-size-lg-150 letter-spacing-5 line-height-130 mb-0">Our vision is a world where everyone feels empowered to embrace their unique individuality through their clothing choices. We aspire to be a leading force in the fashion industry, known for our commitment to providing high-quality, comfortable, and stylish solutions that foster comfortable confidence and effortless style.</p>
+                        <p class="text-color-3 cerebri-sans-pro-regular text-center font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-0">Our vision is a world where everyone feels empowered to embrace their unique individuality through their clothing choices. We aspire to be a leading force in the fashion industry, known for our commitment to providing high-quality, comfortable, and stylish solutions that foster comfortable confidence and effortless style.</p>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                         <div class="py-5 pe-lg-4 pe-xxl-5">
                             <div class="pe-md-4 pe-xxl-5">
                                 <p class="text-color-2 cerebri-sans-pro-regular text-center text-md-start font-size-280 font-size-sm-300 font-size-md-280 font-size-xl-380 line-height-110 mb-4">Dare to be bare</p>
-                                <p class="text-color-2 cerebri-sans-pro-medium text-center text-md-start font-size-90 font-size-lg-100 line-height-170 letter-spacing-10 mb-5">Want to learn more about fashion-forward ideas? Check out our blog, where we share stories, insights, and tips that will inspire you to make informed choices about your comfort and style. Your journey towards feeling confident, secure, and comfortable begins with knowledge. Visit our blog and become a part of our community today.</p>
+                                <p class="text-color-2 cerebri-sans-pro-regular text-center text-md-start font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-5">Want to learn more about fashion-forward ideas? Check out our blog, where we share stories, insights, and tips that will inspire you to make informed choices about your comfort and style. Your journey towards feeling confident, secure, and comfortable begins with knowledge. Visit our blog and become a part of our community today.</p>
 
                                 <div class="text-center text-md-start">
                                     <a href="{{ route('blog.index') }}" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">READ MORE</a>

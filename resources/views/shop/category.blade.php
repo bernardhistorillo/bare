@@ -43,9 +43,9 @@
             <div class="row justify-content-center mb-3 mb-xl-0">
                 <div class="col-lg-9 col-xl-8">
                     @if($category == 'nipple-covers')
-                    <p class="text-color-5 cerebri-sans-pro-regular text-center font-size-120 font-size-lg-130 letter-spacing-10">Our signature silicone nipple cover - also known as nipple concealers or nipple pasties, are designed to create a seamless and discreet appearance under your clothing. Made from hypoallergenic medical-grade silicone, they ensure both comfort and security.</p>
+                    <p class="text-color-5 cerebri-sans-pro-regular text-center font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150">Our signature silicone nipple cover - also known as nipple concealers or nipple pasties, are designed to create a seamless and discreet appearance under your clothing. Made from hypoallergenic medical-grade silicone, they ensure both comfort and security.</p>
                     @elseif($category == 'flat-nipple-covers-for-men')
-                    <p class="text-color-5 cerebri-sans-pro-regular text-center font-size-120 font-size-lg-130 letter-spacing-10">The flat nipple covers from Bare are meticulously crafted to ensure a comfortable fit and a smooth profile. They are designed to lay flat against the skin, creating a subtle and undetectable barrier that eliminates the visibility of nipples under clothing. Whether it’s for athletic activities, formal events, or everyday wear, these nipple covers allow men to feel confident and at ease in any situation.</p>
+                    <p class="text-color-5 cerebri-sans-pro-regular text-center font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150">The flat nipple covers from Bare are meticulously crafted to ensure a comfortable fit and a smooth profile. They are designed to lay flat against the skin, creating a subtle and undetectable barrier that eliminates the visibility of nipples under clothing. Whether it’s for athletic activities, formal events, or everyday wear, these nipple covers allow men to feel confident and at ease in any situation.</p>
                     @endif
                 </div>
             </div>

@@ -52,18 +52,18 @@
                     <div>
                         <div class="mb-4">
                             <p class="cerebri-sans-pro-regular text-color-2 font-size-140 letter-spacing-10 mb-1">DESCRIPTION</p>
-                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">{{ $product['description'] }}</p>
+                            <p class="cerebri-sans-pro-regular text-color-5 font-size-100 font-size-xl-110 font-size-xxl-120">{{ $product['description'] }}</p>
                         </div>
 
                         @if($product['name'] != 'Zip Pouch' && $product['name'] != 'Drawstring Bag')
                         <div class="mb-4">
                             <p class="cerebri-sans-pro-regular text-color-2 font-size-140 letter-spacing-10 mb-1">MATERIAL</p>
-                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">Silicone</p>
+                            <p class="cerebri-sans-pro-regular text-color-5 font-size-100 font-size-xl-110 font-size-xxl-120">Silicone</p>
                         </div>
 
                         <div class="mb-4">
                             <p class="cerebri-sans-pro-regular text-color-2 font-size-140 letter-spacing-10 mb-1">TYPE</p>
-                            <p class="cerebri-sans-pro-regular text-color-5 font-size-120 letter-spacing-5 line-height-130">Choice between ADHESIVE and NON-ADHESIVE</p>
+                            <p class="cerebri-sans-pro-regular text-color-5 font-size-100 font-size-xl-110 font-size-xxl-120">Choice between ADHESIVE and NON-ADHESIVE</p>
                         </div>
 
                         <div class="mb-4">
@@ -134,7 +134,7 @@
             <p class="text-color-2 cerebri-sans-pro-bold text-center letter-spacing-10 font-size-230 font-size-sm-260 mb-3">SIZE GUIDE</p>
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-9 col-xl-7">
-                    <p class="text-color-5 cerebri-sans-pro-regular text-center font-size-120 font-size-lg-130 letter-spacing-10">Here's a size guide for nipple covers based on nipple diameter and cup sizes:</p>
+                    <p class="text-color-5 cerebri-sans-pro-regular text-center font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150">Here's a size guide for nipple covers based on nipple diameter and cup sizes:</p>
                 </div>
             </div>
 
