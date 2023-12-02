@@ -92,7 +92,7 @@ class InitializeApp extends Command
                 'name' => 'Taupe',
                 'description' => 'Tailored to complement medium to darker skin tone.',
                 'category' => 'Flat Nipple Covers For Men',
-                'price' => 239,
+                'price' => 259,
                 'variations' => json_encode([
                     'Size' => '6cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -108,7 +108,7 @@ class InitializeApp extends Command
                 'name' => 'Nude',
                 'description' => 'Perfectly suited for light to LIGHT medium skin tones.',
                 'category' => 'Flat Nipple Covers For Men',
-                'price' => 239,
+                'price' => 259,
                 'variations' => json_encode([
                     'Size' => '6cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -124,7 +124,7 @@ class InitializeApp extends Command
                 'name' => 'Cocoa',
                 'description' => 'Choosing the Cocoa color for our nipple cover product involved thoughtful consideration and meticulous selection. Our primary objective was to provide a solution that caters to a diverse range of skin tones, ensuring that our product offers a natural and seamless blend.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Adhesive',
@@ -140,7 +140,7 @@ class InitializeApp extends Command
                 'name' => 'Cocoa',
                 'description' => 'Choosing the Cocoa color for our nipple cover product involved thoughtful consideration and meticulous selection. Our primary objective was to provide a solution that caters to a diverse range of skin tones, ensuring that our product offers a natural and seamless blend.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Adhesive',
@@ -156,7 +156,7 @@ class InitializeApp extends Command
                 'name' => 'Cocoa',
                 'description' => 'Choosing the Cocoa color for our nipple cover product involved thoughtful consideration and meticulous selection. Our primary objective was to provide a solution that caters to a diverse range of skin tones, ensuring that our product offers a natural and seamless blend.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -172,7 +172,7 @@ class InitializeApp extends Command
                 'name' => 'Cocoa',
                 'description' => 'Choosing the Cocoa color for our nipple cover product involved thoughtful consideration and meticulous selection. Our primary objective was to provide a solution that caters to a diverse range of skin tones, ensuring that our product offers a natural and seamless blend.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -188,7 +188,7 @@ class InitializeApp extends Command
                 'name' => 'Caramel',
                 'description' => 'Caramel color offers a natural flattering tone that complements a wide range of skin tones. This versatility ensures that nipple covers will seamlessly blend with various complexions, making them suitable for a diverse customer base.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Adhesive',
@@ -204,7 +204,7 @@ class InitializeApp extends Command
                 'name' => 'Caramel',
                 'description' => 'Caramel color offers a natural flattering tone that complements a wide range of skin tones. This versatility ensures that nipple covers will seamlessly blend with various complexions, making them suitable for a diverse customer base.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -220,7 +220,7 @@ class InitializeApp extends Command
                 'name' => 'Caramel',
                 'description' => 'Caramel color offers a natural flattering tone that complements a wide range of skin tones. This versatility ensures that nipple covers will seamlessly blend with various complexions, making them suitable for a diverse customer base.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Adhesive',
@@ -236,7 +236,7 @@ class InitializeApp extends Command
                 'name' => 'Caramel',
                 'description' => 'Caramel color offers a natural flattering tone that complements a wide range of skin tones. This versatility ensures that nipple covers will seamlessly blend with various complexions, making them suitable for a diverse customer base.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -252,7 +252,7 @@ class InitializeApp extends Command
                 'name' => 'Taupe',
                 'description' => 'Tailored to complement medium to darker skin tone.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Adhesive',
@@ -268,7 +268,7 @@ class InitializeApp extends Command
                 'name' => 'Taupe',
                 'description' => 'Tailored to complement medium to darker skin tone.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -284,7 +284,7 @@ class InitializeApp extends Command
                 'name' => 'Taupe',
                 'description' => 'Tailored to complement medium to darker skin tone.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Adhesive',
@@ -300,7 +300,7 @@ class InitializeApp extends Command
                 'name' => 'Taupe',
                 'description' => 'Tailored to complement medium to darker skin tone.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -316,7 +316,7 @@ class InitializeApp extends Command
                 'name' => 'Clay',
                 'description' => 'Clay exudes a sense of warmth and intimacy, creating a soothing and comforting experience for users. Clay color represents a natural and earthy tone that resonates with a sense of grounding and authenticity. This organic quality allows the nipple covers to seamlessly blend with a variety of skin tones, ensuring inclusivity and versatility.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Adhesive',
@@ -331,7 +331,7 @@ class InitializeApp extends Command
                 'name' => 'Clay',
                 'description' => 'Clay exudes a sense of warmth and intimacy, creating a soothing and comforting experience for users. Clay color represents a natural and earthy tone that resonates with a sense of grounding and authenticity. This organic quality allows the nipple covers to seamlessly blend with a variety of skin tones, ensuring inclusivity and versatility.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -346,7 +346,7 @@ class InitializeApp extends Command
                 'name' => 'Clay',
                 'description' => 'Clay exudes a sense of warmth and intimacy, creating a soothing and comforting experience for users. Clay color represents a natural and earthy tone that resonates with a sense of grounding and authenticity. This organic quality allows the nipple covers to seamlessly blend with a variety of skin tones, ensuring inclusivity and versatility.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Adhesive',
@@ -361,7 +361,7 @@ class InitializeApp extends Command
                 'name' => 'Clay',
                 'description' => 'Clay exudes a sense of warmth and intimacy, creating a soothing and comforting experience for users. Clay color represents a natural and earthy tone that resonates with a sense of grounding and authenticity. This organic quality allows the nipple covers to seamlessly blend with a variety of skin tones, ensuring inclusivity and versatility.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -376,7 +376,7 @@ class InitializeApp extends Command
                 'name' => 'Nude',
                 'description' => 'Perfectly suited for light to LIGHT medium skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Adhesive',
@@ -392,7 +392,7 @@ class InitializeApp extends Command
                 'name' => 'Nude',
                 'description' => 'Perfectly suited for light to LIGHT medium skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -408,7 +408,7 @@ class InitializeApp extends Command
                 'name' => 'Nude',
                 'description' => 'Perfectly suited for light to LIGHT medium skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Adhesive',
@@ -424,7 +424,7 @@ class InitializeApp extends Command
                 'name' => 'Nude',
                 'description' => 'Perfectly suited for light to LIGHT medium skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -440,7 +440,7 @@ class InitializeApp extends Command
                 'name' => 'Pale',
                 'description' => 'Tailored for fair to light skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Adhesive',
@@ -456,7 +456,7 @@ class InitializeApp extends Command
                 'name' => 'Pale',
                 'description' => 'Tailored for fair to light skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -472,7 +472,7 @@ class InitializeApp extends Command
                 'name' => 'Pale',
                 'description' => 'Tailored for fair to light skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Adhesive',
@@ -488,7 +488,7 @@ class InitializeApp extends Command
                 'name' => 'Pale',
                 'description' => 'Tailored for fair to light skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -504,7 +504,7 @@ class InitializeApp extends Command
                 'name' => 'Sand',
                 'description' => 'Effortlessly blend with very fair to light skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Adhesive',
@@ -519,7 +519,7 @@ class InitializeApp extends Command
                 'name' => 'Sand',
                 'description' => 'Effortlessly blend with very fair to light skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Adhesive',
@@ -534,7 +534,7 @@ class InitializeApp extends Command
                 'name' => 'Sand',
                 'description' => 'Effortlessly blend with very fair to light skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 249,
+                'price' => 269,
                 'variations' => json_encode([
                     'Size' => '8cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -549,7 +549,7 @@ class InitializeApp extends Command
                 'name' => 'Sand',
                 'description' => 'Effortlessly blend with very fair to light skin tones.',
                 'category' => 'Nipple Covers',
-                'price' => 269,
+                'price' => 279,
                 'variations' => json_encode([
                     'Size' => '10cm',
                     'Adhesiveness' => 'Non-adhesive',
@@ -564,7 +564,7 @@ class InitializeApp extends Command
                 'name' => 'Cocoa Zip Pouch',
                 'description' => 'Care for your nipple covers with our Dust Bags. These essential accessories ensure your covers stay clean and free from debris. Crafted from soft, breathable fabric, the drawstring closure provides a hygienic storage solution, preserving your nipple covers\' quality and longevity.',
                 'category' => 'Travel Pouch',
-                'price' => 299,
+                'price' => 389,
                 'variations' => json_encode([]),
                 'photo' => config('app.prod_url') . '/img/shop/products/cocoa-zip-pouch.webp',
                 'sub_photos' => json_encode([]),
@@ -573,7 +573,7 @@ class InitializeApp extends Command
                 'name' => 'Taupe Zip Pouch',
                 'description' => 'Care for your nipple covers with our Dust Bags. These essential accessories ensure your covers stay clean and free from debris. Crafted from soft, breathable fabric, the drawstring closure provides a hygienic storage solution, preserving your nipple covers\' quality and longevity.',
                 'category' => 'Travel Pouch',
-                'price' => 299,
+                'price' => 389,
                 'variations' => json_encode([]),
                 'photo' => config('app.prod_url') . '/img/shop/products/taupe-zip-pouch.webp',
                 'sub_photos' => json_encode([]),
@@ -582,7 +582,7 @@ class InitializeApp extends Command
                 'name' => 'Drawstring Bag',
                 'description' => 'Care for your nipple covers with our Dust Bags. These essential accessories ensure your covers stay clean and free from debris. Crafted from soft, breathable fabric, the drawstring closure provides a hygienic storage solution, preserving your nipple covers\' quality and longevity.',
                 'category' => 'Travel Pouch',
-                'price' => 79,
+                'price' => 89,
                 'variations' => json_encode([]),
                 'photo' => config('app.prod_url') . '/img/shop/products/drawstring-bag.webp',
                 'sub_photos' => json_encode([]),
