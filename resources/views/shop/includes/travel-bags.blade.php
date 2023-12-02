@@ -7,7 +7,7 @@
                         <div class="col-11 col-sm-8 col-md-7 col-lg-6">
                             <div class="card mb-5 mb-lg-0" style="background-color:rgba(0,0,0,0); border:0">
                                 <div class="card-body p-0">
-                                    <img src="{{ asset('img/shop/products/zip-bag-2.webp') }}" class="w-100" />
+                                    <img src="{{ asset('img/shop/products/zip-bag.webp') }}" class="w-100" />
                                 </div>
                             </div>
                         </div>
