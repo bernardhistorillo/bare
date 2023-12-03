@@ -55,7 +55,7 @@
                             <p class="cerebri-sans-pro-regular text-color-5 font-size-100 font-size-xl-110 font-size-xxl-120">{{ $product['description'] }}</p>
                         </div>
 
-                        @if($product['name'] != 'Zip Pouch' && $product['name'] != 'Drawstring Bag')
+                        @if($product['name'] != 'Cocoa Zip Pouch' && $product['name'] != 'Taupe Zip Pouch' && $product['name'] != 'Drawstring Bag')
                         <div class="mb-4">
                             <p class="cerebri-sans-pro-regular text-color-2 font-size-140 letter-spacing-10 mb-1">MATERIAL</p>
                             <p class="cerebri-sans-pro-regular text-color-5 font-size-100 font-size-xl-110 font-size-xxl-120">Silicone</p>
@@ -71,37 +71,37 @@
 
                             <div class="row">
                                 @if($product['name'] == 'Nude' || $product['name'] == 'Taupe')
-                                <div class="col-lg-2">
-                                    <div class="tw-bg-[#f6f3ee]">
+                                <div class="col-6 col-sm-4 col-lg-3 mb-3">
+                                    <div class="cursor-pointer variation-card active" data-price="259.00">
                                         <p class="cerebri-sans-pro-medium tw-text-[#949494] text-center tw-pt-[5px] pb-1">6 CM</p>
                                     </div>
                                 </div>
                                 @endif
 
-                                <div class="col-lg-2">
-                                    <div class="tw-bg-[#f6f3ee]">
+                                <div class="col-6 col-sm-4 col-lg-3 mb-3">
+                                    <div class="cursor-pointer variation-card {{ !($product['name'] == 'Nude' || $product['name'] == 'Taupe') ? 'active' : '' }}" data-price="269.00">
                                         <p class="cerebri-sans-pro-medium tw-text-[#949494] text-center tw-pt-[5px] pb-1">8 CM</p>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-2">
-                                    <div class="tw-bg-[#f6f3ee]">
+                                <div class="col-6 col-sm-4 col-lg-3 mb-3">
+                                    <div class="cursor-pointer variation-card" data-price="279.00">
                                         <p class="cerebri-sans-pro-medium tw-text-[#949494] text-center tw-pt-[5px] pb-1">10 CM</p>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-3">
-                                    <div class="tw-bg-[#f6f3ee]">
+                                <div class="col-6 col-sm-4 col-lg-3 mb-3">
+                                    <a href="#size-guide" class="variation-card d-block">
                                         <p class="cerebri-sans-pro-medium tw-text-[#949494] text-center tw-pt-[5px] pb-1">SIZE GUIDE</p>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                         @endif
 
-                        <hr class="my-5">
+                        <hr class="mt-4 mb-5">
 
-                        <p class="text-color-2 cerebri-sans-pro-bold font-size-140 letter-spacing-5 mb-3">PHP {{ number_format($product['price'],2) }}</p>
+                        <p class="text-color-2 cerebri-sans-pro-bold font-size-140 letter-spacing-5 mb-3">PHP <span id="price">{{ number_format($product['price'],2) }}</span></p>
 
                         <div class="">
                             <form class="update-cart-form">
@@ -128,8 +128,10 @@
         </div>
     </div>
 
-    @if($product['name'] != 'Zip Pouch' && $product['name'] != 'Drawstring Bag')
-    <div class="bg-white py-5">
+    @if($product['name'] != 'Taupe Zip Pouch' && $product['name'] != 'Cocoa Zip Pouch' && $product['name'] != 'Drawstring Bag')
+    <div class="bg-white py-5 position-relative">
+        <div class="position-absolute tw-mt-[-48px] tw-top-[0] tw-left-0" id="size-guide"></div>
+
         <div class="container pb-5">
             <p class="text-color-2 cerebri-sans-pro-bold text-center letter-spacing-10 font-size-230 font-size-sm-260 mb-3">SIZE GUIDE</p>
             <div class="row justify-content-center mb-5">

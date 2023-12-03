@@ -506,6 +506,15 @@ $(document).on("submit", "#user-login-form", function(e) {
 });
 
 // Shop
+$(document).on("click", ".variation-card", function() {
+    if($(this).attr("data-price")) {
+        $(".variation-card").removeClass('active');
+        $(this).addClass('active');
+
+        $("#price").html($(this).attr("data-price"));
+    }
+});
+
 $(document).on("submit", ".update-cart-form", function(e) {
     e.preventDefault();
 

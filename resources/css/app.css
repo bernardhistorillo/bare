@@ -313,6 +313,14 @@ html, body {
 div.dataTables_processing>div:last-child>div {
     background: #423225;
 }
+.variation-card {
+    border: 1px solid #f6f3ee;
+    background-color: #f6f3ee;
+}
+.variation-card.active, .variation-card:hover {
+    border: 1px solid #4b372c;
+    background-color: #f6f3ee;
+}
 
 /*##################################################################*/
 
