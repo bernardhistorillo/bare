@@ -9,7 +9,7 @@ if(!function_exists('ogDetails')) {
         if(request()->path() == '/') {
             $data['title'] = 'Sign Up Now!';
             $data['description'] = 'Sign Up & Get 10% Discount On Our Launch!';
-            $data['image'] = asset('img/home/og-4.jpg');
+            $data['image'] = asset('img/home/og-5.jpg');
         } else {
             $data['description'] = 'We are BARE.';
             $data['image'] = asset('img/home/og-2.jpg');
