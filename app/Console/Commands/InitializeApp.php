@@ -366,7 +366,7 @@ class InitializeApp extends Command
                     'Size' => '10cm',
                     'Adhesiveness' => 'Non-adhesive',
                 ]),
-                'photo' => config('app.prod_url') . '/img/shopproducts/clay.webp',
+                'photo' => config('app.prod_url') . '/img/shop/products/clay.webp',
                 'sub_photos' => json_encode([
                     config('app.prod_url') . '/img/shop/products/clay-cover.webp',
                     config('app.prod_url') . '/img/shop/products/clay-desc.webp',

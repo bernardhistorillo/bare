@@ -17,6 +17,13 @@
         </a>
     </li>
 
+    <li class="nav-item text-white {{ (Route::currentRouteName() == 'admin.inventory.index') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.inventory.index') }}">
+            <i class="fa-solid fa-fw fa-shelves"></i>
+            <span>Inventory</span>
+        </a>
+    </li>
+
     <li class="nav-item text-white {{ (Route::currentRouteName() == 'admin.accounts.index') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.accounts.index') }}">
             <i class="fa-solid fa-fw fa-users"></i>

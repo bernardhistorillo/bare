@@ -20,6 +20,14 @@ class Product extends Model
         'status',
     ];
 
+    public function stock() {
+        return $this->hasMany(Stock::class);
+    }
+
+    public function orderItems() {
+        return $this->hasMany(OrderItem::class);
+    }
+
     public static function groupedProducts($items) {
         $productGroups = [];
 

@@ -10,6 +10,8 @@ let pageOnload = async function() {
         homeOnload();
     } else if(currentRouteName === "admin.orders.index") {
         adminOrdersOnload();
+    } else if(currentRouteName === "admin.inventory.index") {
+        adminInventoryOnload();
     } else if(currentRouteName === "admin.accounts.index") {
         adminAccountsOnload();
     } else if(currentRouteName === "admin.subscribers.index") {
@@ -84,6 +86,9 @@ let adminOrdersOnload = function() {
 
     $(".loading-text").addClass("d-none");
     $(".data-table").removeClass("d-none");
+};
+let adminInventoryOnload = function() {
+    initializeDataTables();
 };
 let adminAccountsOnload = function() {
     initializeDataTables();
@@ -674,5 +679,50 @@ $(document).on("click", "#update-order-status", function() {
             button.prop("disabled", false);
             $("#modal-update-order-status [data-bs-dismiss='modal']").removeClass("d-none");
             $("#modal-update-order-status").modal("hide");
+        });
+});
+
+// Admin Inventory
+$(document).on("click", ".add-stock", function() {
+    $("#product-name").html($(this).closest("tr").find(".product-name").html());
+    $("#variation").html($(this).closest("tr").find(".product-variation").html());
+
+    $("#add-stock").val($(this).val());
+    $("#modal-add-stock").modal("show");
+});
+
+$(document).on("click", "#add-stock", function() {
+    let button = $(this);
+
+    button.prop("disabled", true);
+    button.html("Submitting");
+
+    $("#modal-add-stock [data-bs-dismiss='modal']").addClass("d-none");
+
+    let quantity = $("#quantity").val();
+
+    let url = $(this).attr("data-url");
+    let data = new FormData();
+    data.append('quantity', quantity);
+    data.append('product_id', button.val());
+
+    axios.post(url, data)
+        .then((response) => {
+            let cell = $(".stock[data-product-id='" + button.val() + "']");
+            let stock = parseInt(cell.attr("data-stock"));
+            stock += parseInt(quantity);
+
+            cell.html(stock);
+            cell.attr("data-stock", stock);
+
+            $("#modal-success .message").html("Stock successfully updated.");
+            $("#modal-success").modal("show");
+        }).catch((error) => {
+            showRequestError(error);
+        }).then(() => {
+            button.prop("disabled", false);
+            button.html("Submit");
+            $("#modal-add-stock [data-bs-dismiss='modal']").removeClass("d-none");
+            $("#modal-add-stock").modal("hide");
         });
 });

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminAccountController;
+use App\Http\Controllers\AdminInventoryController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AdminSubscriberController;
 use App\Http\Controllers\AuthenticationController;
@@ -94,6 +95,13 @@ Route::prefix('admin')->group(function () {
         Route::prefix('orders')->group(function () {
             Route::get('/', [AdminOrderController::class, 'index'])->name('admin.orders.index');
             Route::post('/updateStatus', [AdminOrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
+        });
+
+        Route::prefix('inventory')->group(function () {
+            Route::get('/', [AdminInventoryController::class, 'index'])->name('admin.inventory.index');
+            Route::get('/history', [AdminInventoryController::class, 'history'])->name('admin.inventory.history');
+
+            Route::post('/addStock', [AdminInventoryController::class, 'addStock'])->name('admin.inventory.addStock');
         });
 
         Route::get('/subscribers', [AdminSubscriberController::class, 'index'])->name('admin.subscribers.index');
