@@ -13,6 +13,7 @@ class HomeController extends Controller
 {
     public function index() {
         $items = Product::orderBy('id')
+            ->where('status', 1)
             ->get();
 
         $groupedProducts = Product::groupedProducts($items);

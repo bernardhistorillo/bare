@@ -22,6 +22,7 @@ class ShopController extends Controller
         }
 
         $items = Product::where('category', $categoryName)
+            ->where('status', 1)
             ->orderBy('id')
             ->get();
 
