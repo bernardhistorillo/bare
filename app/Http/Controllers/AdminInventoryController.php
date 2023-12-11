@@ -39,21 +39,24 @@ class AdminInventoryController extends Controller
     }
 
     public function history(Request $request) {
-
-
         return view('admin.inventory.history');
     }
 
-    public function addStock(Request $request) {
+    public function setInventory(Request $request) {
         $request->validate([
             'product_id' => 'required',
             'quantity' => 'required',
+            'type' => 'required',
         ]);
 
-        $orderStatus = new Stock();
-        $orderStatus->product_id = $request->product_id;
-        $orderStatus->quantity = $request->quantity;
-        $orderStatus->save();
+        if($request->quantity < 1) {
+            abort(422, 'Please enter a valid quantity.');
+        }
+
+        $stock = new Stock();
+        $stock->product_id = $request->product_id;
+        $stock->quantity = ($request->type == 'add') ? $request->quantity : $request->quantity * -1;
+        $stock->save();
 
         return response()->json();
     }

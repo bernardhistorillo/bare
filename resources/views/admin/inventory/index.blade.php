@@ -45,7 +45,7 @@
                         </td>
                         <td>
                             <div class="text-center">
-                                <button class="btn btn-custom-1 btn-sm font-size-80 mb-1 add-stock" value="{{ $product['id'] }}" style="min-width:93px">Add Inventory</button>
+                                <button class="btn btn-custom-1 btn-sm font-size-80 mb-1 set-inventory" value="{{ $product['id'] }}" style="min-width:93px">Update Inventory</button>
 {{--                                <button class="btn btn-custom-1 btn-sm font-size-80 mb-1" style="min-width:93px">History</button>--}}
                             </div>
                         </td>
@@ -57,7 +57,7 @@
     </div>
 </main>
 
-<div class="modal fade" id="modal-add-stock" tabindex="-1">
+<div class="modal fade" id="modal-set-inventory" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="border-radius:20px">
             <div class="modal-body position-relative py-4">
@@ -65,10 +65,21 @@
                     <i class="fa-regular fa-times cursor-pointer font-size-120" data-bs-dismiss="modal"></i>
                 </div>
 
-                <div class="font-size-110 text-center mb-3">Add Stock</div>
+                <div class="font-size-110 text-center mb-3">Update Inventory</div>
 
                 <p class="" id="product-name"></p>
                 <p class="font-size-80 mb-4" id="variation"></p>
+
+                <div class="d-flex mb-3">
+                    <div class="form-check form-check-inline d-flex align-items-center">
+                        <input class="form-check-input me-2" type="radio" name="type" id="inlineRadio1" value="add" checked>
+                        <label class="form-check-label" for="inlineRadio1">Add</label>
+                    </div>
+                    <div class="form-check form-check-inline d-flex align-items-center">
+                        <input class="form-check-input me-2" type="radio" name="type" id="inlineRadio2" value="remove">
+                        <label class="form-check-label" for="inlineRadio2">Remove</label>
+                    </div>
+                </div>
 
                 <p class="font-size-90 mb-1">Quantity:</p>
                 <input type="number" class="form-control mb-4" id="quantity" placeholder="Quantity" value="1" min="1" />
@@ -76,7 +87,7 @@
 
             <div class="modal-footer justify-content-center" style="border-color:#808080">
                 <button type="button" class="btn btn-custom-2 font-weight-500 px-4" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-custom-1 font-weight-500 px-4" id="add-stock" data-url="{{ route('admin.inventory.addStock') }}">Submit</button>
+                <button type="button" class="btn btn-custom-1 font-weight-500 px-4" id="set-inventory" data-url="{{ route('admin.inventory.setInventory') }}">Submit</button>
             </div>
         </div>
     </div>

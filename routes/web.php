@@ -102,7 +102,7 @@ Route::prefix('admin')->group(function () {
             Route::get('/', [AdminInventoryController::class, 'index'])->name('admin.inventory.index');
             Route::get('/history', [AdminInventoryController::class, 'history'])->name('admin.inventory.history');
 
-            Route::post('/addStock', [AdminInventoryController::class, 'addStock'])->name('admin.inventory.addStock');
+            Route::post('/setInventory', [AdminInventoryController::class, 'setInventory'])->name('admin.inventory.setInventory');
         });
 
         Route::get('/subscribers', [AdminSubscriberController::class, 'index'])->name('admin.subscribers.index');

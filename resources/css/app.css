@@ -321,6 +321,10 @@ div.dataTables_processing>div:last-child>div {
     border: 1px solid #4b372c;
     background-color: #f6f3ee;
 }
+#modal-set-inventory .form-check-input:checked {
+    background-color: #4b372c;
+    border-color: #4b372c;
+}
 
 /*##################################################################*/
 

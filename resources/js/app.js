@@ -717,34 +717,41 @@ $(document).on("click", "#update-order-status", function() {
 });
 
 // Admin Inventory
-$(document).on("click", ".add-stock", function() {
+$(document).on("click", ".set-inventory", function() {
     $("#product-name").html($(this).closest("tr").find(".product-name").html());
     $("#variation").html($(this).closest("tr").find(".product-variation").html());
 
-    $("#add-stock").val($(this).val());
-    $("#modal-add-stock").modal("show");
+    $("#set-inventory").val($(this).val());
+    $("#modal-set-inventory").modal("show");
 });
 
-$(document).on("click", "#add-stock", function() {
+$(document).on("click", "#set-inventory", function() {
     let button = $(this);
 
     button.prop("disabled", true);
     button.html("Submitting");
 
-    $("#modal-add-stock [data-bs-dismiss='modal']").addClass("d-none");
+    $("#modal-set-inventory [data-bs-dismiss='modal']").addClass("d-none");
 
     let quantity = $("#quantity").val();
+    let type = $("[name='type']:checked").val();
 
     let url = $(this).attr("data-url");
     let data = new FormData();
     data.append('quantity', quantity);
     data.append('product_id', button.val());
+    data.append('type', type);
 
     axios.post(url, data)
         .then((response) => {
             let cell = $(".stock[data-product-id='" + button.val() + "']");
             let stock = parseInt(cell.attr("data-stock"));
-            stock += parseInt(quantity);
+
+            if(type === "add") {
+                stock += parseInt(quantity);
+            } else {
+                stock -= parseInt(quantity);
+            }
 
             cell.html(stock);
             cell.attr("data-stock", stock);
@@ -756,7 +763,7 @@ $(document).on("click", "#add-stock", function() {
         }).then(() => {
             button.prop("disabled", false);
             button.html("Submit");
-            $("#modal-add-stock [data-bs-dismiss='modal']").removeClass("d-none");
-            $("#modal-add-stock").modal("hide");
+            $("#modal-set-inventory [data-bs-dismiss='modal']").removeClass("d-none");
+            $("#modal-set-inventory").modal("hide");
         });
 });
