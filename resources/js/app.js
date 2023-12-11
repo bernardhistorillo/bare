@@ -615,6 +615,40 @@ $(document).on("submit", "#login-form", function(e) {
         });
 });
 
+// Admin Change Password
+$(document).on("submit", "#change-password-form", function(e) {
+    e.preventDefault();
+
+    let form = $(this);
+
+    $("#modal-change-password [data-bs-dismiss='modal']").addClass("d-none");
+
+    let button = form.find("[type='submit']");
+    button.prop("disabled", true);
+    button.html('Processing');
+
+    let data = new FormData(form[0]);
+    let url = data.get('url');
+
+    console.log(url);
+
+    axios.post(url, data)
+        .then((response) => {
+            form.find("input[type='password']").val("");
+
+            $("#modal-success .message").html("Your password has been successfully updated.");
+            $("#modal-success").modal("show");
+        }).catch((error) => {
+            showRequestError(error);
+        }).then(() => {
+            $("#modal-change-password").modal("hide");
+            $("#modal-change-password [data-bs-dismiss='modal']").removeClass("d-none");
+
+            button.html("Submit");
+            button.prop("disabled", false);
+        });
+});
+
 // Admin Orders
 let adminOrderTable;
 

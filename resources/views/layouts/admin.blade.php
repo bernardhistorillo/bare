@@ -51,6 +51,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-change-password">
+                                    <i class="fas fa-lock fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Change Password
+                                </a>
+
                                 <a class="dropdown-item" href="{{ route('admin.logout') }}">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -77,13 +82,50 @@
 
     @include('layouts.includes.modals')
 
+    <div class="modal fade" id="modal-change-password" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content" style="border-radius:20px">
+                <div class="modal-header position-relative">
+                    <p class="text-center w-100">Change Password</p>
+
+                    <div class="cursor-pointer position-absolute" data-bs-dismiss="modal" style="top:16px; right:18px">
+                        <i class="fa-solid fa-times" ></i>
+                    </div>
+                </div>
+                <form id="change-password-form">
+                    <input type="hidden" name="url" value="{{ route('admin.changePassword') }}" />
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <small>Current Password</small>
+                            <input type="password" class="form-control" name="current_password" placeholder="Current Password" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <small>New Password</small>
+                            <input type="password" class="form-control" name="password" placeholder="New Password" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <small>Confirm Password</small>
+                            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center" style="border-color:#808080">
+                        <button type="button" class="btn btn-custom-1 px-4" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-custom-1 px-4">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <input type="hidden" name="route_name" value="{{ Route::currentRouteName() }}" />
     <input type="hidden" name="app_url" value="{{ config('app.url') }}" />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ asset('lib/sb-admin/js/sb-admin-2.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="{{ asset('lib/jquery/jquery-3.3.1.min.js') }}"></script>
 
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>

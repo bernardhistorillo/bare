@@ -85,6 +85,6 @@ class User extends Authenticatable
     }
 
     public function photo() {
-        return 'https://avatars.dicebear.com/api/avataaars/' . $this->id . '.svg';
+        return 'https://api.dicebear.com/7.x/avataaars/svg?seed=' . $this->id;
     }
 }

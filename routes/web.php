@@ -91,6 +91,7 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware(['auth', 'is_admin'])->group(function() {
         Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+        Route::post('/changePassword', [LoginController::class, 'changePassword'])->name('admin.changePassword');
 
         Route::prefix('orders')->group(function () {
             Route::get('/', [AdminOrderController::class, 'index'])->name('admin.orders.index');

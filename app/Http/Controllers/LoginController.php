@@ -29,6 +29,22 @@ class LoginController extends Controller
         ]);
     }
 
+    public function changePassword(Request $request) {
+        $request->validate([
+            'current_password' => 'required|string',
+            'password' => 'required|string|confirmed',
+        ]);
+
+        if (!Hash::check($request->current_password, auth()->user()->password)) {
+            abort(422, 'The provided password does not match your current password.');
+        }
+
+        Auth::user()->password = Hash::make($request->password);
+        Auth::user()->save();
+
+        return response()->json();
+    }
+
     public function logout(Request $request) {
         Auth::logout();
         return redirect()->route('admin.login.index');
