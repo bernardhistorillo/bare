@@ -30,7 +30,7 @@
                     <div class="bg-color-8 p-3 p-sm-5">
                         <div class="py-4">
                             <p class="text-color-2 cerebri-sans-pro-bold letter-spacing-10 text-center text-md-start font-size-180 font-size-md-200 line-height-110 mb-3">CONTACT US</p>
-                            <p class="text-color-6 cerebri-sans-pro-regular text-center text-md-start font-size-lg-110 line-height-130 letter-spacing-5 mb-3">Please contact us using the form below and allow 1-2 business days for your response.</p>
+                            <p class="text-color-6 cerebri-sans-pro-regular text-center text-md-start font-size-lg-110 line-height-130 letter-spacing-5 mb-3">Please contact us using the form below.</p>
 
                             <form id="contact-form">
                                 <input type="hidden" name="url" value="{{ route('contact.sendMessage') }}" />
