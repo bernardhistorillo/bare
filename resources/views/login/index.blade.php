@@ -25,7 +25,14 @@
                                     <input type="hidden" name="url" value="{{ route('login.submit') }}" />
 
                                     <input type="email" name="email" class="form-control form-control-1 mb-3 py-2" style="height:45px" placeholder="Your email address" required />
-                                    <input type="password" name="password" class="form-control form-control-1 mb-3 py-2" style="height:45px" placeholder="Your password" required />
+
+                                    <div class="position-relative">
+                                        <input type="password" name="password" class="form-control form-control-1 mb-3 py-2" style="height:45px" placeholder="Your password" required />
+
+                                        <div class="position-absolute cursor-pointer tw-top-[11px] tw-right-[15px] toggle-password-show">
+                                            <i class="fa-solid fa-eye font-size-110"></i>
+                                        </div>
+                                    </div>
 
                                     <div class="mb-5 pb-3">
                                         <button type="submit" class="btn btn-custom-1 w-100 py-2" style="height:50px">Log In</button>

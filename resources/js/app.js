@@ -249,6 +249,23 @@ $(document).on("input", ".use-numeric-no-leading-zero-rule", function() {
     $(this).val(numericValue);
 });
 
+$(document).on("click", ".toggle-password-show", function() {
+    let input = $(this).closest(".position-relative").find("input");
+    let icon = $(this).find("i");
+
+    if(input.attr("type") === "text") {
+        input.attr("type", "password");
+
+        icon.addClass('fa-eye');
+        icon.removeClass('fa-eye-slash');
+    } else {
+        input.attr("type", "text");
+
+        icon.removeClass('fa-eye');
+        icon.addClass('fa-eye-slash');
+    }
+});
+
 // Cart
 let updateCartQuantity = function(cartQuantity, cartTotalPrice) {
     if(cartQuantity > 0) {
