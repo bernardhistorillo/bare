@@ -60,9 +60,7 @@
     <tr>
         <td class="text-center p-3 p-md-5">
             <div class="w-100 d-inline-block bg-color-9" style="max-width:600px">
-                <div class="bg-color-3 text-center py-5" style="background-image:url('{{ config('app.prod_url') . '/img/home/bg-2.webp' }}')">
-                    <img src="{{ config('app.prod_url') . '/img/home/bare-white.png' }}" class="d-inline" width="150" alt="{{ config('app.name') }}" />
-                </div>
+                <img src="{{ config('app.prod_url') . '/img/email/email-header.jpg' }}" class="w-100" alt="{{ config('app.name') }}" />
 
                 <div class="text-start px-4 px-md-5 py-5">
                     <h5 class="text-white mb-4">BARE New Inquiry</h5>
@@ -83,6 +81,8 @@
 
                     <p class="text-white mb-0">Thank you for your prompt attention to this matter.</p>
                 </div>
+
+                <img src="{{ config('app.prod_url') . '/img/email/email-footer.jpg' }}" class="w-100" alt="{{ config('app.name') }}" />
             </div>
         </td>
     </tr>

@@ -523,7 +523,8 @@ $(document).on("submit", "#contact-form", function(e) {
 
     axios.post(url, data)
         .then((response) => {
-            form.find('input').val("");
+            form.find("input[type='text']").val("");
+            form.find("input[type='email']").val("");
             form.find('textarea').val("");
 
             $("#modal-success .message").html("Message sent! Please wait for our email. We’ll contact you the soonest.");

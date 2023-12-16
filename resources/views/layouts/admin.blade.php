@@ -98,17 +98,38 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <small>Current Password</small>
-                            <input type="password" class="form-control" name="current_password" placeholder="Current Password" required />
+
+                            <div class="position-relative">
+                                <input type="password" class="form-control" name="current_password" placeholder="Current Password" required />
+
+                                <div class="position-absolute cursor-pointer tw-top-[7px] tw-right-[15px] toggle-password-show">
+                                    <i class="fa-solid fa-eye font-size-100"></i>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mb-3">
                             <small>New Password</small>
-                            <input type="password" class="form-control" name="password" placeholder="New Password" required />
+
+                            <div class="position-relative">
+                                <input type="password" class="form-control" name="password" placeholder="New Password" required />
+
+                                <div class="position-absolute cursor-pointer tw-top-[7px] tw-right-[15px] toggle-password-show">
+                                    <i class="fa-solid fa-eye font-size-100"></i>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mb-3">
                             <small>Confirm Password</small>
-                            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required />
+
+                            <div class="position-relative">
+                                <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required />
+
+                                <div class="position-absolute cursor-pointer tw-top-[7px] tw-right-[15px] toggle-password-show">
+                                    <i class="fa-solid fa-eye font-size-100"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer justify-content-center" style="border-color:#808080">

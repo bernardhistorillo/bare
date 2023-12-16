@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">--}}
-{{--    <link href="{{ asset(mix('/css/app.css')) }}" rel="stylesheet">--}}
-{{--    <style>--}}
-{{--        * {--}}
-{{--            font-family: Arial, serif;--}}
-{{--        }--}}
-{{--        .text-white {--}}
-{{--            color:#ffffff;--}}
-{{--        }--}}
-{{--    </style>--}}
+    {{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">--}}
+    {{--    <link href="{{ asset(mix('/css/app.css')) }}" rel="stylesheet">--}}
+    {{--    <style>--}}
+    {{--        * {--}}
+    {{--            font-family: Arial, serif;--}}
+    {{--        }--}}
+    {{--        .text-white {--}}
+    {{--            color:#ffffff;--}}
+    {{--        }--}}
+    {{--    </style>--}}
 
     <style>
         /*! CSS Used from: https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css */
@@ -40,10 +40,10 @@
         .py-5{padding-top:3rem!important;padding-bottom:3rem!important;}
         .text-start{text-align:left!important;}
         .text-center{text-align:center!important;}
-        .text-white {
-            color:#ffffff;
+        a, .text-white {
+            color:#ffffff!important;
         }
-@media (min-width:768px){
+        @media (min-width:768px){
             .p-md-5{padding:3rem!important;}
             .px-md-5{padding-right:3rem!important;padding-left:3rem!important;}
         }
@@ -52,6 +52,7 @@
         .bg-color-9{background-color:#9E8877!important;}
         /*! CSS Used from: Embedded */
         *{font-family:Arial, serif;}
+        .fw-bold{font-weight:bold}
     </style>
 </head>
 
@@ -63,17 +64,45 @@
                 <img src="{{ config('app.prod_url') . '/img/email/email-header.jpg' }}" class="w-100" alt="{{ config('app.name') }}" />
 
                 <div class="text-start px-4 px-md-5 py-5">
-                    <h5 class="text-white mb-4">Your Message Has Been Sent</h5>
+                    <h5 class="text-white mb-4">Welcome to Our Family! Enjoy Your Exclusive 10% Launch Discount 🚀</h5>
 
-                    <p class="text-white mb-3">Dear {{ $data['name'] }},</p>
+                    <p class="text-white mb-3">Dear {{ $data['name'] }}</p>
 
-                    <p class="text-white mb-3">Hello, and thank you for reaching out! Our team will review your message and will get back to you as soon as we can.</p>
+                    <p class="text-white mb-3">A big, warm welcome to you from all of us at BARE! We're excited to have you join our community. As a token of our appreciation, we're delighted to offer you an exclusive 10% discount on your first purchase of our premium nipple covers.</p>
 
-                    <p class="text-white mb-3">Depending on the amount of messages we receive, we might need more time to reply to your inquiry. We value your patience and understanding, and we are looking forward to serving you soon.</p>
+                    <p class="text-white mb-3">🎉 Your Personal Discount Code: <span class="fw-bold">BARE10</span></p>
 
-                    <p class="text-white mb-3">Sincerely,</p>
+                    <p class="text-white mb-3">Here's how to enjoy your discount:</p>
 
-                    <p class="text-white mb-0">The {{ config('app.name') }} Team</p>
+                    <ol class="mb-3">
+                        <li class="text-white mb-0"><span class="fw-bold">Explore Our Collection:</span> Take your time to browse through our range of high-quality nipple covers, designed for comfort, durability, and discreet wear.</li>
+                        <li class="text-white mb-0"><span class="fw-bold">Apply Your Code at Checkout:</span> Once you've made your selection, use the code BARE10 in the 'Promo Code' field at checkout.</li>
+                        <li class="text-white mb-3"><span class="fw-bold">Relish the Savings:</span> Enjoy your purchase with the added bonus of a discounted price, making your shopping experience even more delightful.</li>
+                    </ol>
+
+                    <p class="text-white mb-3">Why Choose BARE?</p>
+
+                    <ul class="mb-3">
+                        <li class="text-white mb-0"><span class="fw-bold">Superior Comfort and Quality:</span> Our products are crafted with your comfort and needs in mind.</li>
+                        <li class="text-white mb-0"><span class="fw-bold">Discreet and Reliable:</span> Perfect for any outfit, our nipple covers ensure you can dress confidently for any occasion.</li>
+                        <li class="text-white mb-0"><span class="fw-bold">Customer Satisfaction:</span> Your happiness is our priority, and we're here to support you with any queries or assistance.</li>
+                    </ul>
+
+                    <p class="text-white mb-3">Stay in the Loop</p>
+
+                    <p class="text-white mb-3">For the latest products, exclusive deals, and tips, follow us on our social media channels. Be a part of our growing community and never miss out on what's new at BARE.</p>
+
+                    <p class="text-white mb-3">Hurry! This offer is valid for a limited period. Make the most of it before it expires.</p>
+
+                    <p class="text-white mb-3">Thank you for choosing BARE for your intimate wear needs. We are thrilled to be part of your journey in finding the perfect fit for every occasion.</p>
+
+                    <p class="text-white mb-3">Happy Shopping!</p>
+
+                    <p class="text-white mb-3">Warm regards,</p>
+
+                    <p class="text-white mb-3">The BARE Team</p>
+
+                    <p class="text-white mb-3">P.S. If you have any questions or need help selecting the perfect product, our friendly customer support team is just an email away at {{ config('mail.from.address') }}.</p>
                 </div>
 
                 <img src="{{ config('app.prod_url') . '/img/email/email-footer.jpg' }}" class="w-100" alt="{{ config('app.name') }}" />

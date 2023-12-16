@@ -18,8 +18,9 @@
                         </div>
                         <div class="position-relative mb-3">
                             <input class="form-control form-control-1 px-5 py-2" name="password" type="password" placeholder="Password">
-                            <div class="position-absolute" style="right:20px; top:9px">
-                                <i class="fas fa-lock"></i>
+
+                            <div class="position-absolute cursor-pointer tw-top-[10px] tw-right-[17px] toggle-password-show">
+                                <i class="fa-solid fa-eye font-size-110"></i>
                             </div>
                         </div>
 
