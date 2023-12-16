@@ -28,8 +28,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/try', [HomeController::class, 'try']);
-Route::get('/', [HomeController::class, 'underConstruction'])->name('underConstruction.index');
-Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/signup-discount', [HomeController::class, 'underConstruction'])->name('underConstruction.index');
 
 Route::middleware(['guest'])->group(function() {
     Route::prefix('login')->group(function () {
@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function() {
 
     Route::prefix('checkout')->group(function () {
         Route::get('/', [CheckoutController::class, 'index'])->name('checkout.index');
+        Route::post('/checkPromoCode', [CheckoutController::class, 'checkPromoCode'])->name('checkout.checkPromoCode');
         Route::post('/placeOrder', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
     });
 

@@ -367,6 +367,62 @@ $(document).on("click", ".cart-item-delete", function() {
 });
 
 // Check Out
+$(document).on("change", "[name='promo_code']", function() {
+    let promoCode = $(this).val();
+
+    let data = new FormData();
+    data.append('promo_code', promoCode);
+
+    let url = $(this).attr("data-url");
+
+    let promoCodeStatus = $("#promo-code-status");
+
+    if(promoCode) {
+        promoCodeStatus.html("Checking...");
+        promoCodeStatus.removeClass("d-none");
+        promoCodeStatus.removeClass("text-success");
+        promoCodeStatus.removeClass("text-danger");
+
+        $("#promo-code-discount-row").addClass("d-none");
+
+        axios.post(url, data)
+            .then((response) => {
+                if(response.data.isValid) {
+                    promoCodeStatus.html("You get a 10% discount with this promo code.");
+                    promoCodeStatus.addClass("text-success");
+
+                    $("#promo-code-discount-row").removeClass("d-none");
+
+                    let price = parseFloat($("#total-price").attr('data-sub-price'));
+                    price *= 0.9;
+                    price += 100;
+
+                    $("#total-price").html(numberFormat(price,2));
+                    $(".total-price").html(numberFormat(price,2));
+                } else {
+                    promoCodeStatus.html("Your promo code is invalid.");
+                    promoCodeStatus.addClass("text-danger");
+
+                    let price = parseFloat($("#total-price").attr('data-sub-price'));
+                    price += 100;
+
+                    $("#total-price").html(numberFormat(price,2));
+                    $(".total-price").html(numberFormat(price,2));
+                }
+            }).catch((error) => {
+                showRequestError(error);
+            });
+    } else {
+        let price = parseFloat($("#total-price").attr('data-sub-price'));
+        price += 100;
+
+        $("#total-price").html(numberFormat(price,2));
+        $(".total-price").html(numberFormat(price,2));
+
+        promoCodeStatus.addClass("d-none");
+    }
+});
+
 $(document).on("submit", "#checkout-form", function(e) {
     e.preventDefault();
 

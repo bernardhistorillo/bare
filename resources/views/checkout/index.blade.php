@@ -70,20 +70,39 @@
                                 </td>
                             </tr>
                             @endforeach
+                            <tr class="d-none" id="promo-code-discount-row">
+                                <td colspan="3" class="text-end font-size-90">Promo Code Discount</td>
+                                <td class="align-middle text-center font-size-90">10%</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-end font-size-90">Shipping Fee</td>
+                                <td class="align-middle text-center font-size-90">
+                                    <i class="fa-regular fa-peso-sign"></i> 100.00
+                                </td>
+                            </tr>
                             <tr class="cart-item">
                                 <td colspan="3" class="text-end">Total</td>
                                 <td class="align-middle text-center">
-                                    <i class="fa-regular fa-peso-sign"></i> <span class="cerebri-sans-pro-bold text-color-1">{{ number_format(Auth::user()->cartTotalPrice(), 2) }}</span>
+                                    <i class="fa-regular fa-peso-sign"></i> <span class="cerebri-sans-pro-bold text-color-1" id="total-price" data-sub-price="{{ Auth::user()->cartTotalPrice() }}">{{ number_format(Auth::user()->cartTotalPrice() + 100, 2) }}</span>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <p class="text-color-2 cerebri-sans-pro-medium font-size-110 mb-4">Delivery Address</p>
-
                 <form id="checkout-form">
                     <input type="hidden" name="url" value="{{ route('checkout.placeOrder') }}" />
+
+                    <p class="text-color-2 cerebri-sans-pro-medium font-size-110 mb-4">Promo Code (Optional)</p>
+
+                    <div class="row tw-mx-[-8px] mb-4 pb-2">
+                        <div class="col-md-6 px-2">
+                            <input type="text" name="promo_code" class="form-control form-control-1 cerebri-sans-pro-regular text-start py-2 px-3 mb-2" data-url="{{ route('checkout.checkPromoCode') }}" style="height:45px; border:3px solid #946C51; color:#946C51!important" placeholder="Promo Code" />
+                            <p class="ms-1 font-size-90 d-none mb-0" id="promo-code-status"></p>
+                        </div>
+                    </div>
+
+                    <p class="text-color-2 cerebri-sans-pro-medium font-size-110 mb-4">Delivery Address</p>
 
                     <div class="row tw-mx-[-8px] mb-4">
                         <div class="col-md-6 px-2">
@@ -119,7 +138,7 @@
 
                     <ol class="ps-4 mb-5" style="list-style: decimal">
                         <li class="cerebri-sans-pro-regular mb-4">
-                            With your GCash, please send a payment of <i class="fa-regular fa-peso-sign"></i> <span class="cerebri-sans-pro-bold text-color-1">{{ number_format(Auth::user()->cartTotalPrice(), 2) }}</span> to <span class="cerebri-sans-pro-bold">0917 516 0239</span> or you may scan the QR code below.
+                            With your GCash, please send a payment of <i class="fa-regular fa-peso-sign"></i> <span class="cerebri-sans-pro-bold text-color-1 total-price">{{ number_format(Auth::user()->cartTotalPrice() + 100, 2) }}</span> to <span class="cerebri-sans-pro-bold">0917 516 0239</span> or you may scan the QR code below.
                             <img src="{{ asset('img/checkout/gcash.webp') }}" class="tw-w-[120px] mt-2" />
                         </li>
                         <li class="cerebri-sans-pro-regular">

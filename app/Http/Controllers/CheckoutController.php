@@ -53,10 +53,18 @@ class CheckoutController extends Controller
         Storage::disk('public')->put($path, $file, "public");
         $payment = config('filesystems.disks.public.url') . $path . $name;
 
+        $promoCode = null;
+        if(in_array(strtolower($request->promo_code), array_map('strtolower', $this->promoCodes()))) {
+            $totalPrice *= 0.9;
+            $promoCode = $request->promo_code;
+        }
+
+        $shippingFee = 100;
+
         $order = new Order();
         $order->reference = $referenceCode;
         $order->user_id = Auth::user()->id;
-        $order->price = $totalPrice;
+        $order->price = $totalPrice + $shippingFee;
         $order->full_name = $request->full_name;
         $order->contact_number = $request->contact_number;
         $order->home_address = $request->home_address;
@@ -65,6 +73,7 @@ class CheckoutController extends Controller
         $order->province = $request->province;
         $order->zip_code = $request->zip_code;
         $order->payment = $payment;
+        $order->promo_code = $promoCode;
         $order->save();
 
         foreach($cartItems as $cartItem) {
@@ -88,5 +97,26 @@ class CheckoutController extends Controller
         return response()->json([
             'redirect' => route('orders.index')
         ]);
+    }
+
+    public function checkPromoCode(Request $request) {
+        $request->validate([
+            'promo_code' => 'required',
+        ]);
+
+        $valid = false;
+        if(in_array(strtolower($request->promo_code), array_map('strtolower', $this->promoCodes()))) {
+            $valid = true;
+        }
+
+        return response()->json([
+            'isValid' => $valid
+        ]);
+    }
+
+    public function promoCodes() {
+        return [
+            'BARE10'
+        ];
     }
 }
