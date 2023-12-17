@@ -13,7 +13,7 @@ class PromoCode extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $message;
+    public $emailSubscription;
 
     /**
      * Create a new message instance.

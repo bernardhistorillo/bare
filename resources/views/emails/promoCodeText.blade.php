@@ -1,6 +1,6 @@
 Welcome to Our Family! Enjoy Your Exclusive 10% Launch Discount 🚀
 
-Dear {{ $data['name'] }}
+Dear {{ $data['name'] }},
 
 A big, warm welcome to you from all of us at BARE! We're excited to have you join our community. As a token of our appreciation, we're delighted to offer you an exclusive 10% discount on your first purchase of our premium nipple covers.</p>
 

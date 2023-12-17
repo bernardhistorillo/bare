@@ -66,7 +66,7 @@
                 <div class="text-start px-4 px-md-5 py-5">
                     <h5 class="text-white mb-4">Welcome to Our Family! Enjoy Your Exclusive 10% Launch Discount 🚀</h5>
 
-                    <p class="text-white mb-3">Dear {{ $data['name'] }}</p>
+                    <p class="text-white mb-3">Dear {{ $data['name'] }},</p>
 
                     <p class="text-white mb-3">A big, warm welcome to you from all of us at BARE! We're excited to have you join our community. As a token of our appreciation, we're delighted to offer you an exclusive 10% discount on your first purchase of our premium nipple covers.</p>
 
