@@ -29,11 +29,11 @@ class HomeController extends Controller
     }
 
     public function try() {
-        $data = EmailSubscription::first();
-        $data['name'] = json_decode($data['data'],true)['name'];
+//        $data = EmailSubscription::first();
+//        $data['name'] = json_decode($data['data'],true)['name'];
 
 //        Mail::to($emailSubscription['email'])->send(new PromoCode($data));
 
-        return view('emails.promoCode', compact('data'));
+//        return view('emails.promoCode', compact('data'));
     }
 }

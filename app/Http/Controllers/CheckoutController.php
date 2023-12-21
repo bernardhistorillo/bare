@@ -31,7 +31,7 @@ class CheckoutController extends Controller
             'city' => 'required',
             'barangay' => 'required',
             'home_address' => 'required',
-            'payment' => 'required|mimes:jpg,jpeg,png,bmp,tiff,pdf|max:10240',
+            'payment' => 'required|mimes:jpg,jpeg,png,bmp,tiff,pdf|max:50000',
         ]);
 
         do {
