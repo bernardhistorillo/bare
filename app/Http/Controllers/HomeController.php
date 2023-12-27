@@ -8,6 +8,7 @@ use App\Mail\PromoCode;
 use App\Models\EmailSubscription;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -29,6 +30,7 @@ class HomeController extends Controller
     }
 
     public function try() {
+//        Auth::loginUsingId(1);
 //        $data = EmailSubscription::first();
 //        $data['name'] = json_decode($data['data'],true)['name'];
 

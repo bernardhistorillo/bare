@@ -25,6 +25,7 @@ class AdminOrderController extends Controller
                     $query->orderBy('id', 'desc');
                 }])
                 ->leftJoin('order_statuses', 'order_statuses.id', '=', 'latest_status.id')
+                ->orderBy('orders.id', 'desc')
                 ->select('orders.*', 'users.name', 'users.email', 'order_statuses.status', 'order_statuses.created_at as order_status_created_at');
 
             return DataTables::of($data)
