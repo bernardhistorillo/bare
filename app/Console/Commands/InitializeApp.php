@@ -71,11 +71,6 @@ class InitializeApp extends Command
                 'email' => 'help@wearebare.co',
                 'password' => Hash::make('Jnd7byUTpaaXdnjWwfWo'),
                 'role' => 1,
-            ], [
-                'name' => 'Bernard Historillo',
-                'email' => 'bernardhistorillo1@gmail.com',
-                'password' => Hash::make('Password1'),
-                'role' => 0,
             ]
         ];
 
