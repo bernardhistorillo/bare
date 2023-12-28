@@ -30,12 +30,6 @@ class HomeController extends Controller
     }
 
     public function try() {
-//        Auth::loginUsingId(1);
-//        $data = EmailSubscription::first();
-//        $data['name'] = json_decode($data['data'],true)['name'];
 
-//        Mail::to($emailSubscription['email'])->send(new PromoCode($data));
-
-//        return view('emails.promoCode', compact('data'));
     }
 }

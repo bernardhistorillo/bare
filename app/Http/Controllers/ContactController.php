@@ -48,7 +48,7 @@ class ContactController extends Controller
             'message' => 'required',
         ]);
 
-        $email = (config('app.env') == 'production') ? config('mail.from.address') : 'bernardhistorillo1@gmail.com';
+        $email = config('mail.from.address');
 
         Mail::to($email)->queue(new EmailReceived($request->only(['name', 'email', 'message'])));
         Mail::to($request->email)->queue(new EmailSent($request->only('name', 'email', 'message')));
