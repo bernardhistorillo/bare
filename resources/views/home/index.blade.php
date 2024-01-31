@@ -54,7 +54,7 @@
                             <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-130 font-size-md-140 letter-spacing-5 mb-3">PHP {{ number_format($groupedProduct['price'],2) }}</p>
                         </a>
 
-                        <div class="">
+                        <div class="mb-4">
                             <form class="update-cart-form" data-index="{{ $i }}">
                                 <input type="hidden" name="name" value="{{ $groupedProduct['name'] }}" />
                                 <input type="hidden" name="category" value="{{ $groupedProduct['category'] }}" />
@@ -62,6 +62,21 @@
 
                                 <button type="submit" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] w-100">ADD TO CART</button>
                             </form>
+                        </div>
+
+                        <p class="cerebri-sans-pro-regular text-center mb-2">Or shop on:</p>
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-3">
+                                <a href="{{ $groupedProduct['lazada_link'] }}" target="_blank" rel="noreferrer">
+                                    <img src="{{ asset('img/home/lazada.webp') }}" class="w-100 tw-rounded-[30%]" alt="{{ config('app.name') }}" />
+                                </a>
+                            </div>
+
+                            <div class="col-3">
+                                <a href="{{ $groupedProduct['shopee_link'] }}" target="_blank" rel="noreferrer">
+                                    <img src="{{ asset('img/home/shopee.webp') }}" class="w-100 tw-rounded-[30%]" alt="{{ config('app.name') }}" />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

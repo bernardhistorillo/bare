@@ -30,6 +30,6 @@ class HomeController extends Controller
     }
 
     public function try() {
-
+        Auth::loginUsingId(1);
     }
 }

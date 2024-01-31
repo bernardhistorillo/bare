@@ -42,6 +42,8 @@ class Product extends Model
                     'category' => $item['category'],
                     'photo' => $item['photo'],
                     'sub_photos' => $item['sub_photos'],
+                    'lazada_link' => $item['lazada_link'],
+                    'shopee_link' => $item['shopee_link'],
                     'description' => $item['description'],
                     'variations' => []
                 ];
@@ -75,6 +77,8 @@ class Product extends Model
                 'category' => $data['category'],
                 'photo' => $data['photo'],
                 'sub_photos' => $data['sub_photos'],
+                'lazada_link' => $data['lazada_link'],
+                'shopee_link' => $data['shopee_link'],
                 'description' => $data['description'],
                 'variations' => $productVariations
             ];

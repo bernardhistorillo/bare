@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5770414d0c19f3c6dde27ddca7b1dbcd",
+    "content-hash": "0661de7d4465b7ec9eb9e7f37ad1e9cc",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -2135,6 +2135,76 @@
             "time": "2023-10-17T14:13:20+00:00"
         },
         {
+            "name": "luigel/laravel-paymongo",
+            "version": "v2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/luigel/laravel-paymongo.git",
+                "reference": "1c826daebb3fca1248327a34e35c89bcae72f912"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/luigel/laravel-paymongo/zipball/1c826daebb3fca1248327a34e35c89bcae72f912",
+                "reference": "1c826daebb3fca1248327a34e35c89bcae72f912",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "illuminate/support": "^8.0|^9.0|^10.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0|^7.0|^8.0",
+                "pestphp/pest": "^1.20",
+                "pestphp/pest-plugin-parallel": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Luigel\\Paymongo\\PaymongoServiceProvider"
+                    ],
+                    "aliases": {
+                        "Paymongo": "Luigel\\Paymongo\\Facades\\Paymongo"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Luigel\\Paymongo\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rigel Kent Carbonel",
+                    "email": "rigel20.kent@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A laravel wrapper for Paymongo API",
+            "homepage": "https://github.com/luigel/laravel-paymongo",
+            "keywords": [
+                "credit-cards",
+                "debit-cards",
+                "gcash",
+                "grabcar",
+                "laravel",
+                "laravel-paymongo",
+                "luigel",
+                "payment-gateway",
+                "paymongo"
+            ],
+            "support": {
+                "issues": "https://github.com/luigel/laravel-paymongo/issues",
+                "source": "https://github.com/luigel/laravel-paymongo/tree/v2.4.0"
+            },
+            "time": "2023-05-22T04:08:03+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "2.9.1",
             "source": {
@@ -2610,6 +2680,52 @@
                 "source": "https://github.com/opis/closure/tree/3.6.3"
             },
             "time": "2022-01-27T09:35:39+00:00"
+        },
+        {
+            "name": "paymongo/paymongo-php",
+            "version": "v0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paymongo/paymongo-php.git",
+                "reference": "48ce4f38b366d8ca73f426cd3b04fe1d7d59f5bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paymongo/paymongo-php/zipball/48ce4f38b366d8ca73f426cd3b04fe1d7d59f5bd",
+                "reference": "48ce4f38b366d8ca73f426cd3b04fe1d7d59f5bd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Paymongo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PayMongo PHP Library",
+            "homepage": "https://paymongo.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "paymongo"
+            ],
+            "support": {
+                "issues": "https://github.com/paymongo/paymongo-php/issues",
+                "source": "https://github.com/paymongo/paymongo-php/tree/v0.0.0"
+            },
+            "time": "2022-11-21T06:10:32+00:00"
         },
         {
             "name": "phpoption/phpoption",

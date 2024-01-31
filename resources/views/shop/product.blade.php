@@ -103,7 +103,7 @@
 
                         <p class="text-color-2 cerebri-sans-pro-bold font-size-140 letter-spacing-5 mb-3">PHP <span id="price">{{ number_format($product['price'],2) }}</span></p>
 
-                        <div class="">
+                        <div class="mb-4">
                             <form class="update-cart-form">
                                 <input type="hidden" name="name" value="{{ $product['name'] }}" />
                                 <input type="hidden" name="category" value="{{ $product['category'] }}" />
@@ -111,6 +111,21 @@
 
                                 <button type="submit" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">ADD TO CART</button>
                             </form>
+                        </div>
+
+                        <p class="cerebri-sans-pro-regular mb-2">Or shop on:</p>
+                        <div class="row align-items-center">
+                            <div class="tw-w-[75px]">
+                                <a href="{{ $product['lazada_link'] }}" target="_blank" rel="noreferrer">
+                                    <img src="{{ asset('img/home/lazada.webp') }}" class="w-100 tw-rounded-[30%]" alt="{{ config('app.name') }}" />
+                                </a>
+                            </div>
+
+                            <div class="tw-w-[75px]">
+                                <a href="{{ $product['shopee_link'] }}" target="_blank" rel="noreferrer">
+                                    <img src="{{ asset('img/home/shopee.webp') }}" class="w-100 tw-rounded-[30%]" alt="{{ config('app.name') }}" />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
