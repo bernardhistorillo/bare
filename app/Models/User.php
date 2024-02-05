@@ -51,7 +51,7 @@ class User extends Authenticatable
     public function cartItemsWithProducts() {
         return Auth::user()->cartItems()
             ->leftJoin('products', 'product_id', 'products.id')
-            ->select('carts.*', 'name', 'category', 'variations', 'price', 'photo')
+            ->select('carts.*', 'name', 'category', 'variations', 'price', 'photo', 'description')
             ->get();
     }
 
@@ -76,6 +76,7 @@ class User extends Authenticatable
 
     public function recentOrders() {
         return $this->orders()
+            ->whereNotNull('payment')
             ->with('orderItems.product')
             ->with(['orderStatus' => function ($query) {
                 $query->orderBy('id', 'desc');

@@ -8,6 +8,7 @@ use App\Models\OrderItem;
 use App\Models\OrderStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 class CheckoutController extends Controller
@@ -22,7 +23,7 @@ class CheckoutController extends Controller
         return view('checkout.index', compact('cartItems'));
     }
 
-    public function placeOrder(Request $request) {
+    public function proceedToPayment(Request $request) {
         $request->validate([
             'full_name' => 'required',
             'contact_number' => 'required',
@@ -31,8 +32,9 @@ class CheckoutController extends Controller
             'city' => 'required',
             'barangay' => 'required',
             'home_address' => 'required',
-            'payment' => 'required|mimes:jpg,jpeg,png,bmp,tiff,pdf|max:50000',
         ]);
+
+        $shippingFee = 100;
 
         do {
             $referenceCode = generateCode(8);
@@ -42,24 +44,75 @@ class CheckoutController extends Controller
 
         $cartItems = Auth::user()->cartItemsWithProducts();
 
-        $totalPrice = 0;
-        foreach($cartItems as $cartItem) {
-            $totalPrice += $cartItem['quantity'] * $cartItem['price'];
-        }
-
-        $file = $request->file('payment');
-        $name = $file->hashName();
-        $path = '/payments/';
-        Storage::disk('public')->put($path, $file, "public");
-        $payment = config('filesystems.disks.public.url') . $path . $name;
-
         $promoCode = null;
         if(in_array(strtolower($request->promo_code), array_map('strtolower', $this->promoCodes()))) {
-            $totalPrice *= 0.9;
             $promoCode = $request->promo_code;
         }
 
-        $shippingFee = 100;
+        $totalPrice = 0;
+        foreach($cartItems as $cartItem) {
+            $cartItem['price'] = ($promoCode) ? $cartItem['price'] * 0.9 : $cartItem['price'];
+            $totalPrice += $cartItem['quantity'] * $cartItem['price'];
+        }
+
+//        $file = $request->file('payment');
+//        $name = $file->hashName();
+//        $path = '/payments/';
+//        Storage::disk('public')->put($path, $file, "public");
+//        $payment = config('filesystems.disks.public.url') . $path . $name;
+
+        $lineItems = [];
+        foreach($cartItems as $cartItem) {
+            if(substr($cartItem['description'],251, 1) == ' ') {
+                $description = substr($cartItem['description'],0, 251) . ' ...';
+            } else {
+                $description = substr($cartItem['description'],0, 251) . '...';
+            }
+
+            $lineItems[] = [
+                'currency' => 'PHP',
+                'amount' => floatval($cartItem['price']) * 100,
+                'description' => $description,
+                'name' => $cartItem['name'] . ' - ' . json_decode($cartItem['variations'],true)['Adhesiveness'] . ', ' . json_decode($cartItem['variations'],true)['Size'],
+                'quantity' => $cartItem['quantity'],
+            ];
+        }
+
+        $lineItems[] = [
+            'currency' => 'PHP',
+            'amount' => $shippingFee * 100,
+            'description' => 'Shipping Fee',
+            'name' => 'Shipping Fee',
+            'quantity' => 1,
+        ];
+
+        $data = [
+            'data' => [
+                'attributes' => [
+                    'line_items' => $lineItems,
+                    'payment_method_types' => [
+                        'card',
+                        'gcash',
+                        'paymaya'
+                    ],
+                    'success_url' => route('orders.checkPayment', $referenceCode),
+                    'cancel_url' => route('orders.cancelPayment', $referenceCode),
+                    'description' => 'BARE products',
+                    'show_description' => true,
+                    'reference_number' => $referenceCode,
+                    'send_email_receipt' => true,
+                ],
+            ]
+        ];
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'accept' => 'application/json',
+            'Authorization' => 'Basic ' . base64_encode(config('services.paymongo.secret_key') . ':' . config('services.paymongo.password')),
+        ])
+            ->post('https://api.paymongo.com/v1/checkout_sessions', $data);
+
+        $response = json_decode($response, true);
 
         $order = new Order();
         $order->reference = $referenceCode;
@@ -72,7 +125,7 @@ class CheckoutController extends Controller
         $order->city = $request->city;
         $order->province = $request->province;
         $order->zip_code = $request->zip_code;
-        $order->payment = $payment;
+        $order->checkout_session_id = $response['data']['id'];
         $order->promo_code = $promoCode;
         $order->save();
 
@@ -91,12 +144,45 @@ class CheckoutController extends Controller
         $orderStatus->is_current = 1;
         $orderStatus->save();
 
-        Cart::where('user_id', Auth::user()->id)
-            ->delete();
-
         return response()->json([
-            'redirect' => route('orders.index')
+            'checkout_url' => $response['data']['attributes']['checkout_url'],
         ]);
+    }
+
+    public function paymentPaid(Request $request) {
+        $data = $request->all();
+
+        $order = Order::where('checkout_session_id', $data['data']['attributes']['data']['id'])
+            ->first();
+
+        foreach($data['data']['attributes']['data']['attributes']['payments'] as $payment) {
+            if($payment['attributes']['status'] == 'paid') {
+                $order->payment = json_encode($payment);
+                $order->update();
+
+                Cart::where('user_id', $order['user_id'])
+                    ->delete();
+
+                $orderStatus = OrderStatus::where('order_id', $order['id'])
+                    ->where('status', 'Payment Received')
+                    ->first();
+
+                if(!$orderStatus) {
+                    OrderStatus::where('order_id', $order['id'])
+                        ->update([
+                            'is_current' => 0
+                        ]);
+
+                    $orderStatus = new OrderStatus();
+                    $orderStatus->order_id = $order['id'];
+                    $orderStatus->status = 'Payment Received';
+                    $orderStatus->is_current = 1;
+                    $orderStatus->save();
+                }
+
+                break;
+            }
+        }
     }
 
     public function checkPromoCode(Request $request) {

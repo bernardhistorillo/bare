@@ -101,39 +101,39 @@
                             <div id="order-delivery-{{ $i }}" class="accordion-collapse collapse" data-bs-parent="#accordion-order-delivery-{{ $i }}">
                                 <div class="accordion-body">
                                     <div class="row tw-mx-[-8px]">
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Full Name</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['full_name'] }}" disabled />
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Full Name</p>
+                                            <p class="cerebri-sans-pro-regular">{{ $order['full_name'] }}</p>
                                         </div>
 
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Contact Number</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['contact_number'] }}" disabled />
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Contact Number</p>
+                                            <p class="cerebri-sans-pro-regular">{{ $order['contact_number'] }}</p>
                                         </div>
 
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Zip Code</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['zip_code'] }}" disabled />
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Zip Code</p>
+                                            <p class="cerebri-sans-pro-regular">{{ $order['zip_code'] }}</p>
                                         </div>
 
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Province</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['province'] }}" disabled />
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Province</p>
+                                            <p class="cerebri-sans-pro-regular">{{ $order['province'] }}</p>
                                         </div>
 
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">City</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['city'] }}" disabled />
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">City</p>
+                                            <p class="cerebri-sans-pro-regular">{{ $order['city'] }}</p>
                                         </div>
 
-                                        <div class="col-md-6 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Barangay</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['barangay'] }}" disabled />
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Barangay</p>
+                                            <p class="cerebri-sans-pro-regular">{{ $order['barangay'] }}</p>
                                         </div>
 
-                                        <div class="col-md-12 px-2">
-                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-1">Home Address</p>
-                                            <input type="text" class="form-control form-control-1 cerebri-sans-pro-regular text-start mb-3 py-2 px-3 bg-transparent" style="height:45px; border:3px solid #946C51; color:#946C51!important" value="{{ $order['home_address'] }}" disabled />
+                                        <div class="col-6 col-md-4 px-2 mb-0">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Home Address</p>
+                                            <p class="cerebri-sans-pro-regular">{{ $order['home_address'] }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -150,9 +150,95 @@
                             </h2>
                             <div id="order-payment-{{ $i }}" class="accordion-collapse collapse" data-bs-parent="#accordion-order-payment-{{ $i }}">
                                 <div class="accordion-body">
-                                    <a href="{{ $order['payment'] }}" data-fancybox="">
-                                        <div class="d-flex align-items-center background-image-contain justify-content-center tw-w-[160px] tw-h-[240px] tw-border-[1px] tw-border-[#423225] p-3" style="background-image:url('{{ $order['payment'] }}')"></div>
-                                    </a>
+                                    @if($order->payment())
+                                    <div class="row tw-mx-[-8px]">
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Source</p>
+                                            <p class="cerebri-sans-pro-regular text-uppercase" style="word-break: break-word">{{ $order->payment()['attributes']['source']['type'] }}</p>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Reference</p>
+                                            <p class="cerebri-sans-pro-regular text-uppercase" style="word-break: break-word">{{ $order->payment()['id'] }}</p>
+                                        </div>
+                                    </div>
+
+                                        @if($order->payment()['attributes']['source']['type'] == 'card')
+                                    <div class="row tw-mx-[-8px]">
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Brand</p>
+                                            <p class="cerebri-sans-pro-regular text-uppercase" style="word-break: break-word">{{ $order->payment()['attributes']['source']['brand'] }}</p>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Country</p>
+                                            <p class="cerebri-sans-pro-regular text-uppercase" style="word-break: break-word">{{ $order->payment()['attributes']['source']['country'] }}</p>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Last 4 Digits</p>
+                                            <p class="cerebri-sans-pro-regular text-uppercase" style="word-break: break-word">{{ $order->payment()['attributes']['source']['last4'] }}</p>
+                                        </div>
+                                    </div>
+                                        @endif
+
+                                    <div class="row tw-mx-[-8px]">
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Name</p>
+                                            <p class="cerebri-sans-pro-regular" style="word-break: break-word">{{ $order->payment()['attributes']['billing']['name'] }}</p>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Email</p>
+                                            <p class="cerebri-sans-pro-regular" style="word-break: break-word">{{ $order->payment()['attributes']['billing']['email'] }}</p>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Phone</p>
+                                            <p class="cerebri-sans-pro-regular" style="word-break: break-word">{{ $order->payment()['attributes']['billing']['phone'] }}</p>
+                                        </div>
+                                    </div>
+
+                                        @if($order->payment()['attributes']['source']['type'] == 'card')
+                                    <div class="row tw-mx-[-8px]">
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Line 1</p>
+                                            <p class="cerebri-sans-pro-regular" style="word-break: break-word">{{ $order->payment()['attributes']['billing']['address']['line1'] }}</p>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Line 2</p>
+                                            <p class="cerebri-sans-pro-regular" style="word-break: break-word">{{ $order->payment()['attributes']['billing']['address']['line2'] }}</p>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">City</p>
+                                            <p class="cerebri-sans-pro-regular" style="word-break: break-word">{{ $order->payment()['attributes']['billing']['address']['city'] }}</p>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">State</p>
+                                            <p class="cerebri-sans-pro-regular" style="word-break: break-word">{{ $order->payment()['attributes']['billing']['address']['state'] }}</p>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Country</p>
+                                            <p class="cerebri-sans-pro-regular" style="word-break: break-word">{{ $order->payment()['attributes']['billing']['address']['country'] }}</p>
+                                        </div>
+
+                                        <div class="col-6 col-md-4 px-2 mb-3">
+                                            <p class="text-color-2 cerebri-sans-pro-regular font-size-90 mb-0">Postal Code</p>
+                                            <p class="cerebri-sans-pro-regular" style="word-break: break-word">{{ $order->payment()['attributes']['billing']['address']['postal_code'] }}</p>
+                                        </div>
+                                    </div>
+                                            @endif
+                                        @else
+                                    <div class="row tw-mx-[-8px]">
+                                        <a href="{{ $order['payment'] }}" data-fancybox="">
+                                            <div class="d-flex align-items-center background-image-contain justify-content-center tw-w-[160px] tw-h-[240px] tw-border-[1px] tw-border-[#423225] p-3" style="background-image:url('{{ $order['payment'] }}')"></div>
+                                        </a>
+                                    </div>
+                                        @endif
                                 </div>
                             </div>
                         </div>

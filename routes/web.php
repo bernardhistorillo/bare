@@ -57,7 +57,7 @@ Route::middleware(['auth'])->group(function() {
     Route::prefix('checkout')->group(function () {
         Route::get('/', [CheckoutController::class, 'index'])->name('checkout.index');
         Route::post('/checkPromoCode', [CheckoutController::class, 'checkPromoCode'])->name('checkout.checkPromoCode');
-        Route::post('/placeOrder', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+        Route::post('/proceedToPayment', [CheckoutController::class, 'proceedToPayment'])->name('checkout.proceedToPayment');
 
         Route::get('/create-payment', [PaymentController::class, 'createPayment']);
         Route::post('/handle-payment-callback', [PaymentController::class, 'handlePaymentCallback']);
@@ -65,6 +65,8 @@ Route::middleware(['auth'])->group(function() {
 
     Route::prefix('orders')->group(function () {
         Route::get('/', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('/checkPayment/{reference}', [OrderController::class, 'checkPayment'])->name('orders.checkPayment');
+        Route::get('/cancelPayment/{reference}', [OrderController::class, 'cancelPayment'])->name('orders.cancelPayment');
     });
 });
 

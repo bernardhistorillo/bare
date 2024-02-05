@@ -20,4 +20,8 @@ class Order extends Model
     public function orderStatus() {
         return $this->hasMany(OrderStatus::class);
     }
+
+    public function payment() {
+        return json_decode($this->payment, true);
+    }
 }

@@ -426,7 +426,24 @@ $(document).on("change", "[name='promo_code']", function() {
 $(document).on("submit", "#checkout-form", function(e) {
     e.preventDefault();
 
-    $("#modal-place-order-confirmation").modal("show");
+    let form = $(this);
+
+    let button = form.find("[type='submit']")
+    button.prop("disabled", true);
+    button.html('PROCESSING');
+
+    let data = new FormData(form[0]);
+    let url = data.get('url').toString();
+
+    axios.post(url, data)
+        .then((response) => {
+            window.location.href = response.data.checkout_url;
+        }).catch((error) => {
+            showRequestError(error);
+
+            button.prop("disabled", false);
+            button.html('PROCEED TO PAYMENT');
+        });
 });
 
 $(document).on("click", "#attach-payment", function() {
@@ -452,35 +469,6 @@ $(document).on("change", "input[name='payment']", function() {
     if($(this)[0].files.length) {
         reader.readAsDataURL($(this)[0].files[0]);
     }
-});
-
-$(document).on("click", "#place-order", function() {
-    let closeButtons = $("#modal-place-order-confirmation [data-bs-dismiss='modal']");
-    closeButtons.addClass("d-none");
-
-    let button = $(this);
-    button.prop("disabled", true);
-    button.html('Placing Order');
-
-    let data = new FormData($("#checkout-form")[0]);
-    let url = data.get('url').toString();
-
-    axios.post(url, data)
-        .then((response) => {
-            initializeReloadButton(response.data.redirect);
-
-            $("#modal-success .message").html("Success! Your order is confirmed and will be processed shortly. Thank you for your purchase!");
-            $("#modal-success").modal("show");
-        }).catch((error) => {
-            showRequestError(error);
-        }).then(() => {
-            closeButtons.removeClass("d-none");
-
-            button.prop("disabled", false);
-            button.html('Confirm');
-
-            $("#modal-place-order-confirmation").modal("hide");
-        });
 });
 
 // Contact Form

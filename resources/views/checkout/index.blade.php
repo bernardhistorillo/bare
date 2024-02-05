@@ -91,7 +91,7 @@
                 </div>
 
                 <form id="checkout-form">
-                    <input type="hidden" name="url" value="{{ route('checkout.placeOrder') }}" />
+                    <input type="hidden" name="url" value="{{ route('checkout.proceedToPayment') }}" />
 
                     <p class="text-color-2 cerebri-sans-pro-medium font-size-110 mb-4">Promo Code (Optional)</p>
 
@@ -134,28 +134,28 @@
                         </div>
                     </div>
 
-                    <p class="text-color-2 cerebri-sans-pro-medium font-size-110 mb-4">Payment</p>
+{{--                    <p class="text-color-2 cerebri-sans-pro-medium font-size-110 mb-4">Payment</p>--}}
 
-                    <ol class="ps-4 mb-5" style="list-style: decimal">
-                        <li class="cerebri-sans-pro-regular mb-4">
-                            With your GCash, please send a payment of <i class="fa-regular fa-peso-sign"></i> <span class="cerebri-sans-pro-bold text-color-1 total-price">{{ number_format(Auth::user()->cartTotalPrice() + 100, 2) }}</span> to <span class="cerebri-sans-pro-bold">0917 516 0239</span> or you may scan the QR code below.
-                            <img src="{{ asset('img/checkout/gcash.webp') }}" class="tw-w-[120px] mt-2" />
-                        </li>
-                        <li class="cerebri-sans-pro-regular">
-                            <p class="mb-3">Upon successful payment, please take a screenshot with the reference code and attach the photo below.</p>
+{{--                    <ol class="ps-4 mb-5" style="list-style: decimal">--}}
+{{--                        <li class="cerebri-sans-pro-regular mb-4">--}}
+{{--                            With your GCash, please send a payment of <i class="fa-regular fa-peso-sign"></i> <span class="cerebri-sans-pro-bold text-color-1 total-price">{{ number_format(Auth::user()->cartTotalPrice() + 100, 2) }}</span> to <span class="cerebri-sans-pro-bold">0917 516 0239</span> or you may scan the QR code below.--}}
+{{--                            <img src="{{ asset('img/checkout/gcash.webp') }}" class="tw-w-[120px] mt-2" />--}}
+{{--                        </li>--}}
+{{--                        <li class="cerebri-sans-pro-regular">--}}
+{{--                            <p class="mb-3">Upon successful payment, please take a screenshot with the reference code and attach the photo below.</p>--}}
 
-                            <input type="file" name="payment" class="d-none" required />
+{{--                            <input type="file" name="payment" class="d-none" required />--}}
 
-                            <div class="d-flex align-items-center background-image-contain justify-content-center tw-w-[120px] tw-h-[200px] tw-border-[1px] tw-border-[#423225] p-3 cursor-pointer" id="attach-payment">
-                                <div class="text-center font-size-80 cerebri-sans-pro-regular">Please click here to attach your payment screenshot.</div>
-                            </div>
-                        </li>
-                    </ol>
+{{--                            <div class="d-flex align-items-center background-image-contain justify-content-center tw-w-[120px] tw-h-[200px] tw-border-[1px] tw-border-[#423225] p-3 cursor-pointer" id="attach-payment">--}}
+{{--                                <div class="text-center font-size-80 cerebri-sans-pro-regular">Please click here to attach your payment screenshot.</div>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                    </ol>--}}
 
                     <div class="d-flex justify-content-center justify-content-sm-start">
                         <div class="d-flex flex-column flex-sm-row align-items-center">
                             <div>
-                                <button type="submit" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-5">Place Order</button>
+                                <button type="submit" class="btn btn-custom-4 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-5">PROCEED TO PAYMENT</button>
                             </div>
                         </div>
                     </div>

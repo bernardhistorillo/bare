@@ -13,7 +13,8 @@ class AdminOrderController extends Controller
 {
     public function index(Request $request) {
         if ($request->ajax()) {
-            $data = Order::leftJoin('users', 'user_id', 'users.id')
+            $data = Order::whereNotNull('payment')
+                ->leftJoin('users', 'user_id', 'users.id')
                 ->leftJoinSub(
                     DB::table('order_statuses')
                         ->selectRaw('MAX(id) as id, order_id')
@@ -127,7 +128,7 @@ class AdminOrderController extends Controller
             'order_id' => 'required|exists:orders,id',
         ]);
 
-        OrderStatus::where('order_id')
+        OrderStatus::where('order_id', $request->order_id)
             ->update([
                 'is_current' => 0
             ]);
