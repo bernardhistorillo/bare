@@ -69,11 +69,17 @@ class CheckoutController extends Controller
                 $description = substr($cartItem['description'],0, 251) . '...';
             }
 
+            if(isset(json_decode($cartItem['variations'],true)['Adhesiveness']) && isset(json_decode($cartItem['variations'],true)['Size'])) {
+                $name = $cartItem['name'] . ' - ' . json_decode($cartItem['variations'],true)['Adhesiveness'] . ', ' . json_decode($cartItem['variations'],true)['Size'];
+            } else {
+                $name = $cartItem['name'];
+            }
+
             $lineItems[] = [
                 'currency' => 'PHP',
                 'amount' => floatval($cartItem['price']) * 100,
                 'description' => $description,
-                'name' => $cartItem['name'] . ' - ' . json_decode($cartItem['variations'],true)['Adhesiveness'] . ', ' . json_decode($cartItem['variations'],true)['Size'],
+                'name' => $name,
                 'quantity' => $cartItem['quantity'],
             ];
         }
