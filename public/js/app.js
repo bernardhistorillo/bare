@@ -2102,13 +2102,23 @@ var pageOnload = /*#__PURE__*/function () {
 }();
 var allOnload = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    var savedDate, currentDate;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
           appUrl = $("input[name='app_url']").val();
           currentRouteName = $("input[name='route_name']").val();
           $(window).trigger('scroll');
-        case 3:
+
+          // localStorage.removeItem('savedDate');
+          savedDate = localStorage.getItem('savedDate');
+          currentDate = new Date();
+          if (!savedDate || currentDate - new Date(savedDate) > 24 * 60 * 60 * 1000) {
+            savedDate = currentDate.toString();
+            localStorage.setItem('savedDate', savedDate);
+            $("#modal-newsletter-subscription").modal("show");
+          }
+        case 6:
         case "end":
           return _context2.stop();
       }
@@ -2506,11 +2516,12 @@ $(document).on("submit", "#email-subscription-form", function (e) {
   axios.post(url, data).then(function (response) {
     form.find('input[type="text"]').val("");
     form.find('input[type="email"]').val("");
-    $("#modal-success .message").html("Thanks for subscribing!<br>We’ll keep you posted.");
+    $("#modal-success .message").html("Success! You're subscribed. Get ready for the latest launches, insider tips, and exclusive offers straight to your inbox.");
     $("#modal-success").modal("show");
   })["catch"](function (error) {
     showRequestError(error);
   }).then(function () {
+    $("#modal-newsletter-subscription").modal("hide");
     button.prop("disabled", false);
     button.html('KEEP ME POSTED!');
   });

@@ -23,6 +23,18 @@ let allOnload = async function() {
     currentRouteName = $("input[name='route_name']").val();
 
     $(window).trigger('scroll');
+
+    // localStorage.removeItem('savedDate');
+
+    let savedDate = localStorage.getItem('savedDate');
+    let currentDate = new Date();
+
+    if (!savedDate || (currentDate - new Date(savedDate)) > (24 * 60 * 60 * 1000)) {
+        savedDate = currentDate.toString();
+        localStorage.setItem('savedDate', savedDate);
+
+        $("#modal-newsletter-subscription").modal("show");
+    }
 };
 
 let homeOnload = function() {
@@ -488,11 +500,13 @@ $(document).on("submit", "#email-subscription-form", function(e) {
             form.find('input[type="text"]').val("");
             form.find('input[type="email"]').val("");
 
-            $("#modal-success .message").html("Thanks for subscribing!<br>We’ll keep you posted.");
+            $("#modal-success .message").html("Success! You're subscribed. Get ready for the latest launches, insider tips, and exclusive offers straight to your inbox.");
             $("#modal-success").modal("show");
         }).catch((error) => {
             showRequestError(error);
         }).then(() => {
+            $("#modal-newsletter-subscription").modal("hide");
+
             button.prop("disabled", false);
             button.html('KEEP ME POSTED!');
         });
