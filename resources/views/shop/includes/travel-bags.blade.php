@@ -46,7 +46,7 @@
                                     <p class="text-white cerebri-sans-pro-regular text-center text-lg-start font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-5">Care for your nipple covers with our Dust Bags. These essential accessories ensure your covers stay clean and free from debris. Crafted from soft, breathable fabric, the drawstring closure provides a hygienic storage solution, preserving your nipple covers' quality and longevity.</p>
 
                                     <div class="text-center text-lg-start">
-                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}#products" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                     <p class="text-white cerebri-sans-pro-regular text-center text-lg-start font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-5">Care for your nipple covers with our Dust Bags. These essential accessories ensure your covers stay clean and free from debris. Crafted from soft, breathable fabric, the drawstring closure provides a hygienic storage solution, preserving your nipple covers' quality and longevity.</p>
 
                                     <div class="text-center text-lg-start">
-                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}#products" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                                     <p class="text-white cerebri-sans-pro-regular text-center text-lg-start font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-5">Care for your nipple covers with our Dust Bags. These essential accessories ensure your covers stay clean and free from debris. Crafted from soft, breathable fabric, the drawstring closure provides a hygienic storage solution, preserving your nipple covers' quality and longevity.</p>
 
                                     <div class="text-center text-lg-start">
-                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}#products" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
                                     </div>
                                 </div>
                             </div>

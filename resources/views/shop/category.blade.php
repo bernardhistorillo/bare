@@ -26,7 +26,7 @@
                                     <p class="cerebri-sans-pro-medium text-white text-center font-size-160 font-size-sm-220 line-height-110 letter-spacing-10 mb-5">Bare Confidence</p>
 
                                     <div class="text-center">
-                                        <a href="{{ route('shop.category', 'nipple-covers') }}" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
+                                        <a href="{{ route('shop.category', 'nipple-covers') }}#products" class="btn btn-custom-3 cerebri-sans-pro-bold letter-spacing-5 font-size-120 font-size-lg-130 font-size-xl-140 tw-pt-[8px] lg:tw-pt-[10px] px-4">SHOP NIPPLE COVERS</a>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="bg-white py-5">
+    <div class="bg-white py-5" id="products">
         <div class="container pt-5">
             <p class="text-color-2 cerebri-sans-pro-bold text-center letter-spacing-10 font-size-230 font-size-sm-260 mb-3">{{ strtoupper($categoryName) }}</p>
             <div class="row justify-content-center mb-3 mb-xl-0">
