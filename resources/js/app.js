@@ -24,16 +24,18 @@ let allOnload = async function() {
 
     $(window).trigger('scroll');
 
-    // localStorage.removeItem('savedDate');
+    if(currentRouteName === "home.index") {
+        // localStorage.removeItem('savedDate');
 
-    let savedDate = localStorage.getItem('savedDate');
-    let currentDate = new Date();
+        let savedDate = localStorage.getItem('savedDate');
+        let currentDate = new Date();
 
-    if (!savedDate || (currentDate - new Date(savedDate)) > (24 * 60 * 60 * 1000)) {
-        savedDate = currentDate.toString();
-        localStorage.setItem('savedDate', savedDate);
+        if (!savedDate || (currentDate - new Date(savedDate)) > (24 * 60 * 60 * 1000)) {
+            savedDate = currentDate.toString();
+            localStorage.setItem('savedDate', savedDate);
 
-        $("#modal-newsletter-subscription").modal("show");
+            $("#modal-newsletter-subscription").modal("show");
+        }
     }
 };
 
@@ -587,6 +589,77 @@ $(document).on("submit", "#user-login-form", function(e) {
 });
 
 // Shop
+let activePhotoIndex = 0;
+let photoChangeInterval;
+let searchTimeout;
+let cancelTokenSource = axios.CancelToken.source();
+
+$(document).on("input", "#search-form [name='keyword']", function() {
+    let form = $(this).closest('form');
+    let data = new FormData(form[0]);
+    let url = data.get('url').toString();
+
+    clearTimeout(searchTimeout);
+
+    cancelTokenSource.cancel();
+    cancelTokenSource = axios.CancelToken.source();
+
+    if(data.get('keyword').toString() === "") {
+        $("#search-spinner").addClass("d-none");
+    } else {
+        $("#search-spinner").removeClass("d-none");
+    }
+
+    searchTimeout = setTimeout(function() {
+        axios.post(url, data, {
+            cancelToken: cancelTokenSource.token
+        })
+            .then((response) => {
+                $("#search-results-container").html(response.data.content);
+                $("#search-spinner").addClass("d-none");
+            });
+    }, 1000);
+});
+
+$(document).on("mouseenter", ".hover-photo", function() {
+    let images = [];
+    let i = 0;
+
+    $(this).find("img").each(function() {
+        $(this).css("opacity", (i === 0) ? 1 : 0);
+        i++;
+
+        images.push($(this));
+    });
+
+    let updatePhoto = function() {
+        let nextPhotoIndex = (activePhotoIndex === (images.length - 1)) ? 0 : activePhotoIndex + 1;
+
+        images[activePhotoIndex].css("opacity", 0)
+        images[nextPhotoIndex].css("opacity", 1)
+
+        activePhotoIndex = nextPhotoIndex;
+    };
+
+    updatePhoto();
+
+    photoChangeInterval = setInterval(function() {
+        updatePhoto();
+    }, 2000);
+});
+
+$(document).on("mouseleave", ".hover-photo", function() {
+    clearInterval(photoChangeInterval);
+    activePhotoIndex = 0;
+
+    let i = 0;
+
+    $(this).find("img").each(function() {
+        $(this).css("opacity", (i === 0) ? 1 : 0);
+        i++;
+    });
+});
+
 $(document).on("click", ".variation-card", function() {
     if($(this).attr("data-price")) {
         $(".variation-card").removeClass('active');

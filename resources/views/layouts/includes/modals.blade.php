@@ -116,3 +116,41 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modal-search" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius:0">
+            <div class="modal-body px-4 px-md-5 py-5">
+                <div class="text-center">
+                    <div class="position-absolute" style="top:24px; right:24px">
+                        <i class="fa-solid fa-times font-size-120 cursor-pointer" data-bs-dismiss="modal"></i>
+                    </div>
+
+                    <div class="font-size-110 font-size-md-100 font-size-lg-90">
+                        <p class="text-color-2 cerebri-sans-pro-medium font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-0">Explore & Discover</p>
+                    </div>
+
+                    <div class="font-size-90 font-size-md-80 font-size-lg-70">
+                        <p class="text-color-2 cerebri-sans-pro-regular font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-4">Locate Your Next Favorite</p>
+                    </div>
+                </div>
+
+                <form id="search-form">
+                    <input type="hidden" name="url" value="{{ route('shop.search') }}" />
+
+                    <div class="position-relative">
+                        <input type="text" name="keyword" class="form-control form-control-1 mb-3 py-2" style="height:45px" placeholder="Enter keyword" required />
+
+                        <div class="position-absolute tw-top-[11px] tw-right-[15px] d-none" id="search-spinner">
+                            <i class="fa-solid fa-spin fa-spinner font-size-110"></i>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="search-results-container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

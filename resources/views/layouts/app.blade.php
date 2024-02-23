@@ -35,6 +35,7 @@
     @yield('content')
 
     @include('layouts.includes.modals')
+    @include('shop.includes.modalVariation')
 
     <input type="hidden" name="route_name" value="{{ Route::currentRouteName() }}" />
     <input type="hidden" value="{{ config('app.url') }}" ref="appUrl" />

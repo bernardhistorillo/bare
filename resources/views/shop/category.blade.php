@@ -56,8 +56,14 @@
                     <div class="">
                         <a href="{{ route('shop.product', [$category, strtolower($groupedProduct['name'])]) }}" class="text-decoration-none">
                             <div>
-                                <div class="mb-4">
-                                    <img src="{{ $groupedProduct['photo'] }}" class="w-100" alt="Product" />
+                                <div class="position-relative hover-photo mb-4">
+                                    <img src="{{ $groupedProduct['photo'] }}" class="w-100" alt="Product" style="opacity:1; transition:0.5s" />
+
+                                    @foreach(json_decode($groupedProduct['sub_photos'],true) as $subPhoto)
+                                    <div class="position-absolute" style="top:0; left:0">
+                                        <img src="{{ $subPhoto }}" style="opacity:0; transition:0.5s" alt="Product" />
+                                    </div>
+                                    @endforeach
                                 </div>
 
                                 <p class="text-color-2 cerebri-sans-pro-bold text-center font-size-140 letter-spacing-5 mb-1">{{ strtoupper($groupedProduct['name']) }}</p>
@@ -97,7 +103,6 @@
     </div>
 </div>
 
-@include('shop.includes.modalVariation')
 @include('home.includes.footer')
 
 @endsection

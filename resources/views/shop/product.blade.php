@@ -190,6 +190,5 @@
 </div>
 
 @include('home.includes.footer')
-@include('shop.includes.modalVariation')
 
 @endsection

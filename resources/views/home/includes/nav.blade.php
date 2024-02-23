@@ -31,12 +31,18 @@
             </ul>
         </div>
 
-        <div class="ms-3" id="nav-buttons" style="width:145.55px">
+        <div class="ms-3 tw-me-[-10px] sm:tw-me-[initial]" id="nav-buttons" style="width:145.55px">
             <div class="d-flex justify-content-end">
+                <div class="dropdown-center">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-search">
+                        <i class="fa-light fa-search text-white font-size-120 font-size-sm-180"></i>
+                    </button>
+                </div>
+
                 @if(Auth::check())
-                <div class="dropdown">
+                <div class="dropdown ps-4 ps-sm-5">
                     <button class="dropdown-toggle dropdown-toggle-user" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-light fa-circle-user text-white font-size-140 font-size-sm-180"></i>
+                        <i class="fa-light fa-circle-user text-white font-size-120 font-size-sm-180"></i>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
@@ -54,19 +60,19 @@
                     </ul>
                 </div>
                 @else
-                <div class="">
+                <div class="ps-3 ps-sm-5">
                     <a href="{{ route('login.index') }}" class="text-white">
-                        <i class="fa-light fa-right-to-bracket text-white font-size-140 font-size-sm-180"></i>
+                        <i class="fa-light fa-right-to-bracket text-white font-size-120 font-size-sm-180"></i>
                     </a>
                 </div>
                 @endif
 
-                <div class="ps-4 ps-sm-5">
+                <div class="ps-3 ps-sm-5">
                     <a href="{{ route('cart.index') }}" class="text-white position-relative">
                         @php $cartQuantity = cartQuantity(); @endphp
                         <div class="position-absolute cerebri-sans-pro-regular tw-pt-[2px] d-flex justify-content-center align-items-center bg-color-10 tw-min-w-[20px] tw-min-h-[20px] tw-top-[-20px] tw-right-[-15px] font-size-90 px-2 tw-rounded-[10px] {{ $cartQuantity == 0 ? 'd-none' : '' }}" id="cart-quantity-badge">{{ $cartQuantity }}</div>
 
-                        <i class="fa-light fa-cart-shopping text-white font-size-140 font-size-sm-180"></i>
+                        <i class="fa-light fa-cart-shopping text-white font-size-120 font-size-sm-180"></i>
                     </a>
                 </div>
             </div>

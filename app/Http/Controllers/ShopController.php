@@ -132,4 +132,28 @@ class ShopController extends Controller
             'cartQuantity' => cartQuantity()
         ]);
     }
+
+    public function search(Request $request) {
+        $request->validate([
+            'keyword' => 'required',
+        ]);
+
+        $keyword = $request->keyword;
+
+        $items = Product::where(function($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%' . $keyword . '%');
+                $query->orWhere('category', 'LIKE', '%' . $keyword . '%');
+                $query->orWhere('description', 'LIKE', '%' . $keyword . '%');
+                $query->orWhere('variations', 'LIKE', '%' . $keyword . '%');
+            })
+            ->where('status', 1)
+            ->orderBy('id')
+            ->get();
+
+        $groupedProducts = Product::groupedProducts($items);
+
+        return response()->json([
+            'content' => (string)view('shop.includes.searchResults', compact('groupedProducts', 'keyword'))
+        ]);
+    }
 }

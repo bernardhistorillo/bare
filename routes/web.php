@@ -74,6 +74,8 @@ Route::prefix('shop')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop.index');
     Route::get('/{category}', [ShopController::class, 'category'])->name('shop.category');
     Route::get('/{category}/{product}', [ShopController::class, 'product'])->name('shop.product');
+
+    Route::post('/search', [ShopController::class, 'search'])->name('shop.search');
 });
 
 Route::prefix('about')->group(function () {
