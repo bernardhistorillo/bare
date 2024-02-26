@@ -4,15 +4,11 @@
 
 @section('content')
 <div>
-    <div class="bg-color-2 text-center p-2">
-        <p class="cerebri-sans-pro-regular text-white font-size-100 letter-spacing-5 mb-0">PRE-SALE COMING SOON</p>
-    </div>
-
     <div class="background-image-cover" id="hero-section" style="background-image:url('{{ asset('img/shop/bg-1.webp') }}')">
         @include('home.includes.nav')
 
         <div class="container">
-            <div class="d-flex justify-content-center align-items-center h-100" style="min-height: calc(100vh - 40px); padding-top:84px">
+            <div class="d-flex justify-content-center align-items-center h-100" style="min-height:100vh; padding-top:84px">
                 <div class="row justify-content-center mb-3">
                     <div class="col-lg-9">
                         <div class="bg-color-4 p-5">

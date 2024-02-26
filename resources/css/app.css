@@ -251,7 +251,6 @@ html, body {
     transition:0.5s;
     padding-top:16px;
     padding-bottom:16px;
-    top:40px;
     font-size:1em;
 }
 .app .navbar.has-transition {

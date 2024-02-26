@@ -14,7 +14,7 @@
                 </li>
 
                 <li class="nav-item dropdown shop-dropdown">
-                    <a class="nav-link dropdown-toggle font-size-lg-120 font-size-xl-140 letter-spacing-5 text-white cerebri-sans-pro-regular px-md-3 px-xl-4" href="#" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle font-size-lg-120 font-size-xl-140 letter-spacing-5 text-white cerebri-sans-pro-regular px-md-3 px-xl-4" href="{{ route('shop.index') }}" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
                         SHOP
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="shopDropdown">

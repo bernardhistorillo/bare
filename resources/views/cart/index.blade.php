@@ -4,10 +4,6 @@
 
 @section('content')
 <div>
-    <div class="bg-color-2 text-center p-2">
-        <p class="cerebri-sans-pro-regular text-white font-size-100 letter-spacing-5 mb-0">PRE-SALE COMING SOON</p>
-    </div>
-
     <div class="background-image-cover" style="background-image:url('{{ asset('img/contact/hero.webp') }}')">
         @include('home.includes.nav')
 
@@ -15,7 +11,7 @@
     </div>
 
     <div class="bg-white">
-        <div class="container d-flex justify-content-center align-items-center py-5" style="min-height: calc(100vh - 124px)">
+        <div class="container d-flex justify-content-center align-items-center py-5" style="min-height: calc(100vh - 84px)">
             <div class="w-100 pb-5 {{ count($cartItems) == 0 ? 'd-none' : '' }}" id="cart-container">
                 <p class="text-color-2 cerebri-sans-pro-bold font-size-180 font-size-sm-220 font-size-md-260 mb-4">Shopping Cart</p>
 

@@ -4,14 +4,10 @@
 
 @section('content')
 <div>
-    <div class="bg-color-2 text-center p-2">
-        <p class="cerebri-sans-pro-regular text-white font-size-100 letter-spacing-5 mb-0">PRE-SALE COMING SOON</p>
-    </div>
-
     <div class="background-image-cover" style="background-image:url('{{ asset('img/contact/bg-1.webp') }}')">
         @include('home.includes.nav')
 
-        <div class="container" style="min-height:80vh; padding-top:84px"></div>
+        <div class="container" style="min-height:80vh; padding-top:44px"></div>
     </div>
 
     <div class="bg-white py-5">

@@ -4,15 +4,11 @@
 
 @section('content')
 <div class="tw-bg-[#dfdad9]">
-    <div class="bg-color-2 text-center p-2">
-        <p class="cerebri-sans-pro-regular text-white font-size-100 letter-spacing-5 mb-0">PRE-SALE COMING SOON</p>
-    </div>
-
     <div class="background-image-cover" style="background-image:url('{{ asset('img/home/bg-1.webp') }}')">
         @include('home.includes.nav')
 
-        <div class="container tw-mt-[84px]">
-            <div class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 124px); ">
+        <div class="container tw-mt-[44px]">
+            <div class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 44px); ">
                 <div class="row justify-content-center mb-3">
                     <div class="col-lg-9">
                         <div class="bg-color-4 p-5">
