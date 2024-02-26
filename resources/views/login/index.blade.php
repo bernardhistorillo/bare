@@ -34,10 +34,16 @@
                                         </div>
                                     </div>
 
-                                    <div class="mb-5 pb-3">
+                                    <div class="mb-5">
                                         <button type="submit" class="btn btn-custom-1 w-100 py-2" style="height:50px">Log In</button>
                                     </div>
                                 </form>
+
+                                <div class="text-center mb-4">
+                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modal-forgot-password" class="text-decoration-none">
+                                        <div class="helvetica-neue-light text-white font-size-100 font-size-sm-110 font-size-md-120 font-size-lg-130 font-size-xl-130 ps-3">Forgot Password?</div>
+                                    </a>
+                                </div>
 
                                 <div class="text-center">
                                     <a href="{{ route('register.index') }}" class="text-decoration-none">

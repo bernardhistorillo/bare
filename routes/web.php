@@ -13,8 +13,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ShopController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +33,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/signup-discount', [HomeController::class, 'underConstruction'])->name('underConstruction.index');
 
 Route::middleware(['guest'])->group(function() {
+    Route::post('/forgot-password', [AuthenticationController::class, 'forgotPassword'])->name('password.request');
+    Route::get('/reset-password/{token}', [AuthenticationController::class, 'resetPasswordView'])->name('password.reset');
+    Route::post('/reset-password', [AuthenticationController::class, 'resetPassword'])->name('password.update');
+
     Route::prefix('login')->group(function () {
         Route::get('/', [AuthenticationController::class, 'index'])->name('login.index');
         Route::post('/submit', [AuthenticationController::class, 'login'])->name('login.submit');
@@ -58,9 +62,6 @@ Route::middleware(['auth'])->group(function() {
         Route::get('/', [CheckoutController::class, 'index'])->name('checkout.index');
         Route::post('/checkPromoCode', [CheckoutController::class, 'checkPromoCode'])->name('checkout.checkPromoCode');
         Route::post('/proceedToPayment', [CheckoutController::class, 'proceedToPayment'])->name('checkout.proceedToPayment');
-
-        Route::get('/create-payment', [PaymentController::class, 'createPayment']);
-        Route::post('/handle-payment-callback', [PaymentController::class, 'handlePaymentCallback']);
     });
 
     Route::prefix('orders')->group(function () {
@@ -118,3 +119,5 @@ Route::prefix('admin')->group(function () {
         Route::get('/accounts', [AdminAccountController::class, 'index'])->name('admin.accounts.index');
     });
 });
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

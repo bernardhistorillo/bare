@@ -280,6 +280,15 @@ $(document).on("click", ".toggle-password-show", function() {
     }
 });
 
+$(document).on("mouseenter", ".shop-dropdown", function() {
+    document.getElementById("shopDropdown").classList.add("show");
+
+});
+
+$(document).on("mouseleave", ".shop-dropdown", function() {
+    document.getElementById("shopDropdown").classList.remove("show");
+});
+
 // Cart
 let updateCartQuantity = function(cartQuantity, cartTotalPrice) {
     if(cartQuantity > 0) {
@@ -534,11 +543,11 @@ $(document).on("submit", "#contact-form", function(e) {
             $("#modal-success .message").html("Message sent! Please wait for our email. We’ll contact you the soonest.");
             $("#modal-success").modal("show");
         }).catch((error) => {
-        showRequestError(error);
-    }).then(() => {
-        button.prop("disabled", false);
-        button.html('SUBMIT');
-    });
+            showRequestError(error);
+        }).then(() => {
+            button.prop("disabled", false);
+            button.html('SUBMIT');
+        });
 });
 
 // Authentication
@@ -583,6 +592,62 @@ $(document).on("submit", "#user-login-form", function(e) {
         }).catch((error) => {
             button.prop("disabled", false);
             button.html('Log In');
+
+            showRequestError(error);
+        })
+});
+
+$(document).on("submit", "#forgot-password-form", function(e) {
+    e.preventDefault();
+
+    let form = $(this);
+    let button = form.find("[type='submit']");
+    button.prop("disabled", true);
+    button.html('Processing');
+
+    let data = new FormData($(this)[0]);
+    let url = data.get('url').toString();
+
+    axios.post(url, data)
+        .then((response) => {
+            form.find("input[type='email']").val("");
+
+            $("#modal-success .message").html("Password Reset Email Successfully Sent");
+            $("#modal-success").modal("show");
+        }).catch((error) => {
+            showRequestError(error);
+        }).then(() => {
+            button.prop("disabled", false);
+            button.html('Send Password Reset Email');
+
+            $("#modal-forgot-password").modal("hide");
+        });
+});
+
+$(document).on("submit", "#password-update-form", function(e) {
+    e.preventDefault();
+
+    let form = $(this);
+    let button = form.find("[type='submit']");
+    button.prop("disabled", true);
+    button.html('Processing');
+
+    let data = new FormData($(this)[0]);
+    let url = data.get('url').toString();
+
+    axios.post(url, data)
+        .then((response) => {
+            form.find("input[type='email']").val("");
+            form.find("input[type='password']").val("");
+            form.find("input[type='text']").val("");
+
+            initializeReloadButton(response.data.redirect);
+
+            $("#modal-success .message").html("Password Successfully Updated");
+            $("#modal-success").modal("show");
+        }).catch((error) => {
+            button.prop("disabled", false);
+            button.html('Reset Password');
 
             showRequestError(error);
         })

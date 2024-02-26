@@ -13,8 +13,15 @@
                     <a class="nav-link font-size-lg-120 font-size-xl-140 letter-spacing-5 text-white cerebri-sans-pro-regular px-md-3 px-xl-4" aria-current="page" href="{{ route('home.index') }}">HOME</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link font-size-lg-120 font-size-xl-140 letter-spacing-5 text-white cerebri-sans-pro-regular px-md-3 px-xl-4" href="{{ route('shop.index') }}">SHOP</a>
+                <li class="nav-item dropdown shop-dropdown">
+                    <a class="nav-link dropdown-toggle font-size-lg-120 font-size-xl-140 letter-spacing-5 text-white cerebri-sans-pro-regular px-md-3 px-xl-4" href="#" id="navbarDropdownMenuLink" role="button" aria-haspopup="true" aria-expanded="false">
+                        SHOP
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="shopDropdown">
+                        <a class="dropdown-item cerebri-sans-pro-regular text-color-1" href="{{ route('shop.category', 'nipple-covers') }}#products">Nipple Covers</a>
+                        <a class="dropdown-item cerebri-sans-pro-regular text-color-1" href="{{ route('shop.category', 'flat-nipple-covers-for-men') }}#products">Flat Nipple Covers For Men</a>
+                        <a class="dropdown-item cerebri-sans-pro-regular text-color-1" href="{{ route('shop.category', 'travel-pouch') }}#products">Travel Pouch</a>
+                    </div>
                 </li>
 
                 <li class="nav-item">

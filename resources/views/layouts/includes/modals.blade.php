@@ -147,9 +147,39 @@
                     </div>
                 </form>
 
-                <div id="search-results-container">
+                <div id="search-results-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="modal fade" id="modal-forgot-password" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius:0">
+            <div class="modal-body px-4 px-md-5 py-5">
+                <div class="text-center">
+                    <div class="position-absolute" style="top:24px; right:24px">
+                        <i class="fa-solid fa-times font-size-120 cursor-pointer" data-bs-dismiss="modal"></i>
+                    </div>
+
+                    <div class="font-size-110 font-size-md-100 font-size-lg-90">
+                        <p class="text-color-2 cerebri-sans-pro-medium font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-2">Forgot Password</p>
+                    </div>
+
+                    <div class="font-size-90 font-size-md-80 font-size-lg-70">
+                        <p class="text-color-2 cerebri-sans-pro-regular font-size-110 font-size-md-120 font-size-lg-130 font-size-xl-140 font-size-xxl-150 mb-4">Enter your email address below and we'll send you a link to reset your password.</p>
+                    </div>
                 </div>
+
+                <form id="forgot-password-form" class="mb-4">
+                    <input type="hidden" name="url" value="{{ route('password.request') }}" />
+
+                    <input type="email" name="email" class="form-control form-control-1 mb-3 py-2" style="height:45px" placeholder="Your email address" required />
+
+                    <div class="">
+                        <button type="submit" class="btn btn-custom-1 w-100 py-2" style="height:50px">Send Password Reset Email</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
