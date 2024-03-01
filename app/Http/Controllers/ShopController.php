@@ -22,10 +22,6 @@ class ShopController extends Controller
         }
 
         $items = Product::where('category', $categoryName)
-            ->join('stocks', function($join) {
-                $join->on('products.id', '=', 'product_id');
-                $join->where('quantity', '>', 0);
-            })
             ->where('status', 1)
             ->orderBy('products.id')
             ->get();
@@ -43,10 +39,6 @@ class ShopController extends Controller
         }
 
         $items = Product::where('category', $categoryName)
-            ->join('stocks', function($join) {
-                $join->on('products.id', '=', 'product_id');
-                $join->where('quantity', '>', 0);
-            })
             ->where('name', 'LIKE', $product)
             ->orderBy('products.id')
             ->get();
@@ -124,10 +116,6 @@ class ShopController extends Controller
                 $query->orWhere('category', 'LIKE', '%' . $keyword . '%');
                 $query->orWhere('description', 'LIKE', '%' . $keyword . '%');
                 $query->orWhere('variations', 'LIKE', '%' . $keyword . '%');
-            })
-            ->join('stocks', function($join) {
-                $join->on('products.id', '=', 'product_id');
-                $join->where('quantity', '>', 0);
             })
             ->where('status', 1)
             ->orderBy('products.id')

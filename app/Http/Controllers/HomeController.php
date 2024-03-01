@@ -9,6 +9,7 @@ use App\Models\EmailSubscription;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -16,10 +17,6 @@ class HomeController extends Controller
 {
     public function index() {
         $items = Product::orderBy('products.id')
-            ->join('stocks', function($join) {
-                $join->on('products.id', '=', 'product_id');
-                $join->where('quantity', '>', 0);
-            })
             ->where('status', 1)
             ->get();
 

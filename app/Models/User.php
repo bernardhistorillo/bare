@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -51,9 +52,9 @@ class User extends Authenticatable
     public function cartItemsWithProducts() {
         return Auth::user()->cartItems()
             ->leftJoin('products', 'carts.product_id', 'products.id')
-            ->join('stocks', function($join) {
-                $join->on('products.id', '=', 'stocks.product_id');
-                $join->where('stocks.quantity', '>', 0);
+            ->join(DB::raw('(SELECT product_id, SUM(quantity) as total_quantity FROM stocks GROUP BY product_id) as stock_totals'), function($join) {
+                $join->on('products.id', '=', 'stock_totals.product_id')
+                    ->where('stock_totals.total_quantity', '>', 0);
             })
             ->select('carts.*', 'name', 'category', 'variations', 'price', 'photo', 'description')
             ->get();

@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -38,6 +39,16 @@ class CartController extends Controller
             ->first();
 
         if($product) {
+            $itemStock = Product::where('status', 1)
+                ->leftJoin(DB::raw('(SELECT product_id, SUM(quantity) as total_quantity FROM stocks GROUP BY product_id) as stock_totals'), function($join) {
+                    $join->on('products.id', '=', 'stock_totals.product_id')
+                        ->where('stock_totals.total_quantity', '>', 0);
+                })
+                ->where('products.id', $product['id'])
+                ->first();
+
+            abort_if($itemStock['total_quantity'] == 0 || $itemStock['total_quantity'] == null, '422', 'Item is currently out of stock.');
+
             $cart = Cart::where('product_id', $product['id'])
                 ->where('user_id', Auth::user()->id)
                 ->first();
