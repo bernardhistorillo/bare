@@ -22,8 +22,12 @@ class ShopController extends Controller
         }
 
         $items = Product::where('category', $categoryName)
+            ->join('stocks', function($join) {
+                $join->on('products.id', '=', 'product_id');
+                $join->where('quantity', '>', 0);
+            })
             ->where('status', 1)
-            ->orderBy('id')
+            ->orderBy('products.id')
             ->get();
 
         $groupedProducts = Product::groupedProducts($items);
@@ -39,8 +43,12 @@ class ShopController extends Controller
         }
 
         $items = Product::where('category', $categoryName)
+            ->join('stocks', function($join) {
+                $join->on('products.id', '=', 'product_id');
+                $join->where('quantity', '>', 0);
+            })
             ->where('name', 'LIKE', $product)
-            ->orderBy('id')
+            ->orderBy('products.id')
             ->get();
 
         $product = Product::groupedProducts($items)[0];
@@ -62,35 +70,6 @@ class ShopController extends Controller
         }
 
         return $category;
-    }
-
-    public function getProducts() {
-        $products = Product::where('status', 1)
-            ->orderBy('name')
-            ->get();
-
-        if(Auth::check()) {
-            $cartItems = Cart::where('user_id', Auth::user()->id)
-                ->get();
-        } else {
-            $cartItems = session('cartItems') ? session('cartItems') : [];
-        }
-
-        foreach($products as $product) {
-            foreach($cartItems as $cartItem) {
-                if($product['id'] == $cartItem['product_id']) {
-                    $product['cartQuantity'] = $cartItem['quantity'];
-                }
-            }
-
-            if(!isset($product['cartQuantity'])) {
-                $product['cartQuantity'] = 0;
-            }
-        }
-
-        return response()->json([
-            'products' => $products
-        ]);
     }
 
     public function addToCart(Request $request) {
@@ -146,8 +125,12 @@ class ShopController extends Controller
                 $query->orWhere('description', 'LIKE', '%' . $keyword . '%');
                 $query->orWhere('variations', 'LIKE', '%' . $keyword . '%');
             })
+            ->join('stocks', function($join) {
+                $join->on('products.id', '=', 'product_id');
+                $join->where('quantity', '>', 0);
+            })
             ->where('status', 1)
-            ->orderBy('id')
+            ->orderBy('products.id')
             ->get();
 
         $groupedProducts = Product::groupedProducts($items);

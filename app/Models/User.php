@@ -50,7 +50,11 @@ class User extends Authenticatable
 
     public function cartItemsWithProducts() {
         return Auth::user()->cartItems()
-            ->leftJoin('products', 'product_id', 'products.id')
+            ->leftJoin('products', 'carts.product_id', 'products.id')
+            ->join('stocks', function($join) {
+                $join->on('products.id', '=', 'stocks.product_id');
+                $join->where('stocks.quantity', '>', 0);
+            })
             ->select('carts.*', 'name', 'category', 'variations', 'price', 'photo', 'description')
             ->get();
     }
