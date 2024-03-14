@@ -28,7 +28,6 @@ class CartController extends Controller
         ]);
 
         $product = Product::where('name', $request->name)
-            ->where('category', $request->category)
             ->where(function($query) use ($request) {
                 $i = 0;
                 while($request['variation_name_' . $i]) {
@@ -41,13 +40,12 @@ class CartController extends Controller
         if($product) {
             $itemStock = Product::where('status', 1)
                 ->leftJoin(DB::raw('(SELECT product_id, SUM(quantity) as total_quantity FROM stocks GROUP BY product_id) as stock_totals'), function($join) {
-                    $join->on('products.id', '=', 'stock_totals.product_id')
-                        ->where('stock_totals.total_quantity', '>', 0);
+                    $join->on('products.id', '=', 'stock_totals.product_id');
                 })
                 ->where('products.id', $product['id'])
                 ->first();
 
-            abort_if($itemStock['total_quantity'] == 0 || $itemStock['total_quantity'] == null, '422', 'Item is currently out of stock.');
+            abort_if(intval($itemStock['total_quantity'] == 0) || $itemStock['total_quantity'] == null, '422', 'Item is currently out of stock.');
 
             $cart = Cart::where('product_id', $product['id'])
                 ->where('user_id', Auth::user()->id)
@@ -63,6 +61,8 @@ class CartController extends Controller
                 $cart->quantity = $request->quantity;
                 $cart->save();
             }
+        } else {
+            abort('422', 'Item is currently out of stock.');
         }
 
         return response()->json([
