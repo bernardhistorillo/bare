@@ -41,7 +41,7 @@
                             </div>
                         </td>
                         <td>
-                            <div class="text-center stock" data-product-id="{{ $product['id'] }}" data-stock="{{ $product['stock'] }}">{{ number_format($product['stock']) }}</div>
+                            <div class="text-center stock" data-product-id="{{ $product['id'] }}" data-stock="{{ $product['availableStocks'] }}">{{ number_format($product['availableStocks']) }}</div>
                         </td>
                         <td>
                             <div class="text-center">

@@ -38,14 +38,9 @@ class CartController extends Controller
             ->first();
 
         if($product) {
-            $itemStock = Product::where('status', 1)
-                ->leftJoin(DB::raw('(SELECT product_id, SUM(quantity) as total_quantity FROM stocks GROUP BY product_id) as stock_totals'), function($join) {
-                    $join->on('products.id', '=', 'stock_totals.product_id');
-                })
-                ->where('products.id', $product['id'])
-                ->first();
+            $availableStocks = $product->availableStocks();
 
-            abort_if(intval($itemStock['total_quantity'] == 0) || $itemStock['total_quantity'] == null, '422', 'Item is currently out of stock.');
+            abort_if($availableStocks <= 0, '422', 'Item is currently out of stock.');
 
             $cart = Cart::where('product_id', $product['id'])
                 ->where('user_id', Auth::user()->id)

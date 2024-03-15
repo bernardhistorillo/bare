@@ -18,21 +18,7 @@ class AdminInventoryController extends Controller
         $products = Product::all();
 
         foreach($products as $product) {
-            $product['total'] = Stock::where('product_id', $product['id'])
-                ->sum('quantity');
-
-            $product['sold'] = OrderItem::where('product_id', $product['id'])
-                ->join('order_statuses', function($join) {
-                    $join->on('order_items.order_id', 'order_statuses.order_id');
-                    $join->where('status', 'Ready to Ship');
-                    $join->orWhere('status', 'Shipped');
-                    $join->orWhere('status', 'Out for Delivery');
-                    $join->orWhere('status', 'Delivered');
-                    $join->orWhere('status', 'Completed');
-                })
-                ->sum('quantity');
-
-            $product['stock'] = $product['total'] - $product['sold'];
+            $product['availableStocks'] = $product->availableStocks();
         }
 
         return view('admin.inventory.index', compact('products'));

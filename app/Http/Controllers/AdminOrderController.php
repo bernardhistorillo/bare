@@ -140,20 +140,6 @@ class AdminOrderController extends Controller
         $orderStatus->is_current = 1;
         $orderStatus->save();
 
-        if($request->status == 'Shipped') {
-            $order = Order::find($request->order_id);
-            $items = $order->orderItems()
-                ->get();
-
-            foreach($items as $item) {
-                $stock = Stock::where('product_id', $item['product_id'])
-                    ->first();
-                $stock->product_id = $request->product_id;
-                $stock->quantity = ($request->type == 'add') ? $request->quantity : $request->quantity * -1;
-                $stock->save();
-            }
-        }
-
         return response()->json();
     }
 }

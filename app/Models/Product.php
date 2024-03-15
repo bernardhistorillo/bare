@@ -28,6 +28,10 @@ class Product extends Model
         return $this->hasMany(OrderItem::class);
     }
 
+    public function stocks() {
+        return $this->hasMany(Stock::class);
+    }
+
     public static function groupedProducts($items) {
         $productGroups = [];
 
@@ -85,5 +89,26 @@ class Product extends Model
         }
 
         return $products;
+    }
+
+    public function availableStocks() {
+        $totalStocks = $this->stocks()
+            ->sum('quantity');
+
+        $totalSold = $this->orderItems()
+            ->join('order_statuses', function($join) {
+                $join->on('order_items.order_id', 'order_statuses.order_id');
+                $join->where('is_current', '1');
+                $join->where(function($condition) {
+                    $condition->where('status', 'Ready to Ship');
+                    $condition->orWhere('status', 'Shipped');
+                    $condition->orWhere('status', 'Out for Delivery');
+                    $condition->orWhere('status', 'Delivered');
+                    $condition->orWhere('status', 'Completed');
+                });
+            })
+            ->sum('quantity');
+
+        return $totalStocks - $totalSold;
     }
 }

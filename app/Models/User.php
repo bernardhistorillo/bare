@@ -50,18 +50,22 @@ class User extends Authenticatable
     }
 
     public function cartItemsWithProducts() {
-        return Auth::user()->cartItems()
+        $cartItemsWithProducts = Auth::user()->cartItems()
             ->leftJoin('products', 'carts.product_id', 'products.id')
-            ->join(DB::raw('(SELECT product_id, SUM(quantity) as total_quantity FROM stocks GROUP BY product_id) as stock_totals'), function($join) {
-                $join->on('products.id', '=', 'stock_totals.product_id')
-                    ->where('stock_totals.total_quantity', '>', 0);
-            })
             ->select('carts.*', 'name', 'category', 'variations', 'price', 'photo', 'description')
             ->get();
+
+        foreach($cartItemsWithProducts as $key => $cartItemsWithProduct) {
+            if($cartItemsWithProduct->product->availableStocks() <= 0) {
+                $cartItemsWithProducts->forget($key);
+            }
+        }
+
+        return $cartItemsWithProducts;
     }
 
     public function cartQuantity() {
-        return $this->cartItems()
+        return $this->cartItemsWithProducts()
             ->count();
     }
 

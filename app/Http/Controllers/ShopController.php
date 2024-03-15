@@ -64,46 +64,6 @@ class ShopController extends Controller
         return $category;
     }
 
-    public function addToCart(Request $request) {
-        $request->validate([
-            'name' => 'required',
-            'category' => 'required',
-            'quantity' => 'required',
-        ]);
-
-        $product = Product::where('name', $request->name)
-            ->where('category', $request->category)
-            ->where(function($query) use ($request) {
-                $i = 0;
-                while($request['variation_name_' . $i]) {
-                    $query->where('variations', 'LIKE', '%"' . $request['variation_name_' . $i] . '": "' . $request['variation_' . $i] . '"%');
-                    $i++;
-                }
-            })
-            ->first();
-
-        if($product) {
-            $cart = Cart::where('product_id', $product['id'])
-                ->where('user_id', Auth::user()->id)
-                ->first();
-
-            if($cart) {
-                $cart->quantity = $cart['quantity'] + $request->quantity;
-                $cart->update();
-            } else {
-                $cart = new Cart();
-                $cart->product_id = $product['id'];
-                $cart->user_id = Auth::user()->id;
-                $cart->quantity = $request->quantity;
-                $cart->save();
-            }
-        }
-
-        return response()->json([
-            'cartQuantity' => cartQuantity()
-        ]);
-    }
-
     public function search(Request $request) {
         $request->validate([
             'keyword' => 'required',
